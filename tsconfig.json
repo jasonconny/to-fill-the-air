@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+        "outDir": "build",
+        "target": "es5",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "downlevelIteration": true,
+        "sourceMap": true,
+        "allowJs": false,
+        "forceConsistentCasingInFileNames": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "jsx": "preserve",
+        "isolatedModules": false,
+        "noEmit": true
+    },
+    "include": [
+        "./config",
+        "./src",
+        "./webpack.*.js"
+    ],
+    "exclude": [
+        "./_icon-font",
+        "./build",
+        "./node_modules"
+    ]
+}

@@ -1,10 +1,16 @@
 {
-  "name": "tofilltheair",
-  "version": "0.0.1",
-  "description": "Deadbase for the 21st century",
-  "main": "index.ts",
-  "repository": "https://github.com/jasonconny/tofilltheair.git",
-  "author": "Jason Conny <jasonconny@gmail.com>",
-  "license": "MIT",
-  "private": false
+ "name": "tofilltheair",
+ "version": "0.0.1",
+ "description": "Deadbase for the 21st century",
+ "main": "index.ts",
+ "repository": "https://github.com/jasonconny/tofilltheair.git",
+ "author": "Jason Conny <jasonconny@gmail.com>",
+ "license": "MIT",
+ "private": false,
+ "browserslist": [
+  "last 2 Chrome versions"
+ ],
+ "dependencies": {
+  "typescript": "^3.7.4"
+ }
 }
