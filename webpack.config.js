@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const resolve = require('resolve');
-const { version } = require('./samwise-stuff/package.json');
+const { version } = require('package.json');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -45,7 +45,7 @@ module.exports = async (env = {}) => {
         bail: isProd,
         devtool: isLocal ? 'inline-source-map' : 'source-map',
         entry: {
-			index: path.join(__dirname, 'src/index.tsx',
+			index: path.join(__dirname, 'src/index.tsx')
 		},
         devServer: {
             clientLogLevel: 'none',
