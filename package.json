@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@babel/core": "^7.8.0",
 		"@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
+		"@types/graphql-iso-date": "^3.3.3",
 		"@types/node": "^13.1.6",
 		"@types/react": "^16.9.17",
 		"@types/react-dom": "^16.9.4",
@@ -21,6 +22,9 @@
 		"@typescript-eslint/eslint-plugin": "^2.15.0",
 		"@typescript-eslint/eslint-plugin-tslint": "^2.15.0",
 		"@typescript-eslint/parser": "^2.15.0",
+		"apollo-datasource": "^0.6.4",
+		"apollo-server": "^2.9.16",
+		"apollo-server-testing": "^2.9.16",
 		"babel-eslint": "^10.0.3",
 		"case-sensitive-paths-webpack-plugin": "^2.2.0",
 		"clean-webpack-plugin": "^3.0.0",
@@ -36,6 +40,8 @@
 		"eslint-plugin-react-hooks": "^2.3.0",
 		"file-loader": "^5.0.2",
 		"fork-ts-checker-webpack-plugin": "^3.1.1",
+		"graphql": "^14.5.8",
+		"graphql-iso-date": "^3.6.1",
 		"history": "^4.10.1",
 		"html-webpack-plugin": "^3.2.0",
 		"loglevel": "^1.6.6",
@@ -66,5 +72,10 @@
 	},
 	"scripts": {
 		"start": "NODE_ENV=development webpack-dev-server --config webpack.config.js --env.mode=local --env.watch"
+	},
+	"devDependencies": {
+		"apollo": "^2.21.3",
+		"apollo-link": "^1.2.13",
+		"apollo-link-http": "^1.5.16"
 	}
 }

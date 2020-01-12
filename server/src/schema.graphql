@@ -1,9 +1,0 @@
-# import Link from "./generated/prisma.graphql"
-
-type Query {
-	feed(filter: String, skip: Int, first: Int): [Link!]!
-}
-
-type Mutation {
-	post(url: String!, description: String!): Link!
-}

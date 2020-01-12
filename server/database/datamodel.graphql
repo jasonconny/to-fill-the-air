@@ -1,5 +1,0 @@
-type Link {
-	id: ID! @unique
-	description: String!
-	url: String!
-}
