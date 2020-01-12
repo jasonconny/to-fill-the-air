@@ -7,31 +7,30 @@
             "dom.iterable",
             "esnext"
         ],
-        "downlevelIteration": true,
-        "sourceMap": true,
         "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "/",
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
         "module": "esnext",
         "moduleResolution": "node",
-        "experimentalDecorators": true,
+        "noEmit": false,
         "noImplicitReturns": true,
         "noImplicitThis": true,
         "noImplicitAny": true,
         "noUnusedLocals": true,
+        "rootDir": "src",
+        "sourceMap": true,
         "strictNullChecks": true,
-        "strictPropertyInitialization": false,
-        "suppressImplicitAnyIndexErrors": true,
-        "jsx": "preserve",
-        "isolatedModules": false,
-        "noEmit": true
+        "strictPropertyInitialization": true
     },
     "include": [
-        "./config",
-        "./src",
-        "./webpack.*.js"
+        "./src"
     ],
     "exclude": [
-        "./_icon-font",
+        "./api",
         "./build",
         "./node_modules"
     ]

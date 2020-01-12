@@ -1,52 +1,38 @@
 const path = require('path');
 const webpack = require('webpack');
 const resolve = require('resolve');
-const { version } = require('package.json');
 const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safePostCssParser = require('postcss-safe-parser');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const postcssNormalize = require('postcss-normalize');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV;
-const [ , , ...args ] = process.argv;
 
 module.exports = async (env = {}) => {
     console.log(`env: ${env.mode}`);
     console.log(`nodeEnv: ${nodeEnv}`);
 
-    const configOverrides = require(`./config/${env.mode}.ts`);
     const isLocal = env.mode === 'local';
     const isProd = env.mode === 'production';
     const isStageProd = env.mode === 'staging' || isProd;
-    const outputRootDir = `./build/${env.mode}`;
-
-    const configDefaults = {
-        consoleTracker: true,
-        copyIgnore: ['index.html', 'manifest.json'],
-        environment: ''
-    };
-
-    const config = Object.assign(
-        {},
-        configDefaults,
-        configOverrides,
-    );
+    const outputDir = './build';
 
     return {
         mode: nodeEnv,
         bail: isProd,
         devtool: isLocal ? 'inline-source-map' : 'source-map',
         entry: {
-			index: path.join(__dirname, 'src/index.tsx')
-		},
+            toFillTheAir: path.join(__dirname, 'src/ToFillTheAir.tsx')
+        },
         devServer: {
             clientLogLevel: 'none',
             contentBase:  './public',
@@ -57,11 +43,10 @@ module.exports = async (env = {}) => {
             },
             hot: true,
             port: 3000,
-            publicPath: '/',
-            proxy: {}
+            publicPath: '/'
         },
         output: {
-            path: path.resolve(__dirname, outputRootDir),
+            path: path.resolve(__dirname, outputDir),
             pathinfo: true,
             filename: '[name].js',
             chunkFilename: 'static/js/[name].chunk.js',
@@ -145,14 +130,7 @@ module.exports = async (env = {}) => {
                         {
                             test: /\.(ts|tsx)$/,
                             include: path.resolve(__dirname, 'src'),
-                            exclude: [
-                                path.resolve(__dirname, 'Background.ts'),
-                                path.resolve(__dirname, 'Content.ts')
-                            ],
                             use: [
-                                {
-                                    loader: require.resolve('babel-loader')
-                                },
                                 {
                                     loader: require.resolve('ts-loader'),
                                     options: {
@@ -167,20 +145,33 @@ module.exports = async (env = {}) => {
                             exclude: [/styles.scss/],
                             use: [
                                 {
-                                    loader: require.resolve('style-loader'),
-                                    options: {
-                                        sourceMap: true
-                                    }
+                                    loader: require.resolve('style-loader')
                                 },
                                 {
-                                    loader: require.resolve('typings-for-css-modules-loader'),
+                                    loader: require.resolve('@teamsupercell/typings-for-css-modules-loader')
+                                },
+                                {
+                                    loader: require.resolve('css-loader'),
                                     options: {
-                                        importLoaders: 2,
+                                        importLoaders: 3,
                                         sourceMap: true,
-                                        modules: true,
-                                        namedExport: true,
-                                        camelCase: true,
-                                        localIdentName: '[name]__[local]--[hash:base64:5]' // default [hash:base64]
+                                        localsConvention: 'camelCase',
+                                        onlyLocals: isStageProd,
+                                        modules: {
+                                            mode: 'local',
+                                            localIdentName: '[name]__[local]--[hash:base64:5]',
+                                            hashPrefix: 'kkp',
+                                        }
+                                    }   
+                                },
+                                {
+                                    loader: require.resolve('postcss-loader'),
+                                    options: {
+                                        sourceMap: true,
+                                        ident: 'postcss',
+                                        plugins: () => [
+                                            postcssNormalize()
+                                        ]
                                     }
                                 },
                                 {
@@ -203,17 +194,24 @@ module.exports = async (env = {}) => {
                             include: [/styles.scss/],
                             use: [
                                 {
-                                    loader: require.resolve('style-loader'),
-                                    options: {
-                                        sourceMap: true
-                                    }
+                                    loader: require.resolve('style-loader')
                                 },
                                 {
                                     loader: require.resolve('css-loader'),
                                     options: {
-                                        importLoaders: 2,
+                                        importLoaders: 3,
                                         sourceMap: true,
                                         modules: false
+                                    }
+                                },
+                                {
+                                    loader: require.resolve('postcss-loader'),
+                                    options: {
+                                        sourceMap: true,
+                                        ident: 'postcss',
+                                        plugins: () => [
+                                            postcssNormalize()
+                                        ]
                                     }
                                 },
                                 {
@@ -239,16 +237,17 @@ module.exports = async (env = {}) => {
                             }
                         }
                     ]
-                },
+                }
             ]
         },
         plugins: [
+            new webpack.ProgressPlugin(),
             new CleanWebpackPlugin(),
             new HtmlWebpackPlugin(
                 Object.assign(
                     {},
                     {
-                        chunks: ['tofilltheair'],
+                        chunks: ['toFillTheAir'],
                         inject: true,
                         template: path.resolve(__dirname, 'public/index.html'),
                     },
@@ -268,16 +267,10 @@ module.exports = async (env = {}) => {
                     } : undefined
                 )
             ),
-            new webpack.DefinePlugin({
-                __CONSOLE_TRACKER__: JSON.stringify(config.consoleTracker),
-                __ENVIRONMENT__: JSON.stringify(config.environment),
-                __VERSION__: JSON.stringify(version),
-            }),
             new CopyWebpackPlugin([
                 {
                     from: path.resolve(__dirname, 'public'),
-                    ignore: config.copyIgnore,
-                    to: path.resolve(__dirname, outputRootDir)
+                    to: path.resolve(__dirname, outputDir)
                 }
             ]),
             new ModuleNotFoundPlugin(path.resolve(__dirname, '.')),
@@ -288,6 +281,7 @@ module.exports = async (env = {}) => {
                 filename: 'static/css/[name].[contenthash:8].css',
                 chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
             }),
+            new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
             new ForkTsCheckerWebpackPlugin({
                 typescript: resolve.sync('typescript', {
                     basedir: path.resolve(__dirname, 'node_modules')
@@ -295,26 +289,13 @@ module.exports = async (env = {}) => {
                 async: false,
                 checkSyntacticErrors: true,
                 eslint: true,
+                formatter: typescriptFormatter,
                 watch: path.resolve(__dirname, 'src'),
-                compilerOptions: {
-                    module: 'esnext',
-                    moduleResolution: 'node',
-                    resolveJsonModule: true,
-                    isolatedModules: false,
-                    noEmit: true,
-                    jsx: 'preserve',
-                },
-                silent: isProd,
-                reportFiles: [
-                    '**',
-                    '!**/*.json',
-                    '!**/__tests__/**',
-                    '!**/?(*.)(spec|test).*',
-                    '!**/src/setupProxy.*',
-                    '!**/src/setupTests.*',
-                ],
-                formatter: typescriptFormatter
-            })
+                silent: isProd
+            }),
+            new webpack.WatchIgnorePlugin([
+                /scss\.d\.ts$/
+            ])
         ].filter(Boolean),
         resolve: {
             extensions: [
@@ -339,5 +320,5 @@ module.exports = async (env = {}) => {
             ],
             poll: 1000
         }
-    };
+    }
 };
