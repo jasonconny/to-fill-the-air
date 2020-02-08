@@ -1,13 +1,16 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routing/Routes';
 
 const ToFillTheAir: React.FC = () => {
 	return (
-		<BrowserRouter forceRefresh={false}>
-			<Routes/>
-		</BrowserRouter>
+		<ErrorBoundary>
+			<BrowserRouter forceRefresh={false}>
+				<Routes/>
+			</BrowserRouter>
+		</ErrorBoundary>
 	);
 };
 

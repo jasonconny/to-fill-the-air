@@ -21,6 +21,7 @@
 		"apollo-server-testing": "^2.9.16",
 		"graphql": "^14.5.8",
 		"graphql-iso-date": "^3.6.1",
+		"loglevel": "^1.6.6",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
 		"react-loadable": "^5.5.0",
