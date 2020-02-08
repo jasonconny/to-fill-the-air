@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-const ToFillTheAir : React.FC = () => {
+const ToFillTheAir: React.FC = () => {
 	return (
 		<div>
 			<h1>To Fill The Air</h1>
