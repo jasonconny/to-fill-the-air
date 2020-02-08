@@ -1,11 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './routing/Routes';
 
 const ToFillTheAir: React.FC = () => {
 	return (
-		<div>
-			<h1>To Fill The Air</h1>
-		</div>
+		<BrowserRouter forceRefresh={false}>
+			<Routes/>
+		</BrowserRouter>
 	);
 };
 
