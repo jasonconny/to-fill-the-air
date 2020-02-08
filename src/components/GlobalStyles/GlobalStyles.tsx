@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './scss/global/all.scss';
+import './scss/fonts/all.scss';
 
 interface IGlobalStyles {
 	children?: React.ReactNode;

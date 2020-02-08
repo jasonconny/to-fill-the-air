@@ -43,9 +43,9 @@ module.exports = (env = {}) => {
 				},
 				{
 					oneOf: [
-						// bundle image assets
+						// bundle static assets
 						{
-							test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
+							test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/, /\.woff?2$/],
 							loader: require.resolve('url-loader'),
 							options: {
 								limit: 10000,
