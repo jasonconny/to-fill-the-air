@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const resolve = require('resolve');
+const PostcssNormalize = require('postcss-normalize');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -57,6 +58,54 @@ module.exports = (env = {}) => {
 							include: path.join(__dirname, 'src'),
 							loader: require.resolve('ts-loader')
 						},
+						// bundle SCSS
+						{
+							test: /\.scss/,
+							use: [
+								{
+									loader: require.resolve('style-loader')
+								},
+								{
+									loader: require.resolve('@teamsupercell/typings-for-css-modules-loader')
+								},
+								{
+									loader: require.resolve('css-loader'),
+									options: {
+										importLoaders: 3,
+										localsConvention: 'camelCase',
+										modules: {
+											hashPrefix: 'tfta',
+											localIdentName: '[name]__[local]--[hash:base64]',
+											mode: 'local'
+										},
+										onlyLocals: false,
+										sourceMap: true
+									}
+								},
+								{
+									loader: require.resolve('postcss-loader'),
+									options: {
+										ident: 'postcss',
+										sourceMap: true,
+										plugins: () => [
+											PostcssNormalize()
+										]
+									}
+								},
+								{
+									loader: require.resolve('resolve-url-loader'),
+									options: {
+										sourceMap: true
+									}
+								},
+								{
+									loader: require.resolve('sass-loader'),
+									options: {
+										sourceMap: true
+									}
+								}
+							]
+						},
 						// default file loader
 						{
 							exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
@@ -68,6 +117,16 @@ module.exports = (env = {}) => {
 					],
 				}
 			]
+		},
+		optimization: {
+			splitChunks: {
+				chunks: 'all',
+				maxInitialRequests: 1,
+				name: false
+			},
+			runtimeChunk: {
+				name: entrypoint => entrypoint.name
+			}
 		},
 		output: {
 			filename: '[name].js',
@@ -96,7 +155,10 @@ module.exports = (env = {}) => {
 					basedir: path.resolve(__dirname, 'node_modules')
 				}),
 				watch: path.join(__dirname, '/src')
-			})
+			}),
+			new webpack.WatchIgnorePlugin([
+				/scss\.d\.ts$/
+			])
 		],
 		resolve: {
 			extensions: [

@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import ErrorBoundary from './components/ErrorBoundary';
+import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import { BrowserRouter } from 'react-router-dom';
 import ScrollToTop from './routing/ScrollToTop';
 import Routes from './routing/Routes';
@@ -14,6 +15,8 @@ const ToFillTheAir: React.FC = () => {
 					To Fill The Air | Grateful Dead set lists
 				</title>
 			</Helmet>
+
+			<GlobalStyles/>
 
 			<BrowserRouter forceRefresh={false}>
 				<ScrollToTop/>
