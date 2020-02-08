@@ -9,7 +9,7 @@ const ToFillTheAir: React.FC = () => {
 	);
 };
 
-const rootElement = document.getElementById("to-fill-the-air");
+const rootElement = document.getElementById('to-fill-the-air');
 ReactDOM.render(<ToFillTheAir/>, rootElement);
 
 export default ToFillTheAir;

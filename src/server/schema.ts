@@ -1,6 +1,5 @@
 import { gql } from 'apollo-server';
-import {GraphQLDate} from "graphql-iso-date";
-// import { GraphQLDate } from 'graphql-iso-date';
+import { GraphQLDate } from 'graphql-iso-date';
 
 export const typeDefs = gql`
 	scalar Date

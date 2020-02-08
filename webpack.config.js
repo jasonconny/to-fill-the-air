@@ -1,6 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
+const resolve = require('resolve');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = (env = {}) => {
 	return {
@@ -22,6 +26,20 @@ module.exports = (env = {}) => {
 		module: {
 			strictExportPresence: true,
 			rules: [
+				// lint
+				{
+					test: /\.(js|jsx|ts|tsx)$/,
+					enforce: 'pre',
+					include: path.resolve(__dirname, '/src'),
+					use: [
+						{
+							loader: require.resolve('eslint-loader'),
+							options: {
+								eslintPath: require.resolve('eslint')
+							}
+						}
+					]
+				},
 				{
 					oneOf: [
 						// bundle image assets
@@ -58,11 +76,26 @@ module.exports = (env = {}) => {
 			publicPath: '/'
 		},
 		plugins: [
+			new webpack.ProgressPlugin(),
 			new CleanWebpackPlugin(),
 			new HtmlWebpackPlugin({
 				chunks: ['toFillTheAir'],
 				inject: true,
 				template: path.join(__dirname, 'public/index.html')
+			}),
+			new CopyWebpackPlugin([
+				{
+					from: path.join(__dirname, '/public'),
+					to: path.join(__dirname, '/build')
+				}
+			]),
+			new ForkTsCheckerWebpackPlugin({
+				async: false,
+				eslint: true,
+				typescript: resolve.sync('typescript', {
+					basedir: path.resolve(__dirname, 'node_modules')
+				}),
+				watch: path.join(__dirname, '/src')
 			})
 		],
 		resolve: {
