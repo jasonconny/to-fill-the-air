@@ -3,4 +3,6 @@ import { resolvers, typeDefs } from './schema';
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
-console.log(server);
+server.listen().then(({ url }) => {
+	console.log(`🚀 Server ready at ${url}`);
+});
