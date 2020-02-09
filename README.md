@@ -1,3 +1,11 @@
 # toFillTheAir
 
-> Deadbase for the 21st century.
+> Grateful Dead set lists.
+
+## Client
+
+React and Typescript
+
+## Server
+
+GraphQL and Apollo
