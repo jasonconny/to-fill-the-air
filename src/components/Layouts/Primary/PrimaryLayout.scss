@@ -1,0 +1,20 @@
+.skip-navigation {
+  display: inline-block;
+  left: -100%;
+  padding: .25rem;
+  position: fixed;
+  top: 0;
+}
+
+.header {
+  background-color: #ddd;
+}
+
+.main {
+  min-height: 75vh;
+}
+
+.footer {
+  background-color: #eee;
+  text-align: center;
+}

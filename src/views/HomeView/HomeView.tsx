@@ -1,12 +1,14 @@
 import * as React from 'react';
+import { PrimaryLayout } from '../../components/Layouts';
+import styles from './HomeView.scss';
 
 const HomeView: React.FC = () => {
 	return (
-		<section>
-			<h1>To Fill The Air</h1>
-
-			<p>Grateful Dead set lists.</p>
-		</section>
+		<PrimaryLayout>
+			<section className={styles.content}>
+				<p>Grateful Dead set lists.</p>
+			</section>
+		</PrimaryLayout>
 	);
 };
 

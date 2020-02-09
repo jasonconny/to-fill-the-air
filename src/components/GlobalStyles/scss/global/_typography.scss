@@ -10,4 +10,11 @@ h5,
 h6 {
   font-family: 'Noto Serif', Times, 'Times New Roman', sans-serif;
   font-weight: 700;
+  margin: 0 0 1em;
+  text-rendering: optimizeLegibility;
+}
+
+b,
+strong {
+  font-weight: 600;
 }
