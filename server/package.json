@@ -2,12 +2,29 @@
 	"name": "tofilltheair-server",
 	"version": "0.1.0",
 	"description": "Grateful Dead set lists server.",
+	"main": "srx/index.ts",
 	"repository": "https://github.com/jasonconny/tofilltheair.git",
 	"author": "Jason Conny <jasonconny@gmail.com>",
 	"license": "MIT",
 	"private": false,
 	"dependencies": {
+		"@types/graphql-iso-date": "^3.3.3",
+		"apollo-datasource": "^0.7.0",
 		"apollo-server": "^2.10.0",
-		"graphql": "^14.6.0"
+		"apollo-server-testing": "^2.10.0",
+		"graphql": "^14.6.0",
+		"graphql-iso-date": "^3.6.1"
+	},
+	"devDependencies": {
+		"apollo": "^2.22.0",
+		"apollo-link": "^1.2.13",
+		"apollo-link-http": "^1.5.16",
+		"nodemon": "^2.0.2",
+		"ts-node": "^8.6.2",
+		"typescript": "^3.7.5"
+	},
+	"scripts": {
+		"build:dev": "nodemon 'src/index.ts' --exec 'ts-node' src/index.ts -e ts,graphql",
+		"start:dev": "yarn build:dev"
 	}
 }
