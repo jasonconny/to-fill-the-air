@@ -1,15 +1,17 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import ErrorBoundary from '../../ErrorBoundary';
+import MainNav from '../MainNav';
 import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 
 interface IPrimaryLayout {
 	children: React.ReactNode;
-	styleClasses?: string;
+	className?: string;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
-	const { children, styleClasses } = props;
+	const { children, className } = props;
 
 	return (
 		<ErrorBoundary>
@@ -21,14 +23,21 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
 			</a>
 
 			<header className={styles.header}>
-				<h1>To Fill The Air</h1>
+				<Link
+					className={styles.homeLink}
+					to={'/'}
+				>
+					<h1>To Fill The Air</h1>
+				</Link>
+
+				<MainNav/>
 			</header>
 
 			<main
 				id={'main-content'}
 				className={classnames(
 					styles.main,
-					{[`${styleClasses}`] : styleClasses}
+					{[`${className}`] : className}
 				)}
 			>
 				{children}

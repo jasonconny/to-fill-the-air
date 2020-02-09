@@ -7,14 +7,31 @@
 }
 
 .header {
+  align-items: center;
   background-color: #ddd;
+  display: flex;
+  height: 5rem;
+  padding: 0 2rem;
+
+  .home-link {
+    color: #000;
+    text-decoration: none;
+  }
+
+  h1 {
+    margin-bottom: 0;
+  }
 }
 
 .main {
-  min-height: 75vh;
+  min-height: calc(100vh - 8rem);
 }
 
 .footer {
+  align-items: center;
   background-color: #eee;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
   text-align: center;
 }

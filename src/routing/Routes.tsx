@@ -8,9 +8,64 @@ const LazyHomeView = React.lazy(() =>
 	)
 );
 
+const LazyShowsView = React.lazy(() =>
+	import(
+		'../views/ShowsView'
+		/* webpackChunkNam: "ShowsView" */
+	)
+);
+
+const LazySongsView = React.lazy(() =>
+	import(
+		'../views/SongsView'
+		/* webpackChunkNam: "SongsView" */
+	)
+);
+
+const LazyStatsView = React.lazy(() =>
+	import(
+		'../views/StatsView'
+		/* webpackChunkNam: "StatsView" */
+	)
+);
+
+const LazyToursView = React.lazy(() =>
+	import(
+		'../views/ToursView'
+		/* webpackChunkNam: "ToursView" */
+	)
+);
+
+const LazyVenuesView = React.lazy(() =>
+	import(
+		'../views/VenuesView'
+		/* webpackChunkNam: "VenuesView" */
+	)
+);
+
 const Routes = () => (
 	<React.Suspense fallback={'loading'}>
 		<Switch>
+			<Route path={'/shows'}>
+				<LazyShowsView/>
+			</Route>
+
+			<Route path={'/songs'}>
+				<LazySongsView/>
+			</Route>
+
+			<Route path={'/stats'}>
+				<LazyStatsView/>
+			</Route>
+
+			<Route path={'/tours'}>
+				<LazyToursView/>
+			</Route>
+
+			<Route path={'/venues'}>
+				<LazyVenuesView/>
+			</Route>
+
 			<Route path={'/'}>
 				<LazyHomeView/>
 			</Route>

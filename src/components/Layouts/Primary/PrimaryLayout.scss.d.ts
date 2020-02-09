@@ -2,6 +2,8 @@ declare namespace PrimaryLayoutScssModule {
   export interface IPrimaryLayoutScss {
     footer: string;
     header: string;
+    "home-link": string;
+    homeLink: string;
     main: string;
     "skip-navigation": string;
     skipNavigation: string;

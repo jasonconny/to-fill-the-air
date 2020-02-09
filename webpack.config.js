@@ -75,7 +75,7 @@ module.exports = (env = {}) => {
 										localsConvention: 'camelCase',
 										modules: {
 											hashPrefix: 'tfta',
-											localIdentName: '[name]__[local]--[hash:base64]',
+											localIdentName: '[name]__[local]--[hash:8]',
 											mode: 'local'
 										},
 										onlyLocals: false,
