@@ -1,3 +1,4 @@
+require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const basename = path.basename(__filename);
@@ -7,10 +8,13 @@ const db = {
 	Sequelize: undefined
 };
 
-const sequelize = new Sequelize('toFillTheAir', 'jasonconny', null, {
-	port: '3307',
-	host: '192.168.1.64',
-	dialect: 'mariadb'
+const sequelize = new Sequelize('toFillTheAir', process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+	dialect: 'mariadb',
+	host: process.env.DB_HOST,
+	port: process.env.DB_PORT,
+	// dialectOptions: {
+	// 	socketPath: "/run/mysqld/mysqld10.sock"
+	// }
 });
 
 const testConnection = async () => {
