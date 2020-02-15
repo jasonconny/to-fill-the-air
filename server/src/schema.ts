@@ -8,9 +8,9 @@ module.exports = {
 		type Show {
 			id: ID!
 			date: Date!
-			venue: Venue!
 			tour: String
 			notes: String
+			venue: Venue!
 		}
 
 		type Venue {
@@ -22,12 +22,16 @@ module.exports = {
 			state: String!
 			zip: String
 			country: String!
-			latitude: Int
-			longitude: Int
+			latitude: Float
+			longitude: Float
+			shows: [Show!]!
 		}
 
 		type Query {
-			shows: [Show]
+			shows: [Show!],
+			show(id: ID!): Show,
+			venues: [Venue!],
+			venue(id: ID!): Venue
 		}
 	`
 };
