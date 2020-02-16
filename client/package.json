@@ -2,6 +2,7 @@
 	"name": "tofilltheair-client",
 	"version": "0.1.0",
 	"description": "Grateful Dead set lists client.",
+	"main": "src/ToFillTheAir.tsx",
 	"repository": "https://github.com/jasonconny/tofilltheair.git",
 	"author": "Jason Conny <jasonconny@gmail.com>",
 	"license": "MIT",
