@@ -1,4 +1,3 @@
-
 const { GraphQLDate } = require('graphql-iso-date');
 
 module.exports = {

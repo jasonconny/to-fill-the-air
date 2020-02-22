@@ -1,12 +1,12 @@
-module.exports = (db, Sequelize) => {
-	const Show = db.define('show', {
+module.exports = (sequelize, DataTypes) => {
+	const Show = sequelize.define('show', {
 		id: {
-			type: Sequelize.STRING,
+			type: DataTypes.STRING,
 			primaryKey: true
 		},
-		date: Sequelize.DATE,
-		tour: Sequelize.STRING,
-		notes: Sequelize.TEXT
+		date: DataTypes.DATE,
+		tour: DataTypes.STRING,
+		notes: DataTypes.TEXT
 	});
 
 	Show.associate = (models) => {

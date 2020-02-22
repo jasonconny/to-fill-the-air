@@ -1,18 +1,18 @@
-module.exports = (db, Sequelize) => {
-	const Venue = db.define('venue', {
+module.exports = (sequelize, DataTypes) => {
+	const Venue = sequelize.define('venue', {
 		id: {
-			type: Sequelize.STRING,
+			type: DataTypes.STRING,
 			primaryKey: true
 		},
-		name: Sequelize.STRING,
-		address1: Sequelize.STRING,
-		address2: Sequelize.STRING,
-		city: Sequelize.STRING,
-		state: Sequelize.STRING,
-		zip: Sequelize.STRING,
-		country: Sequelize.STRING,
-		latitude: Sequelize.FLOAT,
-		longitude: Sequelize.FLOAT
+		name: DataTypes.STRING,
+		address1: DataTypes.STRING,
+		address2: DataTypes.STRING,
+		city: DataTypes.STRING,
+		state: DataTypes.STRING,
+		zip: DataTypes.STRING,
+		country: DataTypes.STRING,
+		latitude: DataTypes.FLOAT,
+		longitude: DataTypes.FLOAT
 	});
 
 	Venue.associate = (models) => {

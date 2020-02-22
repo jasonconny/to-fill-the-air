@@ -3,10 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const basename = path.basename(__filename);
 const Sequelize = require('sequelize');
-const db = {
-	sequelize: undefined,
-	Sequelize: undefined
-};
+const db = {};
 
 const sequelize = new Sequelize('toFillTheAir', process.env.DB_USERNAME, process.env.DB_PASSWORD, {
 	dialect: 'mariadb',
@@ -16,17 +13,6 @@ const sequelize = new Sequelize('toFillTheAir', process.env.DB_USERNAME, process
 	// 	socketPath: "/run/mysqld/mysqld10.sock"
 	// }
 });
-
-const testConnection = async () => {
-	try {
-		await sequelize.authenticate();
-		console.log('Connection has been established successfully.');
-	} catch (error) {
-		console.error('Unable to connect to the database:', error);
-	}
-};
-
-testConnection();
 
 fs
 	.readdirSync(__dirname)
@@ -39,10 +25,9 @@ fs
 	});
 
 Object.keys(db).forEach(modelName => {
-	console.log(modelName);
-	// if (db[modelName].associate) {
-	// 	db[modelName].associate(db);
-	// }
+	if (db[modelName].associate) {
+		db[modelName].associate(db);
+	}
 });
 
 db.sequelize = sequelize;
