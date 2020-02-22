@@ -30,20 +30,17 @@ testConnection();
 
 fs
 	.readdirSync(__dirname)
-	.filter((file: string) => {
-		return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.ts');
+	.filter(file => {
+		return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
 	})
-	.forEach((file: any) => {
+	.forEach(file => {
 		const model = sequelize['import'](path.join(__dirname, file));
-		// @ts-ignore
 		db[model.name] = model;
 	});
 
 Object.keys(db).forEach(modelName => {
 	console.log(modelName);
-	// // @ts-ignore
 	// if (db[modelName].associate) {
-	// 	// @ts-ignore
 	// 	db[modelName].associate(db);
 	// }
 });

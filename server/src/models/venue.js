@@ -1,4 +1,4 @@
-module.exports = (db: any, Sequelize: { STRING: any; FLOAT: any; }) => {
+module.exports = (db, Sequelize) => {
 	const Venue = db.define('venue', {
 		id: {
 			type: Sequelize.STRING,
@@ -15,7 +15,7 @@ module.exports = (db: any, Sequelize: { STRING: any; FLOAT: any; }) => {
 		longitude: Sequelize.FLOAT
 	});
 
-	Venue.associate = (models: { show: any; }) => {
+	Venue.associate = (models) => {
 		Venue.hasMany(models.show);
 	};
 

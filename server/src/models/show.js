@@ -1,4 +1,4 @@
-module.exports = (db: any, Sequelize: { STRING: any; DATE: any; TEXT: any; }) => {
+module.exports = (db, Sequelize) => {
 	const Show = db.define('show', {
 		id: {
 			type: Sequelize.STRING,
@@ -9,7 +9,7 @@ module.exports = (db: any, Sequelize: { STRING: any; DATE: any; TEXT: any; }) =>
 		notes: Sequelize.TEXT
 	});
 
-	Show.associate = (models: { venue: any; }) => {
+	Show.associate = (models) => {
 		Show.belongsTo(models.venue);
 	};
 
