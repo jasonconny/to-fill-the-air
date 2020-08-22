@@ -9,7 +9,6 @@ const server = new ApolloServer({
 	context: { tftadb }
 });
 
-// @ts-ignore
 server.listen().then(({ url }) => {
 	console.log(`🚀 Server ready at ${url}`);
 });
