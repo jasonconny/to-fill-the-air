@@ -1,11 +1,11 @@
 {
-	"name": "tofilltheair-server",
+	"name": "to-fill-the-air-server",
 	"version": "0.1.0",
 	"description": "Grateful Dead set lists server.",
 	"main": "src/server.js",
-	"repository": "https://github.com/jasonconny/tofilltheair.git",
+	"repository": "https://github.com/jasonconny/to-fill-the-air.git",
 	"author": "Jason Conny <jasonconny@gmail.com>",
-	"license": "MIT",
+	"license": "UNLICENSED",
 	"private": false,
 	"dependencies": {
 		"apollo-datasource": "^0.7.0",

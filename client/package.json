@@ -1,11 +1,11 @@
 {
-	"name": "tofilltheair-client",
+	"name": "to-fill-the-air-client",
 	"version": "0.1.0",
 	"description": "Grateful Dead set lists client.",
 	"main": "src/ToFillTheAir.tsx",
-	"repository": "https://github.com/jasonconny/tofilltheair.git",
+	"repository": "https://github.com/jasonconny/to-fill-the-air.git",
 	"author": "Jason Conny <jasonconny@gmail.com>",
-	"license": "MIT",
+	"license": "UNLICENSED",
 	"private": false,
 	"browserslist": [
 		"last 2 Chrome versions"
