@@ -2,75 +2,75 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router';
 
 const LazyHomeView = React.lazy(() =>
-	import(
-		'../views/HomeView'
-		/* webpackChunkNam: "HomeView" */
-	)
+    import(
+        '../views/HomeView'
+        /* webpackChunkNam: "HomeView" */
+    )
 );
 
 const LazyShowsView = React.lazy(() =>
-	import(
-		'../views/ShowsView'
-		/* webpackChunkNam: "ShowsView" */
-	)
+    import(
+        '../views/ShowsView'
+        /* webpackChunkNam: "ShowsView" */
+    )
 );
 
 const LazySongsView = React.lazy(() =>
-	import(
-		'../views/SongsView'
-		/* webpackChunkNam: "SongsView" */
-	)
+    import(
+        '../views/SongsView'
+        /* webpackChunkNam: "SongsView" */
+    )
 );
 
 const LazyStatsView = React.lazy(() =>
-	import(
-		'../views/StatsView'
-		/* webpackChunkNam: "StatsView" */
-	)
+    import(
+        '../views/StatsView'
+        /* webpackChunkNam: "StatsView" */
+    )
 );
 
 const LazyToursView = React.lazy(() =>
-	import(
-		'../views/ToursView'
-		/* webpackChunkNam: "ToursView" */
-	)
+    import(
+        '../views/ToursView'
+        /* webpackChunkNam: "ToursView" */
+    )
 );
 
 const LazyVenuesView = React.lazy(() =>
-	import(
-		'../views/VenuesView'
-		/* webpackChunkNam: "VenuesView" */
-	)
+    import(
+        '../views/VenuesView'
+        /* webpackChunkNam: "VenuesView" */
+    )
 );
 
-const Routes = () => (
-	<React.Suspense fallback={'loading'}>
-		<Switch>
-			<Route path={'/shows'}>
-				<LazyShowsView/>
-			</Route>
+const Routes: React.FC = () => (
+    <React.Suspense fallback={'loading'}>
+        <Switch>
+            <Route path={'/shows'}>
+                <LazyShowsView/>
+            </Route>
 
-			<Route path={'/songs'}>
-				<LazySongsView/>
-			</Route>
+            <Route path={'/songs'}>
+                <LazySongsView/>
+            </Route>
 
-			<Route path={'/stats'}>
-				<LazyStatsView/>
-			</Route>
+            <Route path={'/stats'}>
+                <LazyStatsView/>
+            </Route>
 
-			<Route path={'/tours'}>
-				<LazyToursView/>
-			</Route>
+            <Route path={'/tours'}>
+                <LazyToursView/>
+            </Route>
 
-			<Route path={'/venues'}>
-				<LazyVenuesView/>
-			</Route>
+            <Route path={'/venues'}>
+                <LazyVenuesView/>
+            </Route>
 
-			<Route path={'/'}>
-				<LazyHomeView/>
-			</Route>
-		</Switch>
-	</React.Suspense>
+            <Route path={'/'}>
+                <LazyHomeView/>
+            </Route>
+        </Switch>
+    </React.Suspense>
 );
 
 export default Routes;

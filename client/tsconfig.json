@@ -1,29 +1,31 @@
 {
     "compilerOptions": {
-        "outDir": "build",
-        "target": "es5",
-        "lib": [
+		"allowJs": false,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "/",
+		"downlevelIteration": true,
+		"forceConsistentCasingInFileNames": true,
+		"jsx": "react",
+		"lib": [
 			"dom",
-            "dom.iterable",
-            "esnext"
-        ],
-        "allowJs": false,
-        "allowSyntheticDefaultImports": true,
-        "baseUrl": "/",
-        "downlevelIteration": true,
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "react",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "noEmit": false,
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitAny": true,
-        "noUnusedLocals": true,
-        "rootDir": "src",
-        "sourceMap": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true
+			"dom.iterable",
+			"esnext"
+		],
+		"module": "esnext",
+		"moduleResolution": "node",
+		"noEmit": false,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "build",
+		"rootDir": "src",
+		"sourceMap": true,
+		"strictNullChecks": true,
+		"strictPropertyInitialization": true,
+		"target": "es5"
     },
     "include": [
 		"./src"

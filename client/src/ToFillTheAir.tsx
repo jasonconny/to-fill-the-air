@@ -8,23 +8,23 @@ import ScrollToTop from './routing/ScrollToTop';
 import Routes from './routing/Routes';
 
 const ToFillTheAir: React.FC = () => {
-	return (
-		<ErrorBoundary>
-			<Helmet>
-				<title>
+    return (
+        <ErrorBoundary>
+            <Helmet>
+                <title>
 					To Fill The Air | Grateful Dead set lists
-				</title>
-			</Helmet>
+                </title>
+            </Helmet>
 
-			<GlobalStyles/>
+            <GlobalStyles/>
 
-			<BrowserRouter forceRefresh={false}>
-				<ScrollToTop/>
+            <BrowserRouter forceRefresh={false}>
+                <ScrollToTop/>
 
-				<Routes/>
-			</BrowserRouter>
-		</ErrorBoundary>
-	);
+                <Routes/>
+            </BrowserRouter>
+        </ErrorBoundary>
+    );
 };
 
 const rootElement = document.getElementById('to-fill-the-air');

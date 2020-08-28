@@ -6,48 +6,48 @@ import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 
 interface IPrimaryLayout {
-	children: React.ReactNode;
-	className?: string;
+    children: React.ReactNode;
+    className?: string;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
-	const { children, className } = props;
+    const { children, className } = props;
 
-	return (
-		<ErrorBoundary>
-			<a
-				href={'#main-content'}
-				className={styles.skipNavigation}
-			>
+    return (
+        <ErrorBoundary>
+            <a
+                href={'#main-content'}
+                className={styles.skipNavigation}
+            >
 				Skip to main content
-			</a>
+            </a>
 
-			<header className={styles.header}>
-				<Link
-					className={styles.homeLink}
-					to={'/'}
-				>
-					<h1>To Fill The Air</h1>
-				</Link>
+            <header className={styles.header}>
+                <Link
+                    className={styles.homeLink}
+                    to={'/'}
+                >
+                    <h1>To Fill The Air</h1>
+                </Link>
 
-				<MainNav/>
-			</header>
+                <MainNav/>
+            </header>
 
-			<main
-				id={'main-content'}
-				className={classnames(
-					styles.main,
-					{[`${className}`] : className}
-				)}
-			>
-				{children}
-			</main>
+            <main
+                id={'main-content'}
+                className={classnames(
+                    styles.main,
+                    {[`${className}`] : className}
+                )}
+            >
+                {children}
+            </main>
 
-			<footer className={styles.footer}>
+            <footer className={styles.footer}>
 				blah blah blah
-			</footer>
-		</ErrorBoundary>
-	);
+            </footer>
+        </ErrorBoundary>
+    );
 };
 
 export default PrimaryLayout;

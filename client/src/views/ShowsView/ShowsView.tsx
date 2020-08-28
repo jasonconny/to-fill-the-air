@@ -4,15 +4,15 @@ import YearsNav from './YearsNav';
 import styles from './ShowsView.scss';
 
 const ShowsView: React.FC = () => {
-	return (
-		<PrimaryLayout>
-			<YearsNav/>
+    return (
+        <PrimaryLayout>
+            <YearsNav/>
 
-			<section className={styles.content}>
-				<h2>Shows</h2>
-			</section>
-		</PrimaryLayout>
-	);
+            <section className={styles.content}>
+                <h2>Shows</h2>
+            </section>
+        </PrimaryLayout>
+    );
 };
 
 export default ShowsView;
