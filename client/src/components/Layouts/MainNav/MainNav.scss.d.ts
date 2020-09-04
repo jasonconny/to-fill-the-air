@@ -1,10 +1,11 @@
 declare namespace MainNavScssNamespace {
     export interface IMainNavScss {
         block: string;
+        blockItem: string;
+        block__item: string;
         link: string;
         "link--active": string;
         linkActive: string;
-        list: string;
         listItem: string;
         list__item: string;
     }

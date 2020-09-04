@@ -1,0 +1,15 @@
+.block {
+  background: transparent url('logo.png') center/contain no-repeat;
+  height: 3.125rem;
+  overflow: hidden;
+  text-indent: -9999%;
+
+  &--full {
+    width: 5.875rem;
+  }
+
+  &--logo {
+    background-position: center left;
+    width: .75rem;
+  }
+}

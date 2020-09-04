@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 import ErrorBoundary from '../../ErrorBoundary';
+import Header from '../Header';
 import MainNav from '../MainNav';
 import Footer from '../Footer';
 import classnames from 'classnames';
@@ -23,16 +23,9 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
 				Skip to main content
             </a>
 
-            <header className={styles.header}>
-                <Link
-                    className={styles.homeLink}
-                    to={'/'}
-                >
-                    <h1>To Fill The Air</h1>
-                </Link>
-
+            <Header>
                 <MainNav/>
-            </header>
+            </Header>
 
             <main
                 id={'main-content'}
