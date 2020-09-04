@@ -1,0 +1,13 @@
+@import '../../GlobalStyles/scss/variables/colors';
+
+.block {
+  align-items: center;
+  border-top: 1px solid $brand-color-2;
+  display: flex;
+  height: 3rem;
+  padding: .5rem 0;
+
+  p {
+    margin-bottom: 0;
+  }
+}

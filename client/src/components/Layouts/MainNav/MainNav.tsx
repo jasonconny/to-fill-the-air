@@ -9,9 +9,20 @@ const MainNav: React.FC = () => (
                 <NavLink
                     activeClassName={styles.linkActive}
                     className={styles.link}
+                    to={'/band'}
+                >
+
+                    Band
+                </NavLink>
+            </li>
+
+            <li className={styles.listItem}>
+                <NavLink
+                    activeClassName={styles.linkActive}
+                    className={styles.link}
                     to={'/shows'}
                 >
-					Shows
+                    Shows
                 </NavLink>
             </li>
 

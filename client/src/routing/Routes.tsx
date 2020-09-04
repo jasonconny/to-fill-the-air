@@ -1,6 +1,13 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
 
+const LazyBandView = React.lazy(() =>
+    import(
+        '../views/BandView'
+        /* webpackChunkNam: "BandView" */
+    )
+);
+
 const LazyHomeView = React.lazy(() =>
     import(
         '../views/HomeView'
@@ -46,6 +53,10 @@ const LazyVenuesView = React.lazy(() =>
 const Routes: React.FC = () => (
     <React.Suspense fallback={'loading'}>
         <Switch>
+            <Route path={'/band'}>
+                <LazyBandView/>
+            </Route>
+
             <Route path={'/shows'}>
                 <LazyShowsView/>
             </Route>

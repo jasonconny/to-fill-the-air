@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import ErrorBoundary from '../../ErrorBoundary';
 import MainNav from '../MainNav';
+import Footer from '../Footer';
 import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 
@@ -43,9 +44,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
                 {children}
             </main>
 
-            <footer className={styles.footer}>
-				blah blah blah
-            </footer>
+            <Footer/>
         </ErrorBoundary>
     );
 };

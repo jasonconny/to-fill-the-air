@@ -1,6 +1,5 @@
 declare namespace PrimaryLayoutScssNamespace {
     export interface IPrimaryLayoutScss {
-        footer: string;
         header: string;
         "home-link": string;
         homeLink: string;
