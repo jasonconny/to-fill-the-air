@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
+import ArtistProvider from '../providers/ArtistProvider';
 
 const LazyBandView = React.lazy(() =>
     import(
@@ -54,7 +55,9 @@ const Routes: React.FC = () => (
     <React.Suspense fallback={'loading'}>
         <Switch>
             <Route path={'/band'}>
-                <LazyBandView/>
+                <ArtistProvider artistId={246650}>
+                    <LazyBandView/>
+                </ArtistProvider>
             </Route>
 
             <Route path={'/shows'}>
