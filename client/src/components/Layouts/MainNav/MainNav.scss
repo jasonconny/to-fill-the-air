@@ -1,4 +1,7 @@
+@import '../../GlobalStyles/scss/variables/colors';
+
 .block {
+  background-color: $neutral-90;
   display: flex;
   justify-content: flex-start;
   height: 100%;
@@ -17,20 +20,23 @@
 
 .link {
   align-items: center;
-  background-color: rgba(blue, .2);
-  color: #333;
+  background-color: rgba($accent-blue, .5);
+  color: $neutral-20;
   display: flex;
   height: 100%;
   padding: 0 2em;
   text-decoration: none;
+  transition: background-color .5s ease-in-out, color .5s ease-in-out;
 
   &:hover,
   &:active {
-    background-color: rgba(blue, .3);
+    background-color: rgba($accent-blue, .6);
+    color: $neutral-10;
   }
 
   &--active {
-    background-color: rgba(blue, .3);
+    background-color: rgba($accent-blue, .7);
+    color: $neutral-10;
     font-weight: 700;
   }
 }
