@@ -4,27 +4,30 @@ import { PrimaryLayout } from '../../components/Layouts';
 import styles from './BandView.scss';
 
 const BandView: React.FC = () => {
-    const artist = React.useContext(ArtistContext);
-
     return (
-        <PrimaryLayout>
-            <section className={styles.content}>
-                <h2>{artist?.name} were:</h2>
+        <ArtistContext.Consumer>
+            {({artistData, fetching}) => (
+                <PrimaryLayout showLoading={fetching}>
+                    <section className={styles.content}>
+                        <h2>{artistData?.name} were:</h2>
 
-                {artist && artist.members.length > 0 && (
-                    <ul>
-                        {artist.members
-                            .filter(member => !!member)
-                            .map((member, index) => (
-                                <li key={index}>
-                                    {member.name}
-                                </li>
-                            ))
-                        }
-                    </ul>
-                )}
-            </section>
-        </PrimaryLayout>
+                        {artistData && artistData.members.length > 0 && (
+                            <ul>
+                                {artistData.members
+                                    .filter(member => !!member)
+                                    .map((member, index) => (
+                                        <li key={index}>
+                                            {member.name}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        )}
+                    </section>
+                </PrimaryLayout>
+
+            )}
+        </ArtistContext.Consumer>
     );
 };
 

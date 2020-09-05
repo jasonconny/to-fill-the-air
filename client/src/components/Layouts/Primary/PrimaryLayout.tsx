@@ -11,13 +11,13 @@ import styles from './PrimaryLayout.scss';
 interface IPrimaryLayout {
     children: React.ReactNode;
     className?: string;
-    loading?: boolean;
+    showLoading?: boolean;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
-    const { children, className, loading } = props;
+    const { children, className, showLoading } = props;
 
-    return loading ? (
+    return showLoading ? (
         <Loading/>
     ) : (
         <ErrorBoundary fallback={<ErrorMessage errorMessageText={null}/>}>
