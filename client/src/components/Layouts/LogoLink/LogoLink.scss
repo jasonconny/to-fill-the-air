@@ -1,15 +1,30 @@
+@import '../../GlobalStyles/scss/variables/colors';
+
 .block {
-  background: transparent url('logo.png') center/contain no-repeat;
-  height: 3.125rem;
-  overflow: hidden;
-  text-indent: -9999%;
+  background: transparent url('/public/images/stealie.png') center/contain no-repeat;
+  color: $neutral-20;
+  height: 4rem;
+  text-decoration: none;
+  transition: color 1s ease-in-out;
+
+  &:hover,
+  &:active {
+    color: $accent-blue;
+  }
 
   &--full {
-    width: 5.875rem;
+    align-items: center;
+    background-position: center left;
+    display: flex;
+
+    h1 {
+      margin: 0 0 0 4.5rem;
+    }
   }
 
   &--logo {
-    background-position: center left;
-    width: .75rem;
+    overflow: hidden;
+    text-indent: -9999%;
+    width: 4rem;
   }
 }

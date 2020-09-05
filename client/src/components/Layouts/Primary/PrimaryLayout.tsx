@@ -1,5 +1,7 @@
 import * as React from 'react';
-import ErrorBoundary from '../../ErrorBoundary';
+import { ErrorBoundary } from 'react-error-boundary';
+import ErrorMessage from '../../ErrorMessage';
+import Loading from '../../Loading';
 import Header from '../Header';
 import MainNav from '../MainNav';
 import Footer from '../Footer';
@@ -9,13 +11,16 @@ import styles from './PrimaryLayout.scss';
 interface IPrimaryLayout {
     children: React.ReactNode;
     className?: string;
+    loading?: boolean;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
-    const { children, className } = props;
+    const { children, className, loading } = props;
 
-    return (
-        <ErrorBoundary>
+    return loading ? (
+        <Loading/>
+    ) : (
+        <ErrorBoundary fallback={<ErrorMessage errorMessageText={null}/>}>
             <a
                 href={'#main-content'}
                 className={styles.skipNavigation}
