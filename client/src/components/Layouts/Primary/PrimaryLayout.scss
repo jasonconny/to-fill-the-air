@@ -1,3 +1,6 @@
+@import '../../GlobalStyles/scss/variables/breakpoints';
+@import '../../GlobalStyles/scss/mixins/media-query';
+
 .skip-navigation {
   display: inline-block;
   left: -100%;
@@ -24,5 +27,16 @@
 }
 
 .main {
-  min-height: calc(100vh - 8rem);
+  margin: 2rem auto;
+  min-height: calc(100vh - 12rem);
+  padding: 0 1.5rem;
+
+  @include media-query-min($screen-lg) {
+    padding: 0 2rem;
+  }
+
+  @include media-query-min($screen-xl) {
+    max-width: 84rem;
+    padding: 0;
+  }
 }

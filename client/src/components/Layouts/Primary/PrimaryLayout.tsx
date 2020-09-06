@@ -8,13 +8,13 @@ import Footer from '../Footer';
 import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 
-interface IPrimaryLayout {
+interface IPrimaryLayoutProps {
     children: React.ReactNode;
     className?: string;
     showLoading?: boolean;
 }
 
-const PrimaryLayout: React.FC<IPrimaryLayout> = props => {
+const PrimaryLayout: React.FC<IPrimaryLayoutProps> = props => {
     const { children, className, showLoading } = props;
 
     return showLoading ? (

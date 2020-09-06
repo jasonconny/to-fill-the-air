@@ -1,0 +1,20 @@
+@import '../../components/GlobalStyles/scss/variables/colors';
+@import '../../components/GlobalStyles/scss/variables/fontstacks';
+
+.block {
+  display: flex;
+}
+
+.label {
+  display: block;
+  margin-right: .25rem;
+}
+
+.select {
+  border: 1px solid $neutral-30;
+  border-radius: .25rem;
+  color: $neutral-20;
+  display: block;
+  font-family: $open-sans;
+  font-size: 1rem;
+}

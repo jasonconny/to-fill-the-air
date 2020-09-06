@@ -1,5 +1,8 @@
+@import '../variables/colors.scss';
+@import '../variables/fontstacks';
+
 body {
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: $open-sans;
 }
 
 h1,
@@ -8,7 +11,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Noto Serif', Times, 'Times New Roman', sans-serif;
+  color: $neutral-20;
+  font-family: $noto-serif;
   font-weight: 700;
   margin: 0 0 1em;
   text-rendering: optimizeLegibility;
