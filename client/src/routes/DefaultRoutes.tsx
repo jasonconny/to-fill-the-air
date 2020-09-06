@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
+import Loading from '../components/Loading';
 
 const LazyBandView = React.lazy(() =>
     import(
@@ -51,7 +52,7 @@ const LazyVenuesView = React.lazy(() =>
 );
 
 const DefaultRoutes: React.FC = () => (
-    <React.Suspense fallback={'loading'}>
+    <React.Suspense fallback={<Loading/>}>
         <Switch>
             <Route path={'/band'}>
                 <LazyBandView/>
