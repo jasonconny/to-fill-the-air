@@ -1,3 +1,5 @@
+/* eslint-disable */
+export default
 [
     {
         "date": "1975-03-23",
@@ -9,34 +11,34 @@
         "sets": [
             [
                 {
-                    "name": "Blues For Allah",
+                    "title": "Blues For Allah",
                     "guests": ["Merl Saunders", "Ned Lagin"],
                     "segues": true
                 },
                 {
-                    "name": "Stronger Than Dirt",
+                    "title": "Stronger Than Dirt",
                     "guests": ["Merl Saunders", "Ned Lagin"],
                     "segues": true
                 },
                 {
-                    "name": "Drums",
+                    "title": "Drums",
                     "guests": ["Merl Saunders", "Ned Lagin"],
                     "segues": true
                 },
                 {
-                    "name": "Stronger Than Dirt",
+                    "title": "Stronger Than Dirt",
                     "guests": ["Merl Saunders", "Ned Lagin"],
                     "segues": true
                 },
                 {
-                    "name": "Blues For Allah",
+                    "title": "Blues For Allah",
                     "guests": ["Merl Saunders", "Ned Lagin"],
                     "segues": false
                 }
             ],
             [
                 {
-                    "name": "Johnny B. Goode",
+                    "title": "Johnny B. Goode",
                     "segues": false
                 }
             ]
@@ -54,67 +56,67 @@
         "sets": [
             [
                 {
-                    "name": "Crazy Fingers",
+                    "title": "Crazy Fingers",
                     "segues": false
                 },
                 {
-                    "name": "Beat It On Down The Line",
+                    "title": "Beat It On Down The Line",
                     "segues": false
                 },
                 {
-                    "name": "Deal",
+                    "title": "Deal",
                     "segues": false
                 },
                 {
-                    "name": "Big River",
+                    "title": "Big River",
                     "segues": false
                 },
                 {
-                    "name": "Peggy-O",
+                    "title": "Peggy-O",
                     "segues": false
                 },
                 {
-                    "name": "Me And My Uncle",
+                    "title": "Me And My Uncle",
                     "segues": false
                 },
                 {
-                    "name": "Help On The Way",
+                    "title": "Help On The Way",
                     "segues": true
                 },
                 {
-                    "name": "Slipknot",
+                    "title": "Slipknot",
                     "segues": true
                 },
                 {
-                    "name": "Franklin's Tower",
+                    "title": "Franklin's Tower",
                     "segues": false
                 }
             ],
             [
                 {
-                    "name": "Blues For Allah",
+                    "title": "Blues For Allah",
                     "segues": true
                 },
                 {
-                    "name": "Drums",
+                    "title": "Drums",
                     "segues": true
                 },
                 {
-                    "name": "Stronger Than Dirt",
+                    "title": "Stronger Than Dirt",
                     "segues": true
                 },
                 {
-                    "name": "Blues For Allah",
+                    "title": "Blues For Allah",
                     "segues": false
                 },
                 {
-                    "name": "Sugar Magnolia",
+                    "title": "Sugar Magnolia",
                     "segues": false
                 }
             ],
             [
                 {
-                    "name": "U.S. Blues",
+                    "title": "U.S. Blues",
                     "segues": false
                 }
             ]
@@ -132,77 +134,77 @@
         "sets": [
             [
                 {
-                    "name": "Help On The Way",
+                    "title": "Help On The Way",
                     "segues": true
                 },
                 {
-                    "name": "Slipknot",
+                    "title": "Slipknot",
                     "segues": true
                 },
                 {
-                    "name": "Franklin's Tower",
+                    "title": "Franklin's Tower",
                     "segues": false
                 },
                 {
-                    "name": "The Music Never Stopped",
+                    "title": "The Music Never Stopped",
                     "segues": false
                 },
                 {
-                    "name": "It Must Have Been The Roses",
+                    "title": "It Must Have Been The Roses",
                     "segues": false
                 },
                 {
-                    "name": "Eyes Of The World",
+                    "title": "Eyes Of The World",
                     "segues": true
                 },
                 {
-                    "name": "Drums",
+                    "title": "Drums",
                     "segues": true
                 },
                 {
-                    "name": "Stronger Than Dirt",
+                    "title": "Stronger Than Dirt",
                     "segues": false
                 }
             ],
             [
                 {
-                    "name": "Around And Around",
+                    "title": "Around And Around",
                     "segues": false
                 },
                 {
-                    "name": "Sugaree",
+                    "title": "Sugaree",
                     "segues": false
                 },
                 {
-                    "name": "Big River",
+                    "title": "Big River",
                     "segues": false
                 },
                 {
-                    "name": "Crazy Fingers",
+                    "title": "Crazy Fingers",
                     "segues": true
                 },
                 {
-                    "name": "Drums",
+                    "title": "Drums",
                     "segues": true
                 },
                 {
-                    "name": "The Other One Jam",
+                    "title": "The Other One Jam",
                     "segues": true
                 },
                 {
-                    "name": "Sage And Spirit",
+                    "title": "Sage And Spirit",
                     "segues": true
                 },
                 {
-                    "name": "Goin' Down The Road Feeling Bad",
+                    "title": "Goin' Down The Road Feeling Bad",
                     "segues": false
                 },
                 {
-                    "name": "U.S. Blues",
+                    "title": "U.S. Blues",
                     "segues": false
                 },
                 {
-                    "name": "Blues For Allah",
+                    "title": "Blues For Allah",
                     "segues": false
                 }
             ]
@@ -225,57 +227,57 @@
         "sets": [
             [
                 {
-                    "name": "Help On The Way",
+                    "title": "Help On The Way",
                     "segues": true
                 },
                 {
-                    "name": "Slipknot!",
+                    "title": "Slipknot!",
                     "segues": false
                 },
                 {
-                    "name": "The Music Never Stopped",
+                    "title": "The Music Never Stopped",
                     "guests": "Matt Kelly",
                     "segues": false
                 },
                 {
-                    "name": "They Love Each Other",
+                    "title": "They Love Each Other",
                     "segues": false
                 },
                 {
-                    "name": "Beat It On Down The Line",
+                    "title": "Beat It On Down The Line",
                     "guests": "Matt Kelly",
                     "segues": false
                 },
                 {
-                    "name": "Franklin's Tower",
+                    "title": "Franklin's Tower",
                     "segues": false
                 },
                 {
-                    "name": "Big River",
+                    "title": "Big River",
                     "segues": false
                 },
                 {
-                    "name": "Truckin'",
+                    "title": "Truckin'",
                     "segues": true
                 },
                 {
-                    "name": "The Eleven Jam",
+                    "title": "The Eleven Jam",
                     "segues": true
                 },
                 {
-                    "name": "Drums",
+                    "title": "Drums",
                     "segues": true
                 },
                 {
-                    "name": "Stronger Than Dirt",
+                    "title": "Stronger Than Dirt",
                     "segues": true
                 },
                 {
-                    "name": "Not Fade Away",
+                    "title": "Not Fade Away",
                     "segues": true
                 },
                 {
-                    "name": "Goin' Down The Road Feeling Bad",
+                    "title": "Goin' Down The Road Feeling Bad",
                     "segues": true
                 }
             ]

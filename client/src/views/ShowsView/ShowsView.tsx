@@ -1,18 +1,24 @@
 import * as React from 'react';
+import Show from '../../types/Show';
 import { PrimaryLayout } from '../../components/Layouts';
 import Select from '../../components/Select';
 // import YearsNav from './YearsNav';
 import ShowCard from '../../components/ShowCard'
 import styles from './ShowsView.scss';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import * as mockShows from './1975'
+
 const years: Array<string> = ['1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975']
 
 const ShowsView: React.FC = () => {
     const [selectedYear, setSelectedYear] = React.useState<string | null>(null);
+    const [shows, setShows] = React.useState<Array<Show> | null>(null);
 
     React.useEffect(() => {
-        console.log('do an effect');
-    });
+        setShows(mockShows.default)
+    }, []);
 
     const handleYearsSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedYear(event.currentTarget.value);
@@ -23,16 +29,18 @@ const ShowsView: React.FC = () => {
             <section className={styles.content}>
                 <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
 
-                <ul>
-                    <li>
-                        <ShowCard
-                            city={'San Francisco'}
-                            date={'8/13/1975'}
-                            state={'CA'}
-                            venue={'Great American Music Hall'}
-                        />
-                    </li>
-                </ul>
+                {shows && shows.length > 0 ? (
+                    <ul>
+                        <li>
+                            <ShowCard
+                                city={'San Francisco'}
+                                date={'8/13/1975'}
+                                state={'CA'}
+                                venue={'Great American Music Hall'}
+                            />
+                        </li>
+                    </ul>
+                ) : null}
             </section>
 
             <aside className={styles.sidebar}>
