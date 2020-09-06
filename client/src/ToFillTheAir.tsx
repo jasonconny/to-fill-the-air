@@ -1,11 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
+import ArtistProvider from './providers/ArtistProvider';
 import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
-import { BrowserRouter } from 'react-router-dom';
-import ScrollToTop from './routing/ScrollToTop';
-import Routes from './routing/Routes';
+import AppRouter from './routes/AppRouter';
 
 const ToFillTheAir: React.FC = () => {
     return (
@@ -18,11 +17,9 @@ const ToFillTheAir: React.FC = () => {
 
             <GlobalStyles/>
 
-            <BrowserRouter forceRefresh={false}>
-                <ScrollToTop/>
-
-                <Routes/>
-            </BrowserRouter>
+            <ArtistProvider>
+                <AppRouter/>
+            </ArtistProvider>
         </ErrorBoundary>
     );
 };

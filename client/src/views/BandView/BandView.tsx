@@ -4,6 +4,12 @@ import { PrimaryLayout } from '../../components/Layouts';
 import styles from './BandView.scss';
 
 const BandView: React.FC = () => {
+    const { setArtistIdState } = React.useContext(ArtistContext);
+
+    React.useEffect(() => {
+        setArtistIdState(246650);
+    }, [setArtistIdState]);
+
     return (
         <ArtistContext.Consumer>
             {({artistData, fetching}) => (

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
-import ArtistProvider from '../providers/ArtistProvider';
 
 const LazyBandView = React.lazy(() =>
     import(
@@ -51,13 +50,11 @@ const LazyVenuesView = React.lazy(() =>
     )
 );
 
-const Routes: React.FC = () => (
+const DefaultRoutes: React.FC = () => (
     <React.Suspense fallback={'loading'}>
         <Switch>
             <Route path={'/band'}>
-                <ArtistProvider artistId={246650}>
-                    <LazyBandView/>
-                </ArtistProvider>
+                <LazyBandView/>
             </Route>
 
             <Route path={'/shows'}>
@@ -87,4 +84,4 @@ const Routes: React.FC = () => (
     </React.Suspense>
 );
 
-export default Routes;
+export default DefaultRoutes;
