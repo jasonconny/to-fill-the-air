@@ -17,11 +17,11 @@
   padding: 1.5rem 1rem;
 }
 
-ul {
+.show-list {
   margin: 0;
   padding: 0;
 
-  li {
+  &__item {
     list-style: none;
     margin: 0;
     padding: 0;

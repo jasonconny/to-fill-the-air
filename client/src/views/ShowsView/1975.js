@@ -84,7 +84,7 @@ export default
                     "segues": true
                 },
                 {
-                    "title": "Slipknot",
+                    "title": "Slipknot!",
                     "segues": true
                 },
                 {
@@ -138,7 +138,7 @@ export default
                     "segues": true
                 },
                 {
-                    "title": "Slipknot",
+                    "title": "Slipknot!",
                     "segues": true
                 },
                 {

@@ -30,15 +30,17 @@ const ShowsView: React.FC = () => {
                 <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
 
                 {shows && shows.length > 0 ? (
-                    <ul>
-                        <li>
-                            <ShowCard
-                                city={'San Francisco'}
-                                date={'8/13/1975'}
-                                state={'CA'}
-                                venue={'Great American Music Hall'}
-                            />
-                        </li>
+                    <ul className={styles.showList}>
+                        {shows.filter(show => !!show)
+                            .map((show, index) => (
+                                <li
+                                    className={styles.showListItem}
+                                    key={index}
+                                >
+                                    <ShowCard show={show}/>
+                                </li>
+                            ))
+                        }
                     </ul>
                 ) : null}
             </section>
