@@ -1,0 +1,57 @@
+@import '../GlobalStyles/scss/variables/colors';
+
+.block {
+  border-top: .125rem solid $accent-blue;
+  padding: 1rem 0;
+}
+
+.date {
+  margin: 0;
+}
+
+.venue {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.location {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.set-list-label {
+  font-size: 1rem;
+}
+
+.set-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.song-title {
+  font-size: 1.25rem;
+
+  &--segues {
+    &:after {
+      content: ' > ';
+      white-space: pre;
+    }
+  }
+
+  + .song-title {
+    &:not(.song-title--segues) {
+      &:after {
+        content: ', ';
+        white-space: pre;
+      }
+    }
+
+    &:last-of-type {
+      &:after {
+        content: '';
+      }
+    }
+  }
+}
