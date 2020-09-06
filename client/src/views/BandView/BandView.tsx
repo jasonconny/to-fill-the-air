@@ -4,11 +4,11 @@ import { PrimaryLayout } from '../../components/Layouts';
 import styles from './BandView.scss';
 
 const BandView: React.FC = () => {
-    const { setArtistIdState } = React.useContext(ArtistContext);
+    const { setArtistIdToFetch } = React.useContext(ArtistContext);
 
     React.useEffect(() => {
-        setArtistIdState(246650);
-    }, [setArtistIdState]);
+        setArtistIdToFetch(246650);
+    }, [setArtistIdToFetch]);
 
     return (
         <ArtistContext.Consumer>
@@ -31,7 +31,6 @@ const BandView: React.FC = () => {
                         )}
                     </section>
                 </PrimaryLayout>
-
             )}
         </ArtistContext.Consumer>
     );

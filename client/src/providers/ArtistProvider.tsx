@@ -5,7 +5,7 @@ interface IArtistContext {
     artistData: Artist | null;
     fetching: boolean;
     hasError: boolean;
-    setArtistIdState: (artistId: number) => void;
+    setArtistIdToFetch: (artistId: number) => void;
 }
 
 interface IArtistProviderProps {
@@ -16,7 +16,7 @@ export const ArtistContext = React.createContext<IArtistContext>({
     artistData: null,
     fetching: false,
     hasError: false,
-    setArtistIdState: () => { return null }
+    setArtistIdToFetch: () => { return null }
 });
 ArtistContext.displayName = 'Artist';
 
@@ -27,36 +27,42 @@ const ArtistProvider: React.FC<IArtistProviderProps> = props => {
     const [fetching, setFetching] = React.useState<boolean>(false);
     const [hasError, setHasError] = React.useState<boolean>(false);
 
-    const setArtistIdState = (artistId: number) => {
+    const fetchArtistData = async (artistId: number) => {
+        setFetching(true);
+
+        try {
+            const response: Artist = await Fetcher(`https://api.discogs.com/artists/${artistId}`);
+            return response;
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const setArtistIdToFetch = (artistId: number) => {
         setArtistId(artistId);
     };
 
     React.useEffect(() => {
-        (async () => {
-            if (!artistData && artistId) {
-                setFetching(true);
-                setHasError(false);
-
-                try {
-                    const response: Artist = await Fetcher(`https://api.discogs.com/artists/${artistId}`);
-                    setArtistData(response);
+        if (!artistData && artistId) {
+            fetchArtistData(artistId)
+                .then(data => {
+                    setArtistData(data);
                     setFetching(false);
-                } catch (error) {
+                }).catch(error => {
                     console.log(error);
                     setFetching(false);
-                    setHasError(true);
-                }
-            }
-        })();
+                    setHasError(false);
+                });
+        }
     }, [artistData, artistId]);
 
     return (
         <ArtistContext.Provider
             value={{
-                artistData: artistData,
-                fetching: fetching,
-                hasError: hasError,
-                setArtistIdState: setArtistIdState
+                artistData,
+                fetching,
+                hasError,
+                setArtistIdToFetch
             }}
         >
             {children}
