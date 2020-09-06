@@ -10,6 +10,10 @@ const years: Array<string> = ['1965', '1966', '1967', '1968', '1969', '1970', '1
 const ShowsView: React.FC = () => {
     const [selectedYear, setSelectedYear] = React.useState<string | null>(null);
 
+    React.useEffect(() => {
+        console.log('do an effect');
+    });
+
     const handleYearsSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedYear(event.currentTarget.value);
     }

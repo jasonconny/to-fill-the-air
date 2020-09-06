@@ -1,0 +1,291 @@
+[
+    {
+        "date": "1975-03-23",
+        "venue": {
+            "city": "San Francisco",
+            "name": "Kezar Stadium",
+            "state": "CA"
+        },
+        "sets": [
+            [
+                {
+                    "name": "Blues For Allah",
+                    "guests": ["Merl Saunders", "Ned Lagin"],
+                    "segues": true
+                },
+                {
+                    "name": "Stronger Than Dirt",
+                    "guests": ["Merl Saunders", "Ned Lagin"],
+                    "segues": true
+                },
+                {
+                    "name": "Drums",
+                    "guests": ["Merl Saunders", "Ned Lagin"],
+                    "segues": true
+                },
+                {
+                    "name": "Stronger Than Dirt",
+                    "guests": ["Merl Saunders", "Ned Lagin"],
+                    "segues": true
+                },
+                {
+                    "name": "Blues For Allah",
+                    "guests": ["Merl Saunders", "Ned Lagin"],
+                    "segues": false
+                }
+            ],
+            [
+                {
+                    "name": "Johnny B. Goode",
+                    "segues": false
+                }
+            ]
+        ],
+        "notes": "without Donna - SNACK Benefit",
+        "releases": []
+    },
+    {
+        "date": "1975-06-31",
+        "venue": {
+            "city": "San Francisco",
+            "name": "Winterland Arena",
+            "state": "CA"
+        },
+        "sets": [
+            [
+                {
+                    "name": "Crazy Fingers",
+                    "segues": false
+                },
+                {
+                    "name": "Beat It On Down The Line",
+                    "segues": false
+                },
+                {
+                    "name": "Deal",
+                    "segues": false
+                },
+                {
+                    "name": "Big River",
+                    "segues": false
+                },
+                {
+                    "name": "Peggy-O",
+                    "segues": false
+                },
+                {
+                    "name": "Me And My Uncle",
+                    "segues": false
+                },
+                {
+                    "name": "Help On The Way",
+                    "segues": true
+                },
+                {
+                    "name": "Slipknot",
+                    "segues": true
+                },
+                {
+                    "name": "Franklin's Tower",
+                    "segues": false
+                }
+            ],
+            [
+                {
+                    "name": "Blues For Allah",
+                    "segues": true
+                },
+                {
+                    "name": "Drums",
+                    "segues": true
+                },
+                {
+                    "name": "Stronger Than Dirt",
+                    "segues": true
+                },
+                {
+                    "name": "Blues For Allah",
+                    "segues": false
+                },
+                {
+                    "name": "Sugar Magnolia",
+                    "segues": false
+                }
+            ],
+            [
+                {
+                    "name": "U.S. Blues",
+                    "segues": false
+                }
+            ]
+        ],
+        "notes": "Bob Fried Memorial Boogie - Help On The Way instrumental",
+        "releases": []
+    },
+    {
+        "date": "1975-08-13",
+        "venue": {
+            "city": "San Francisco",
+            "name": "Great American Music Hall",
+            "state": "CA"
+        },
+        "sets": [
+            [
+                {
+                    "name": "Help On The Way",
+                    "segues": true
+                },
+                {
+                    "name": "Slipknot",
+                    "segues": true
+                },
+                {
+                    "name": "Franklin's Tower",
+                    "segues": false
+                },
+                {
+                    "name": "The Music Never Stopped",
+                    "segues": false
+                },
+                {
+                    "name": "It Must Have Been The Roses",
+                    "segues": false
+                },
+                {
+                    "name": "Eyes Of The World",
+                    "segues": true
+                },
+                {
+                    "name": "Drums",
+                    "segues": true
+                },
+                {
+                    "name": "Stronger Than Dirt",
+                    "segues": false
+                }
+            ],
+            [
+                {
+                    "name": "Around And Around",
+                    "segues": false
+                },
+                {
+                    "name": "Sugaree",
+                    "segues": false
+                },
+                {
+                    "name": "Big River",
+                    "segues": false
+                },
+                {
+                    "name": "Crazy Fingers",
+                    "segues": true
+                },
+                {
+                    "name": "Drums",
+                    "segues": true
+                },
+                {
+                    "name": "The Other One Jam",
+                    "segues": true
+                },
+                {
+                    "name": "Sage And Spirit",
+                    "segues": true
+                },
+                {
+                    "name": "Goin' Down The Road Feeling Bad",
+                    "segues": false
+                },
+                {
+                    "name": "U.S. Blues",
+                    "segues": false
+                },
+                {
+                    "name": "Blues For Allah",
+                    "segues": false
+                }
+            ]
+        ],
+        "notes": "",
+        "releases": [
+            {
+                "title": "One From The Vault",
+                "url": "https://en.wikipedia.org/wiki/One_from_the_Vault"
+            }
+        ]
+    },
+    {
+        "date": "1975-09-28",
+        "venue": {
+            "city": "San Francisco",
+            "name": "Lindley Meadows",
+            "state": "CA"
+        },
+        "sets": [
+            [
+                {
+                    "name": "Help On The Way",
+                    "segues": true
+                },
+                {
+                    "name": "Slipknot!",
+                    "segues": false
+                },
+                {
+                    "name": "The Music Never Stopped",
+                    "guests": "Matt Kelly",
+                    "segues": false
+                },
+                {
+                    "name": "They Love Each Other",
+                    "segues": false
+                },
+                {
+                    "name": "Beat It On Down The Line",
+                    "guests": "Matt Kelly",
+                    "segues": false
+                },
+                {
+                    "name": "Franklin's Tower",
+                    "segues": false
+                },
+                {
+                    "name": "Big River",
+                    "segues": false
+                },
+                {
+                    "name": "Truckin'",
+                    "segues": true
+                },
+                {
+                    "name": "The Eleven Jam",
+                    "segues": true
+                },
+                {
+                    "name": "Drums",
+                    "segues": true
+                },
+                {
+                    "name": "Stronger Than Dirt",
+                    "segues": true
+                },
+                {
+                    "name": "Not Fade Away",
+                    "segues": true
+                },
+                {
+                    "name": "Goin' Down The Road Feeling Bad",
+                    "segues": true
+                }
+            ]
+        ],
+        "notes": "",
+        "releases": [
+            {
+                "title": "30 Trips Around The Sun",
+                "url": "https://en.wikipedia.org/wiki/30_Trips_Around_the_Sun#September_28,_1975_%E2%80%93_Golden_Gate_Park,_San_Francisco,_California"
+            }
+        ]
+    }
+]

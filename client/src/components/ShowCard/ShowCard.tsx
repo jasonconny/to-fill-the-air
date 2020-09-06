@@ -11,6 +11,7 @@ interface IShowCardProps {
 
 export const ShowCard: React.FC<IShowCardProps> = props => {
     const { city, date, state, venue } = props;
+
     return (
         <div className={styles.block}>
             <p className={styles.date}>{date}</p>
