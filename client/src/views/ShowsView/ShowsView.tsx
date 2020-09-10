@@ -8,7 +8,7 @@ import styles from './ShowsView.scss';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import * as mockShows from './1975'
+import * as mockShows from './1969'
 
 const years: Array<string> = ['1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975']
 

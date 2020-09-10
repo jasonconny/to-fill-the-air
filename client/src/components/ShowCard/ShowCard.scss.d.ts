@@ -1,7 +1,15 @@
 declare namespace ShowCardScssNamespace {
     export interface IShowCardScss {
         block: string;
-        date: string;
+        content: string;
+        "date-container": string;
+        "date-container__date": string;
+        "date-container__month": string;
+        "date-container__weekday": string;
+        dateContainer: string;
+        dateContainerDate: string;
+        dateContainerMonth: string;
+        dateContainerWeekday: string;
         location: string;
         "set-list": string;
         "set-list-label": string;

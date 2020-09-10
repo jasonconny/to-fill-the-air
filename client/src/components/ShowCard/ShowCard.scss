@@ -1,12 +1,41 @@
 @import '../GlobalStyles/scss/variables/colors';
 
 .block {
-  border-top: .125rem solid $accent-blue;
-  padding: 1rem 0;
+  align-items: flex-start;
+  border-top: .125rem solid rgba($accent-blue, .25);
+  display: flex;
+  padding: 2rem 0;
 }
 
-.date {
+.date-container {
+  align-items: center;
+  background-color: $accent-blue;
+  border-radius: .25rem;
+  clear: right;
+  color: $neutral-80;
+  display: flex;
+  flex-direction: column;
   margin: 0;
+  min-width: 4.5rem;
+  padding: .5rem;
+
+  &__weekday {
+    font-size: .75rem;
+  }
+
+  &__date {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+
+  &__month {
+    letter-spacing: .125rem;
+    text-transform: uppercase;
+  }
+}
+
+.content {
+  margin-left: 1.5rem;
 }
 
 .venue {
@@ -40,25 +69,23 @@
 .song-title {
   font-size: 1.25rem;
 
-  &--segues {
+  &:not(.song-title--segues) {
     &:after {
-      content: ' > ';
+      content: ', ';
       white-space: pre;
     }
   }
 
-  + .song-title {
-    &:not(.song-title--segues) {
-      &:after {
-        content: ', ';
-        white-space: pre;
-      }
+  &:last-of-type {
+    &:after {
+      content: '';
     }
+  }
 
-    &:last-of-type {
-      &:after {
-        content: '';
-      }
+  &--segues {
+    &:after {
+      content: ' > ';
+      white-space: pre;
     }
   }
 }

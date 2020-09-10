@@ -47,7 +47,7 @@ export default
         "releases": []
     },
     {
-        "date": "1975-06-31",
+        "date": "1975-06-17",
         "venue": {
             "city": "San Francisco",
             "name": "Winterland Arena",
