@@ -62,7 +62,8 @@ module.exports = async (env={}) => {
             aggregateTimeout: 500,
             ignored: [
                 'build',
-                'node_modules'
+                'node_modules',
+                'src/**/*.scss.d.ts'
             ],
             poll: 1000
         },
@@ -201,10 +202,7 @@ module.exports = async (env={}) => {
                     },
                     enabled: true
                 }
-            }),
-            new webpack.WatchIgnorePlugin([
-                /scss\.d\.ts$/
-            ])
+            })
         ].filter(Boolean)
     }
 };
