@@ -141,10 +141,11 @@ module.exports = async (env={}) => {
                                     loader: require.resolve('postcss-loader'),
                                     options: {
                                         sourceMap: true,
-                                        ident: 'postcss',
-                                        plugins: () => [
-                                            postcssNormalize()
-                                        ]
+                                        postcssOptions: {
+                                            plugins: [
+                                                postcssNormalize()
+                                            ]
+                                        }
                                     }
                                 },
                                 {
