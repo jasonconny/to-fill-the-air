@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const postcssNormalize = require('postcss-normalize');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -83,18 +84,6 @@ module.exports = async (env={}) => {
         module: {
             strictExportPresence: true,
             rules: [
-                // lint
-                {
-                    test: /\.(js|jsx|ts|tsx)$/,
-                    enforce: 'pre',
-                    loader: require.resolve('eslint-loader'),
-                    include: path.resolve(__dirname, 'src'),
-                    options: {
-                        eslintPath: require.resolve('eslint'),
-                        formatter: 'stylish',
-                        quiet: true
-                    },
-                },
                 {
                     oneOf: [
                         // "url" loader works just like "file" loader but it also embeds
@@ -176,6 +165,13 @@ module.exports = async (env={}) => {
         },
         plugins: [
             new webpack.ProgressPlugin(),
+            new ESLintPlugin({
+                context: path.resolve(__dirname, 'src'),
+                eslintPath: require.resolve('eslint'),
+                extensions:  ['js', 'jsx', 'ts', 'tsx'],
+                formatter: 'stylish',
+                quiet: true
+            }),
             new CleanWebpackPlugin({
                 cleanStaleWebpackAssets: false
             }),
