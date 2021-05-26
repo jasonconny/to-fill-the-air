@@ -1,10 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const postcssNormalize = require('postcss-normalize');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const postcssPresetEnv = require('postcss-preset-env');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -47,7 +46,7 @@ module.exports = async (env={}) => {
             toFillTheAir: path.join(__dirname, 'src/ToFillTheAir.tsx')
         },
         devServer: {
-            clientLogLevel: 'silent',
+            clientLogLevel: isDev ? 'info' : 'silent',
             contentBase: path.resolve(__dirname, 'public'),
             historyApiFallback: {
                 disableDotRule: true
@@ -55,18 +54,18 @@ module.exports = async (env={}) => {
             hot: true,
             port: 3000,
             publicPath: '/',
-            watchContentBase: true
+            watchContentBase: true,
+            watchOptions: {
+                aggregateTimeout: 750,
+                ignored: [
+                    'build',
+                    'node_modules/**',
+                    'src/**/*.scss.d.ts'
+                ],
+                poll: 5000
+            },
         },
-        watch: env.watch,
-        watchOptions: {
-            aggregateTimeout: 500,
-            ignored: [
-                'build',
-                'node_modules',
-                'src/**/*.scss.d.ts'
-            ],
-            poll: 1000
-        },
+        target: 'web',
         output: {
             chunkFilename: 'static/js/[name].chunk.js',
             filename: '[name].js',
@@ -80,11 +79,24 @@ module.exports = async (env={}) => {
                 '.js',
                 '.json',
                 '.jsx',
-            ]
+            ],
+            modules:  [path.resolve(__dirname, './src'), 'node_modules']
         },
         module: {
             strictExportPresence: true,
             rules: [
+                // lint
+                {
+                    test: /\.(js|jsx|ts|tsx)$/,
+                    enforce: 'pre',
+                    loader: require.resolve('eslint-loader'),
+                    include: path.resolve(__dirname, 'src'),
+                    options: {
+                        eslintPath: require.resolve('eslint'),
+                        formatter: 'stylish',
+                        quiet: true
+                    },
+                },
                 {
                     oneOf: [
                         // "url" loader works just like "file" loader but it also embeds
@@ -133,9 +145,9 @@ module.exports = async (env={}) => {
                                         sourceMap: true,
                                         postcssOptions: {
                                             plugins: [
-                                                postcssNormalize()
+                                                [postcssPresetEnv]
                                             ]
-                                        }
+                                       }
                                     }
                                 },
                                 {
@@ -166,23 +178,13 @@ module.exports = async (env={}) => {
         },
         plugins: [
             new webpack.ProgressPlugin(),
-            new ESLintPlugin({
-                context: path.resolve(__dirname, 'src'),
-                eslintPath: require.resolve('eslint'),
-                extensions:  ['js', 'jsx', 'ts', 'tsx'],
-                formatter: 'stylish',
-                quiet: true
-            }),
             new CleanWebpackPlugin({
                 cleanStaleWebpackAssets: false
             }),
             new HtmlWebpackPlugin(htmlWebpackPluginOptions),
-            new CopyPlugin({
+            new CopyWebpackPlugin({
                 patterns: [
-                    {
-                        from: 'public',
-                        to: 'build'
-                    }
+                    {from: 'public', to: 'build'}
                 ]
             }),
             new ModuleNotFoundPlugin(path.resolve(__dirname, '.')),
