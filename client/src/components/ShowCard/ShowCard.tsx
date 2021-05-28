@@ -1,5 +1,4 @@
 import * as React from 'react';
-import IShow from '../../types/Show';
 import classNames from 'classnames';
 import styles from './ShowCard.scss';
 

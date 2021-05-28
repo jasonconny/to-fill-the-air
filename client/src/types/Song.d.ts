@@ -1,4 +1,4 @@
-export default interface ISong {
+interface ISong {
     guests: Array<string>;
     segues: boolean;
     title: string;

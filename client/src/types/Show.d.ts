@@ -1,7 +1,4 @@
-import ISong from './Song';
-import IVenue from './Venue';
-
-export default interface IShow {
+interface IShow {
     date: string;
     notes?: string;
     releases?: Array<any>;

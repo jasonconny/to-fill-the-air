@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Fetcher } from 'fetcher';
-import IShow from 'types/Show';
 
 interface IShowsContext extends IContext {
     setShowYearToFetch: (year: string) => void;
@@ -26,7 +25,7 @@ const ShowsProvider: React.FC<IProviderProps> = props => {
         setFetching(true);
 
         try {
-            const response: Array<any> = await Fetcher(`/json/shows/${showYear}.json`);
+            const response: Array<IShow> = await Fetcher(`/json/shows/${showYear}.json`);
             return response;
         } catch (error) {
             return error;
