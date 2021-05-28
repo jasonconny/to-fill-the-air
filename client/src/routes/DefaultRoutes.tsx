@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router';
+import { Redirect, Route, Switch } from 'react-router';
 import Loading from '../components/Loading';
 
 const LazyBandView = React.lazy(() =>
@@ -13,6 +13,13 @@ const LazyHomeView = React.lazy(() =>
     import(
         '../views/HomeView'
         /* webpackChunkNam: "HomeView" */
+    )
+);
+
+const LazyNotFoundView = React.lazy(() =>
+    import(
+        '../views/NotFoundView'
+        /* webpackChunkNam: "NotFoundView" */
     )
 );
 
@@ -54,8 +61,14 @@ const LazyVenuesView = React.lazy(() =>
 const DefaultRoutes: React.FC = () => (
     <React.Suspense fallback={<Loading/>}>
         <Switch>
+            <Redirect exact path={'/'} to={'/home'} />
+
             <Route path={'/band'}>
                 <LazyBandView/>
+            </Route>
+
+            <Route path={'/home'}>
+                <LazyHomeView/>
             </Route>
 
             <Route path={'/shows'}>
@@ -78,8 +91,8 @@ const DefaultRoutes: React.FC = () => (
                 <LazyVenuesView/>
             </Route>
 
-            <Route path={'/'}>
-                <LazyHomeView/>
+            <Route path={'*'}>
+                <LazyNotFoundView/>
             </Route>
         </Switch>
     </React.Suspense>
