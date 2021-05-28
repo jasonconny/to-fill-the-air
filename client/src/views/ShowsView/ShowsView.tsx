@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Show from '../../types/Show';
+import { ShowsContext } from '../../providers/ShowsProvider';
 import { PrimaryLayout } from '../../components/Layouts';
 import Select from '../../components/Select';
 // import YearsNav from './YearsNav';
@@ -13,25 +13,29 @@ import * as mockShows from './1969'
 const years: Array<string> = ['1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975']
 
 const ShowsView: React.FC = () => {
+    const { fetching, showsData, setShowYearToFetch } = React.useContext(ShowsContext);
+
     const [selectedYear, setSelectedYear] = React.useState<string | null>(null);
-    const [shows, setShows] = React.useState<Array<Show> | null>(null);
+    // const [shows, setShows] = React.useState<Array<IShow> | null>(null);
 
     React.useEffect(() => {
-        setShows(mockShows.default)
-    }, []);
+        if (selectedYear) {
+            setShowYearToFetch(selectedYear)
+        }
+    }, [selectedYear, setShowYearToFetch]);
 
     const handleYearsSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedYear(event.currentTarget.value);
     }
 
     return (
-        <PrimaryLayout className={styles.main}>
+        <PrimaryLayout className={styles.main} showLoading={fetching}>
             <section className={styles.content}>
                 <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
 
-                {shows && shows.length > 0 ? (
+                {showsData && showsData.length > 0 ? (
                     <ul className={styles.showList}>
-                        {shows.filter(show => !!show)
+                        {showsData.filter(show => !!show)
                             .map((show, index) => (
                                 <li
                                     className={styles.showListItem}
@@ -53,6 +57,7 @@ const ShowsView: React.FC = () => {
                     name={'years-filter'}
                     onChange={handleYearsSelect}
                     options={years}
+                    selectedOption={selectedYear ? selectedYear : ''}
                 />
             </aside>
         </PrimaryLayout>

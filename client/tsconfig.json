@@ -2,7 +2,7 @@
     "compilerOptions": {
 		"allowJs": false,
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": "/",
+		"baseUrl": "./src",
 		"downlevelIteration": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "react",

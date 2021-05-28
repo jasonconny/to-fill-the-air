@@ -1,3 +1,9 @@
+type Alias = {
+    id: number;
+    name: string;
+    resourceUrl: string;
+}
+
 type Member = {
     active: boolean;
     id: number;
@@ -5,8 +11,8 @@ type Member = {
     resourceUrl: string;
 }
 
-interface Artist {
-    aliases: Array<Record<string, unknown>>;
+interface IArtistData {
+    aliases: Array<Alias>;
     id: number;
     data_quality: 'Needs Vote';
     members: Array<Member>;

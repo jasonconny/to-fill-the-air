@@ -1,4 +1,4 @@
-export default interface Venue {
+export default interface IVenue {
     city: string;
     country?: string;
     name: string;

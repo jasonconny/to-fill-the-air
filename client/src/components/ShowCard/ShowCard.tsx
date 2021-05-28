@@ -1,10 +1,10 @@
 import * as React from 'react';
-import Show from '../../types/Show';
+import IShow from '../../types/Show';
 import classNames from 'classnames';
 import styles from './ShowCard.scss';
 
 interface IShowCardProps {
-    show: Show;
+    show: IShow;
 }
 
 export const ShowCard: React.FC<IShowCardProps> = props => {

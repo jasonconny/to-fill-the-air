@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import ArtistProvider from './providers/ArtistProvider';
+import ShowsProvider from './providers/ShowsProvider';
 import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import AppRouter from './routes/AppRouter';
@@ -18,7 +19,9 @@ const ToFillTheAir: React.FC = () => {
             <GlobalStyles/>
 
             <ArtistProvider>
-                <AppRouter/>
+                <ShowsProvider>
+                    <AppRouter/>
+                </ShowsProvider>
             </ArtistProvider>
         </ErrorBoundary>
     );

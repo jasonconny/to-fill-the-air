@@ -34,6 +34,7 @@ module.exports = {
 		"no-multiple-empty-lines": "error",
 		"no-new-wrappers": "error",
 		"no-unused-labels": "error",
+        "quotes": [2, "single"],
 		"radix": "error",
 		"react/no-unescaped-entities": "off",
 		"react/prop-types": "off",

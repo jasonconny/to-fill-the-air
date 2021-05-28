@@ -1,15 +1,9 @@
 import * as React from 'react';
 import { Fetcher } from '../fetcher';
 
-interface IArtistContext {
-    artistData: Artist | null;
-    fetching: boolean;
-    hasError: boolean;
+interface IArtistContext extends IContext {
+    artistData: IArtistData | null;
     setArtistIdToFetch: (artistId: number) => void;
-}
-
-interface IArtistProviderProps {
-    children: React.ReactNode;
 }
 
 export const ArtistContext = React.createContext<IArtistContext>({
@@ -20,9 +14,9 @@ export const ArtistContext = React.createContext<IArtistContext>({
 });
 ArtistContext.displayName = 'Artist';
 
-const ArtistProvider: React.FC<IArtistProviderProps> = props => {
+const ArtistProvider: React.FC<IProviderProps> = props => {
     const { children } = props;
-    const [artistData, setArtistData] = React.useState<Artist | null>(null);
+    const [artistData, setArtistData] = React.useState<IArtistData | null>(null);
     const [artistId, setArtistId] = React.useState<number | null>(null);
     const [fetching, setFetching] = React.useState<boolean>(false);
     const [hasError, setHasError] = React.useState<boolean>(false);
@@ -31,7 +25,7 @@ const ArtistProvider: React.FC<IArtistProviderProps> = props => {
         setFetching(true);
 
         try {
-            const response: Artist = await Fetcher(`https://api.discogs.com/artists/${artistId}`);
+            const response: IArtistData = await Fetcher(`https://api.discogs.com/artists/${artistId}`);
             return response;
         } catch (error) {
             return error;
@@ -46,12 +40,12 @@ const ArtistProvider: React.FC<IArtistProviderProps> = props => {
         if (!artistData && artistId) {
             fetchArtistData(artistId)
                 .then(data => {
-                    setArtistData(data);
                     setFetching(false);
+                    setArtistData(data);
                 }).catch(error => {
                     console.log(error);
                     setFetching(false);
-                    setHasError(false);
+                    setHasError(true);
                 });
         }
     }, [artistData, artistId]);

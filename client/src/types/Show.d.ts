@@ -1,10 +1,10 @@
-import Song from './Song';
-import Venue from './Venue';
+import ISong from './Song';
+import IVenue from './Venue';
 
-export default interface Show {
+export default interface IShow {
     date: string;
     notes?: string;
     releases?: Array<any>;
-    sets: Array<Array<Song>>;
-    venue: Venue;
+    sets: Array<Array<ISong>>;
+    venue: IVenue;
 }

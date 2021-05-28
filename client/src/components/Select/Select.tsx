@@ -8,16 +8,17 @@ interface ISelectProps {
     name: string;
     onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     options: Array<string>;
+    selectedOption?: string;
 }
 
 export const Select: React.FC<ISelectProps> = props => {
-    const { className, label, name, options } = props;
+    const { className, label, name, onChange, options, selectedOption } = props;
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         event.persist();
 
-        if (props.onChange) {
-            props.onChange(event);
+        if (onChange) {
+            onChange(event);
         }
     }
 
@@ -39,8 +40,9 @@ export const Select: React.FC<ISelectProps> = props => {
                 className={styles.select}
                 name={name}
                 onChange={handleChange}
+                value={selectedOption}
             >
-                <option>select</option>
+                <option value={''}>select</option>
 
                 {options
                     .filter(option => !!option)
