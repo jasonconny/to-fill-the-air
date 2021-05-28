@@ -41,7 +41,7 @@ export const ShowCard: React.FC<IShowCardProps> = props => {
                         <React.Fragment key={index}>
                             {sets.length > 1 && (
                                 <h5 className={styles.setListLabel}>
-                                    {index + 1 < sets.length ? `set ${index + 1}` : `encore`}
+                                    {index + 1 < sets.length ? `set ${index + 1}` : 'encore'}
                                 </h5>
                             )}
 

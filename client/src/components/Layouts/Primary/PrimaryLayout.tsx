@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import ErrorMessage from '../../ErrorMessage';
-import Loading from '../../Loading';
-import Header from '../Header';
-import MainNav from '../MainNav';
-import Footer from '../Footer';
+import ErrorMessage from 'components/ErrorMessage';
+import Loading from 'components/Loading';
+import Header from 'components/Layouts/Header';
+import MainNav from 'components/Layouts/MainNav';
+import Footer from 'components/Layouts/Footer';
 import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 

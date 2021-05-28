@@ -1,14 +1,10 @@
 import * as React from 'react';
-import { ShowsContext } from '../../providers/ShowsProvider';
-import { PrimaryLayout } from '../../components/Layouts';
-import Select from '../../components/Select';
+import { ShowsContext } from 'providers/ShowsProvider';
+import { PrimaryLayout } from 'components/Layouts';
+import Select from 'components/Select';
 // import YearsNav from './YearsNav';
 import ShowCard from '../../components/ShowCard'
 import styles from './ShowsView.scss';
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import * as mockShows from './1969'
 
 const years: Array<string> = ['1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975']
 
@@ -30,7 +26,7 @@ const ShowsView: React.FC = () => {
 
     return (
         <PrimaryLayout className={styles.main} showLoading={fetching}>
-            <section className={styles.content}>
+            <section>
                 <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
 
                 {showsData && showsData.length > 0 ? (

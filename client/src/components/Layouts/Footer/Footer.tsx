@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Copyright from '../Copyright';
+import Copyright from 'components/Layouts/Copyright';
 import styles from './Footer.scss';
 
 interface Props {

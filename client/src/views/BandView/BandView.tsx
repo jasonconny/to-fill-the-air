@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { ArtistContext } from '../../providers/ArtistProvider';
-import { PrimaryLayout } from '../../components/Layouts';
-import styles from './BandView.scss';
+import { ArtistContext } from 'providers/ArtistProvider';
+import { PrimaryLayout } from 'components/Layouts';
 
 const BandView: React.FC = () => {
     const { artistData, fetching, setArtistIdToFetch } = React.useContext(ArtistContext);
@@ -12,7 +11,7 @@ const BandView: React.FC = () => {
 
     return (
         <PrimaryLayout showLoading={fetching}>
-            <section className={styles.content}>
+            <section>
                 <h2>{artistData?.name} were:</h2>
 
                 {artistData && artistData.members.length > 0 && (

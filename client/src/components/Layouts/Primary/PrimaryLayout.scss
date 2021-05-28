@@ -9,26 +9,9 @@
   top: 0;
 }
 
-.header {
-  align-items: center;
-  background-color: #ddd;
-  display: flex;
-  height: 5rem;
-  padding: 0 2rem;
-
-  .home-link {
-    color: #000;
-    text-decoration: none;
-  }
-
-  h1 {
-    margin-bottom: 0;
-  }
-}
-
 .main {
   margin: 2rem auto;
-  min-height: calc(100vh - 12rem);
+  min-height: 50vh;
   padding: 0 1.5rem;
 
   @include media-query-min($screen-lg) {
@@ -36,7 +19,16 @@
   }
 
   @include media-query-min($screen-xl) {
-    max-width: 84rem;
     padding: 0;
+  }
+
+  section {
+    margin: 0 auto;
+    max-width: 75rem;
+    padding: 3rem 2rem;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
   }
 }

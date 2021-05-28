@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { PrimaryLayout } from '../../components/Layouts';
-import styles from './VenuesView.scss';
+import { PrimaryLayout } from 'components/Layouts';
 
 const VenuesView: React.FC = () => {
     return (
         <PrimaryLayout>
-            <section className={styles.content}>
+            <section>
                 <h2>Venues</h2>
             </section>
         </PrimaryLayout>

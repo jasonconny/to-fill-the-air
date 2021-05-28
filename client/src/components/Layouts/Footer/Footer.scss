@@ -3,9 +3,8 @@
 .block {
   align-items: center;
   background-color: $neutral-60;
-  display: flex;
-  height: 3rem;
-  padding: .5rem 0;
+  min-height: 8rem;
+  padding: 1rem 0;
 
   p {
     margin-bottom: 0;
