@@ -4,18 +4,20 @@ import classnames from 'classnames';
 import styles from './LogoLink.scss';
 
 interface Props {
+    className?: string;
     format: 'full' | 'logo',
     href: string
 }
 
 export const LogoLink: React.FC<Props> = props => {
-    const { format, href } = props;
+    const { className, format, href } = props;
 
     return (
         <Link
             to={href}
             className={classnames(
                 styles.block,
+                {[`${className}`] : className},
                 {[styles.blockFull] : format === 'full'},
                 {[styles.blockLogo] : format === 'logo'}
             )}

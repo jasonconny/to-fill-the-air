@@ -13,6 +13,7 @@ const Header: React.FC<Props> = props => {
         <header className={styles.block}>
             <nav className={styles.nav}>
                 <LogoLink
+                    className={styles.logoLink}
                     href={'/home'}
                     format={'full'}
                 />

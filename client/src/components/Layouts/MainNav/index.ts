@@ -1,3 +1,3 @@
-/* tslint:enable:filr-name-casing */
+/* tslint:enable:file-name-casing */
 import MainNav from './MainNav';
 export default MainNav;
