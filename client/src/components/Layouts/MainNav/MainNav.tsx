@@ -59,6 +59,16 @@ const MainNav: React.FC = () => (
             <NavLink
                 activeClassName={styles.linkActive}
                 className={styles.link}
+                to={'/releases'}
+            >
+                Releases
+            </NavLink>
+        </li>
+
+        <li className={styles.listItem}>
+            <NavLink
+                activeClassName={styles.linkActive}
+                className={styles.link}
                 to={'/stats'}
             >
                 Stats

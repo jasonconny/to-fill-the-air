@@ -12,10 +12,11 @@ interface IPrimaryLayoutProps {
     children: React.ReactNode;
     className?: string;
     showLoading?: boolean;
+    subNav?: React.ReactNode;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayoutProps> = props => {
-    const { children, className, showLoading } = props;
+    const { children, className, showLoading, subNav } = props;
 
     return showLoading ? (
         <Loading/>
@@ -30,6 +31,8 @@ const PrimaryLayout: React.FC<IPrimaryLayoutProps> = props => {
 
             <Header>
                 <MainNav/>
+
+                {subNav}
             </Header>
 
             <main

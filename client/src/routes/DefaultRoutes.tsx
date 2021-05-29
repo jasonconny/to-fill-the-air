@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
-import Loading from '../components/Loading';
+import Loading from 'components/Loading';
 
 const LazyBandView = React.lazy(() =>
     import(
