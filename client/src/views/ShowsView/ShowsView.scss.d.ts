@@ -1,6 +1,7 @@
 declare namespace ShowsViewScssNamespace {
     export interface IShowsViewScss {
         main: string;
+        section: string;
         "show-list": string;
         "show-list__item": string;
         showList: string;

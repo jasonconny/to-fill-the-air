@@ -26,7 +26,7 @@ export const ShowCard: React.FC<IShowCardProps> = props => {
                     {formattedDate.toLocaleString('en-US', {day: 'numeric'})}
                 </span>
 
-                <span>
+                <span className={styles.dateContainerYear}>
                     {formattedDate.toLocaleString('en-US', {year: 'numeric'})}
                 </span>
             </div>

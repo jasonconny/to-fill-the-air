@@ -26,7 +26,7 @@ const ShowsView: React.FC = () => {
 
     return (
         <PrimaryLayout className={styles.main} showLoading={fetching}>
-            <section>
+            <section className={styles.section}>
                 <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
 
                 {showsData && showsData.length > 0 ? (

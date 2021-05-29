@@ -7,6 +7,10 @@
   padding: .25rem;
   position: fixed;
   top: 0;
+
+  &:focus {
+    left: 0;
+  }
 }
 
 .main {

@@ -21,7 +21,7 @@ export const LogoLink: React.FC<Props> = props => {
             )}
             aria-label={'Logo'}
         >
-            <h1>To Fill The Air</h1>
+            <h1 className={styles.header}>To Fill The Air</h1>
         </Link>
     );
 };

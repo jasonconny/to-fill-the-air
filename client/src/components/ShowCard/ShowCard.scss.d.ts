@@ -6,10 +6,12 @@ declare namespace ShowCardScssNamespace {
         "date-container__date": string;
         "date-container__month": string;
         "date-container__weekday": string;
+        "date-container__year": string;
         dateContainer: string;
         dateContainerDate: string;
         dateContainerMonth: string;
         dateContainerWeekday: string;
+        dateContainerYear: string;
         location: string;
         "set-list": string;
         "set-list-label": string;

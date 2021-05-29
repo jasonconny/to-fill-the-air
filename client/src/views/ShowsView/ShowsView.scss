@@ -4,11 +4,13 @@
   display: flex;
 }
 
+.section {
+  flex: auto 2 0;
+}
+
 .sidebar {
-  background-color: rgba($accent-blue, .3);
-  border-radius: .25rem;
   min-width: 20rem;
-  padding: 1.5rem 1rem;
+  padding: 3rem 2rem;
 }
 
 .show-list {

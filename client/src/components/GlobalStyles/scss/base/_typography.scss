@@ -11,11 +11,16 @@ h3,
 h4,
 h5,
 h6 {
-  color: $neutral-20;
+  color: $estate-blue;
   font-family: $noto-serif;
   font-weight: 700;
   margin: 0 0 1em;
   text-rendering: optimizeLegibility;
+}
+
+li,
+p {
+  color: $estate-blue;
 }
 
 p {

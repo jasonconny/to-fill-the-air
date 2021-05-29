@@ -1,42 +1,39 @@
 @import '../../GlobalStyles/scss/variables/colors';
 
 .block {
-  background-color: $neutral-90;
   display: flex;
   justify-content: flex-start;
   height: 100%;
   list-style: none;
   margin: 0 0 0 2rem;
   padding: 0;
+}
 
-  &__item {
-    margin: 0;
-
-    + .list__item {
-      margin-left: 1px;
-    }
+.list-item {
+  + .list-item {
+    margin-left: 1rem;
   }
 }
 
 .link {
-  align-items: center;
-  background-color: rgba($accent-blue, .5);
-  color: $neutral-20;
+  align-items: flex-end;
+  color: $winter-oasis;
   display: flex;
+  font-size: 1.125rem;
   height: 100%;
-  padding: 0 2em;
+  letter-spacing: .0625rem;
+  padding: .5rem 1rem .75rem;
   text-decoration: none;
-  transition: background-color .5s ease-in-out, color .5s ease-in-out;
+  text-transform: uppercase;
+  transition: color .3s ease-in-out;
 
   &:hover,
   &:active {
-    background-color: rgba($accent-blue, .6);
-    color: $neutral-10;
+    color: $crystal;
   }
 
   &--active {
-    background-color: rgba($accent-blue, .7);
-    color: $neutral-10;
+    color: $crystal;
     font-weight: 700;
   }
 }
