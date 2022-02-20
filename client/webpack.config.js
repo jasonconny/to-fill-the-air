@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const postcssPresetEnv = require('postcss-preset-env');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -47,24 +46,15 @@ module.exports = async (env={}) => {
             toFillTheAir: path.join(__dirname, 'src/ToFillTheAir.tsx')
         },
         devServer: {
-            clientLogLevel: isDev ? 'info' : 'silent',
-            contentBase: path.resolve(__dirname, 'public'),
+            client: {
+                logging: isDev ? 'info' : 'silent',
+                progress: isDev
+            },
             historyApiFallback: {
                 disableDotRule: true
             },
             hot: true,
             port: 3000,
-            publicPath: '/',
-            watchContentBase: true,
-            watchOptions: {
-                aggregateTimeout: 750,
-                ignored: [
-                    'build',
-                    'node_modules/**',
-                    'src/**/*.scss.d.ts'
-                ],
-                poll: 5000
-            },
         },
         target: 'web',
         output: {
@@ -166,7 +156,6 @@ module.exports = async (env={}) => {
             ]
         },
         plugins: [
-            new webpack.ProgressPlugin(),
             new ESLintPlugin({
                 eslintPath: require.resolve('eslint'),
                 extensions: ['js', 'jsx', 'ts', 'tsx'],
@@ -182,7 +171,6 @@ module.exports = async (env={}) => {
                 ]
             }),
             new ModuleNotFoundPlugin(path.resolve(__dirname, '.')),
-            new webpack.HotModuleReplacementPlugin(),
             isDev && new CaseSensitivePathsPlugin(),
             isDev && new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
             new ForkTsCheckerWebpackPlugin({
