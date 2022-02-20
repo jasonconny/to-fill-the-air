@@ -4,8 +4,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -114,7 +112,7 @@ module.exports = async (env={}) => {
                                             exportLocalsConvention: 'camelCase',
                                             mode: 'local',
                                             localIdentName: '[name]__[local]--[hash:base64:5]',
-                                            localIdentHashPrefix: 'tfta',
+                                            localIdentHashSalt: 'tfta',
                                         }
                                     }
                                 },
@@ -126,7 +124,7 @@ module.exports = async (env={}) => {
                                             plugins: [
                                                 [postcssPresetEnv]
                                             ]
-                                       }
+                                        }
                                     }
                                 },
                                 {
@@ -170,15 +168,9 @@ module.exports = async (env={}) => {
                     {from: 'public', to: 'build'}
                 ]
             }),
-            new ModuleNotFoundPlugin(path.resolve(__dirname, '.')),
             isDev && new CaseSensitivePathsPlugin(),
-            isDev && new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
             new ForkTsCheckerWebpackPlugin({
                 async: false,
-                eslint: {
-                    enabled: true,
-                    files: ['./src/**/*.ts', './src/**/*.tsx']
-                },
                 typescript: {
                     configFile: path.resolve(__dirname, 'tsconfig.json'),
                     diagnosticOptions: {
