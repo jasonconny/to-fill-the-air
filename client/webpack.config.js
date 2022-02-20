@@ -4,6 +4,7 @@ const postcssPresetEnv = require('postcss-preset-env');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
@@ -85,18 +86,6 @@ module.exports = async (env={}) => {
         module: {
             strictExportPresence: true,
             rules: [
-                // lint
-                {
-                    test: /\.(js|jsx|ts|tsx)$/,
-                    enforce: 'pre',
-                    loader: require.resolve('eslint-loader'),
-                    include: path.resolve(__dirname, 'src'),
-                    options: {
-                        eslintPath: require.resolve('eslint'),
-                        formatter: 'stylish',
-                        quiet: true
-                    },
-                },
                 {
                     oneOf: [
                         // "url" loader works just like "file" loader but it also embeds
@@ -178,6 +167,11 @@ module.exports = async (env={}) => {
         },
         plugins: [
             new webpack.ProgressPlugin(),
+            new ESLintPlugin({
+                eslintPath: require.resolve('eslint'),
+                extensions: ['js', 'jsx', 'ts', 'tsx'],
+                quiet: true
+            }),
             new CleanWebpackPlugin({
                 cleanStaleWebpackAssets: false
             }),
