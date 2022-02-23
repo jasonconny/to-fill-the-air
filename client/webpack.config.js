@@ -163,8 +163,7 @@ module.exports = async (env={}) => {
                     configFile: path.resolve(__dirname, 'tsconfig.json'),
                     diagnosticOptions: {
                         syntactic: true
-                    },
-                    enabled: true
+                    }
                 }
             })
         ].filter(Boolean)
