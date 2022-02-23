@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import AppProvider from './providers/AppProvider';
-import Router from './router/Router';
+import Router from './router';
 
 const ToFillTheAir: React.FC = () => {
     return (

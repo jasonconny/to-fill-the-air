@@ -7,3 +7,11 @@ Format based on [keep a changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - project set up
+
+
+## [0.2.0] - 2022-02-22
+
+### Changed
+
+- Node upgraded
+- Client packages upgraded
