@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { ShowsContext } from 'providers/ShowsProvider';
-import { PrimaryLayout } from 'components/Layouts';
 import Select from 'components/Select';
 // import YearsNav from './YearsNav';
 import ShowCard from '../../components/ShowCard'
@@ -9,7 +8,7 @@ import styles from './ShowsView.scss';
 const years: Array<string> = ['1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975']
 
 const ShowsView: React.FC = () => {
-    const { fetching, showsData, setShowYearToFetch } = React.useContext(ShowsContext);
+    const { showsData, setShowYearToFetch } = React.useContext(ShowsContext);
 
     const [selectedYear, setSelectedYear] = React.useState<string | null>(null);
     // const [shows, setShows] = React.useState<Array<IShow> | null>(null);
@@ -25,7 +24,7 @@ const ShowsView: React.FC = () => {
     }
 
     return (
-        <PrimaryLayout className={styles.main} showLoading={fetching}>
+        <>
             <section className={styles.section}>
                 <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
 
@@ -56,7 +55,7 @@ const ShowsView: React.FC = () => {
                     selectedOption={selectedYear ? selectedYear : ''}
                 />
             </aside>
-        </PrimaryLayout>
+        </>
     );
 };
 

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Outlet } from 'react-router-dom'
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorMessage from 'components/ErrorMessage';
 import Loading from 'components/Loading';
@@ -9,14 +10,13 @@ import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 
 interface IPrimaryLayoutProps {
-    children: React.ReactNode;
     className?: string;
     showLoading?: boolean;
     subNav?: React.ReactNode;
 }
 
 const PrimaryLayout: React.FC<IPrimaryLayoutProps> = props => {
-    const { children, className, showLoading, subNav } = props;
+    const { className, showLoading, subNav } = props;
 
     return showLoading ? (
         <Loading/>
@@ -42,7 +42,7 @@ const PrimaryLayout: React.FC<IPrimaryLayoutProps> = props => {
                     {[`${className}`] : className}
                 )}
             >
-                {children}
+                <Outlet/>
             </main>
 
             <Footer/>
