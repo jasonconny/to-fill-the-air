@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import classnames from 'classnames';
 import styles from './SubNav.scss';
+import classNames from 'classnames';
 
 interface ISubNavProps {
     className?: string;
@@ -12,7 +12,7 @@ const SubNav: React.FC<ISubNavProps> = (props) => {
     const { className, links } = props;
 
     return (
-        <ul className={classnames(
+        <ul className={classNames(
             styles.block,
             {[`${className}`] : className}
         )}>
@@ -23,8 +23,10 @@ const SubNav: React.FC<ISubNavProps> = (props) => {
                         key={index}
                     >
                         <NavLink
-                            className={styles.link}
-                            activeClassName={styles.linkActive}
+                            className={(isActive) => classNames(
+                                styles.link,
+                                {[styles.linkActive]: isActive}
+                            )}
                             to={`/releases/${link.slug}`}
                         >
                             {link.name}

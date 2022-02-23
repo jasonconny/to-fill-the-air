@@ -1,11 +1,9 @@
 const path = require('path');
-const webpack = require('webpack');
 const postcssPresetEnv = require('postcss-preset-env');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
@@ -46,24 +44,15 @@ module.exports = async (env={}) => {
             toFillTheAir: path.join(__dirname, 'src/ToFillTheAir.tsx')
         },
         devServer: {
-            clientLogLevel: isDev ? 'info' : 'silent',
-            contentBase: path.resolve(__dirname, 'public'),
+            client: {
+                logging: isDev ? 'info' : 'silent',
+                progress: isDev
+            },
             historyApiFallback: {
                 disableDotRule: true
             },
             hot: true,
             port: 3000,
-            publicPath: '/',
-            watchContentBase: true,
-            watchOptions: {
-                aggregateTimeout: 750,
-                ignored: [
-                    'build',
-                    'node_modules/**',
-                    'src/**/*.scss.d.ts'
-                ],
-                poll: 5000
-            },
         },
         target: 'web',
         output: {
@@ -85,18 +74,6 @@ module.exports = async (env={}) => {
         module: {
             strictExportPresence: true,
             rules: [
-                // lint
-                {
-                    test: /\.(js|jsx|ts|tsx)$/,
-                    enforce: 'pre',
-                    loader: require.resolve('eslint-loader'),
-                    include: path.resolve(__dirname, 'src'),
-                    options: {
-                        eslintPath: require.resolve('eslint'),
-                        formatter: 'stylish',
-                        quiet: true
-                    },
-                },
                 {
                     oneOf: [
                         // "url" loader works just like "file" loader but it also embeds
@@ -135,7 +112,7 @@ module.exports = async (env={}) => {
                                             exportLocalsConvention: 'camelCase',
                                             mode: 'local',
                                             localIdentName: '[name]__[local]--[hash:base64:5]',
-                                            localIdentHashPrefix: 'tfta',
+                                            localIdentHashSalt: 'tfta',
                                         }
                                     }
                                 },
@@ -147,7 +124,7 @@ module.exports = async (env={}) => {
                                             plugins: [
                                                 [postcssPresetEnv]
                                             ]
-                                       }
+                                        }
                                     }
                                 },
                                 {
@@ -177,7 +154,11 @@ module.exports = async (env={}) => {
             ]
         },
         plugins: [
-            new webpack.ProgressPlugin(),
+            new ESLintPlugin({
+                eslintPath: require.resolve('eslint'),
+                extensions: ['js', 'jsx', 'ts', 'tsx'],
+                quiet: true
+            }),
             new CleanWebpackPlugin({
                 cleanStaleWebpackAssets: false
             }),
@@ -187,16 +168,9 @@ module.exports = async (env={}) => {
                     {from: 'public', to: 'build'}
                 ]
             }),
-            new ModuleNotFoundPlugin(path.resolve(__dirname, '.')),
-            new webpack.HotModuleReplacementPlugin(),
             isDev && new CaseSensitivePathsPlugin(),
-            isDev && new WatchMissingNodeModulesPlugin(path.resolve(__dirname, 'node_modules')),
             new ForkTsCheckerWebpackPlugin({
                 async: false,
-                eslint: {
-                    enabled: true,
-                    files: ['./src/**/*.ts', './src/**/*.tsx']
-                },
                 typescript: {
                     configFile: path.resolve(__dirname, 'tsconfig.json'),
                     diagnosticOptions: {

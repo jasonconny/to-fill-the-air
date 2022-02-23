@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { PrimaryLayout } from 'components/Layouts';
-import SubNav from 'components/Layouts/SubNav';
 
 const SubNavLinks: Array<INavLink> = [
     {
@@ -27,18 +25,16 @@ const SubNavLinks: Array<INavLink> = [
 ];
 
 const ReleasesView: React.FC = () => {
-    const { releaseType }: {releaseType: string} = useParams();
+    const { releaseType } = useParams();
 
     return (
-        <PrimaryLayout subNav={<SubNav links={SubNavLinks}/>}>
-            <section>
-                <h2>Releases</h2>
+        <section>
+            <h2>Releases</h2>
 
-                {releaseType && (
-                    <h3>{SubNavLinks.find(link => link.slug === releaseType)?.name}</h3>
-                )}
-            </section>
-        </PrimaryLayout>
+            {releaseType && (
+                <h3>{SubNavLinks.find(link => link.slug === releaseType)?.name}</h3>
+            )}
+        </section>
     );
 };
 

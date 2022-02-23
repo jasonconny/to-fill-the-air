@@ -1,13 +1,16 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './MainNav.scss';
+import classNames from 'classnames';
 
 const MainNav: React.FC = () => (
     <ul className={styles.block}>
         <li className={styles.listItem}>
             <NavLink
-                activeClassName={styles.linkActive}
-                className={styles.link}
+                className={(isActive) => classNames(
+                    styles.link,
+                    {[styles.linkActive]: isActive}
+                )}
                 to={'/band'}
             >
 
@@ -17,8 +20,10 @@ const MainNav: React.FC = () => (
 
         <li className={styles.listItem}>
             <NavLink
-                activeClassName={styles.linkActive}
-                className={styles.link}
+                className={(isActive) => classNames(
+                    styles.link,
+                    {[styles.linkActive]: isActive}
+                )}
                 to={'/shows'}
             >
                 Shows
@@ -27,8 +32,10 @@ const MainNav: React.FC = () => (
 
         <li className={styles.listItem}>
             <NavLink
-                activeClassName={styles.linkActive}
-                className={styles.link}
+                className={(isActive) => classNames(
+                    styles.link,
+                    {[styles.linkActive]: isActive}
+                )}
                 to={'/tours'}
             >
                 Tours
@@ -37,8 +44,10 @@ const MainNav: React.FC = () => (
 
         <li className={styles.listItem}>
             <NavLink
-                activeClassName={styles.linkActive}
-                className={styles.link}
+                className={(isActive) => classNames(
+                    styles.link,
+                    {[styles.linkActive]: isActive}
+                )}
                 to={'/songs'}
             >
                 Songs
@@ -47,8 +56,10 @@ const MainNav: React.FC = () => (
 
         <li className={styles.listItem}>
             <NavLink
-                activeClassName={styles.linkActive}
-                className={styles.link}
+                className={(isActive) => classNames(
+                    styles.link,
+                    {[styles.linkActive]: isActive}
+                )}
                 to={'/venues'}
             >
                 Venues
@@ -57,8 +68,10 @@ const MainNav: React.FC = () => (
 
         <li className={styles.listItem}>
             <NavLink
-                activeClassName={styles.linkActive}
-                className={styles.link}
+                className={(isActive) => classNames(
+                    styles.link,
+                    {[styles.linkActive]: isActive}
+                )}
                 to={'/releases'}
             >
                 Releases
@@ -67,8 +80,10 @@ const MainNav: React.FC = () => (
 
         <li className={styles.listItem}>
             <NavLink
-                activeClassName={styles.linkActive}
-                className={styles.link}
+                className={(isActive) => classNames(
+                    styles.link,
+                    {[styles.linkActive]: isActive}
+                )}
                 to={'/stats'}
             >
                 Stats
