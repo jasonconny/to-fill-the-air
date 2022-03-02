@@ -22,7 +22,7 @@ The server assumes an instance of [MariaDB](https://mariadb.org/) with a copy of
 
 ### Generate database models
 
-From [./server]() `yarn build:models`
+From [./server]() `yarn build:models`. Only need to do this the first time you run the server or if/when the db tables change.
 
 ### Start the server
 

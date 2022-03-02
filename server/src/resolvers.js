@@ -12,7 +12,7 @@ export const resolvers = {
     Query: {
         shows: async () => db.shows.findAll(),
         show: async (parent, args, {db}, info) => db.shows.findByPk(args.id),
-        song_refs: async () => db.song_refs.findAll(),
+        song_refs: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllSongRefs(),
         venues: async () => db.venues.findAll(),
         venue: (parent, args, {db}, info) => db.venues.findByPk(args.id)
     }
