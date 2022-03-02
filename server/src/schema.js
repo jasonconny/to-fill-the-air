@@ -11,6 +11,12 @@ export const typeDefs = gql`
         venue: Venue!
     }
 
+    type Song_Ref {
+        song_ref_id: ID!
+        title: String!
+        composer: String
+    }
+
     type Venue {
         id: ID!
         name: String!
@@ -28,7 +34,9 @@ export const typeDefs = gql`
     type Query {
         shows: [Show!],
         show(id: ID!): Show,
-        venues: [Venue!],
-        venue(id: ID!): Venue
+        song_ref(song_ref_id: ID!): Song_Ref,
+        song_refs: [Song_Ref!],
+        venue(id: ID!): Venue,
+        venues: [Venue!]
     }
 `;

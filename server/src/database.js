@@ -1,4 +1,5 @@
 import Sequelize from 'sequelize';
+import { shows, song_refs, venues } from './models';
 
 let db = {}
 
@@ -31,7 +32,11 @@ try {
     console.error('unable to connect to db', error);
 }
 
-let models = [];
+let models = [
+    shows,
+    song_refs,
+    venues
+];
 
 // Initialize models
 models.forEach(model => {

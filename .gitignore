@@ -8,6 +8,7 @@
 
 # database models
 **/models/*.js
+!**/models/index.js
 
 # production
 **/build

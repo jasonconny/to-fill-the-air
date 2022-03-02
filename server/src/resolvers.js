@@ -10,10 +10,11 @@ export const resolvers = {
         shows: (parent, args, context, info) => parent.getShows(),
     },
     Query: {
-        shows: async () => db.show.findAll(),
-        show: async (parent, args, {db}, info) => db.show.findByPk(args.id),
-        venues: async () => db.venue.findAll(),
-        venue: (parent, args, {db}, info) => db.venue.findByPk(args.id)
+        shows: async () => db.shows.findAll(),
+        show: async (parent, args, {db}, info) => db.shows.findByPk(args.id),
+        song_refs: async () => db.song_refs.findAll(),
+        venues: async () => db.venues.findAll(),
+        venue: (parent, args, {db}, info) => db.venues.findByPk(args.id)
     }
 };
 
