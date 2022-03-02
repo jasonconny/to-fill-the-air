@@ -1,14 +1,15 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
-    entry: './src/app.js',
+    entry: './src/server.js',
     target: 'node',
     externals: [nodeExternals()],
     output: {
-        filename: 'app.js',
+        filename: 'server.js',
         path: path.resolve(__dirname, 'build')
     },
     resolve: {
@@ -26,5 +27,8 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin()
+    ]
 }
