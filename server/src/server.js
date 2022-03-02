@@ -5,7 +5,7 @@ import express from 'express';
 import * as http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import ToFillTheAir from './ToFillTheAir';
+import ToFillTheAirAPI from './datasources/toFillTheAir';
 import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
 
@@ -31,7 +31,7 @@ async function startApolloServer() {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
-        dataSources: () =>({ toFillTheAir: new ToFillTheAir(knexConfig) }),
+        dataSources: () =>({ toFillTheAir: new ToFillTheAirAPI(knexConfig) }),
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
     });
 
