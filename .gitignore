@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# database models
+**/models/*.js
+
 # production
 **/build
 

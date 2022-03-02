@@ -1,6 +1,6 @@
 {
 	"name": "to-fill-the-air-server",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Grateful Dead set lists server.",
 	"main": "src/server.js",
 	"repository": "https://github.com/jasonconny/to-fill-the-air.git",
@@ -24,6 +24,7 @@
 		"mysql2": "^2.1.0",
 		"npm-run-all": "^4.1.5",
 		"sequelize": "^6.17.0",
+		"sequelize-auto": "^0.8.8",
 		"webpack-cli": "^4.9.2"
 	},
 	"devDependencies": {
@@ -38,6 +39,7 @@
 		"start": "npm-run-all --parallel build:watch run:watch",
 		"build": "webpack",
 		"build:watch": "webpack --watch",
+        "build:models": "node ./src/buildModels.js",
 		"run": "node ./build/server.js",
 		"run:watch": "nodemon ./build/server.js"
 	}
