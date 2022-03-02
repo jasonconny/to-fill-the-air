@@ -16,8 +16,7 @@ const sequelize = new Sequelize('toFillTheAir', DB_USERNAME, DB_PASSWORD, {
         min: 0,
         acquire: 30000,
         idle: 10000
-    },
-    operatorsAliases: false
+    }
 });
 
 try {
@@ -48,4 +47,4 @@ Object.keys(db).forEach(key => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db;
+export default db;
