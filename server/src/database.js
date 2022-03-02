@@ -1,10 +1,12 @@
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
 let db = {}
 
-const sequelize = new Sequelize('to-fill-the-air', 'graphql', '12345', {
-    host: 'localhost',
-    port: '8080',
+const { DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD } = process.env;
+
+const sequelize = new Sequelize('toFillTheAir', DB_USERNAME, DB_PASSWORD, {
+    host: DB_HOST,
+    port: DB_PORT,
     dialect: 'mariadb',
     define:{
         freezeTableName: true
@@ -17,6 +19,13 @@ const sequelize = new Sequelize('to-fill-the-air', 'graphql', '12345', {
     },
     operatorsAliases: false
 });
+
+try {
+    await sequelize.authenticate();
+    console.log('connected to db');
+} catch (error) {
+    console.error('unable to connect to db', error);
+}
 
 let models = [
     require('./models/show'),

@@ -1,21 +1,19 @@
-const { GraphQLDate } = require('graphql-iso-date');
+import { GraphQLDate } from 'graphql-iso-date';
+// import * as db from './database';
 
-module.exports = {
-	resolvers: {
-		Date: GraphQLDate,
-		Show: {
-			venue: (parent, args, context, info) => parent.getVenue(),
-},
-		Venue: {
-			shows: (parent, args, context, info) => parent.getShows(),
-		},
-		Query: {
-			shows: (parent, args, {db}, info) => db.show.findAll(),
-			venues: (parent, args, {db}, info) => db.venue.findAll(),
-			show: (parent, args, {db}, info) => db.show.findByPk(id),
-			venue: (parent, args, {db}, info) => db.venue.findByPk(id)
-		},
-
-	}
+export const resolvers = {
+    Date: GraphQLDate,
+    Show: {
+        venue: (parent, args, context, info) => parent.getVenue(),
+    },
+    Venue: {
+        shows: (parent, args, context, info) => parent.getShows(),
+    },
+    // Query: {
+    //     shows: async () => db.show.findAll(),
+    //     show: async (parent, args, {db}, info) => db.show.findByPk(args.id),
+    //     venues: async () => db.venue.findAll(),
+    //     venue: (parent, args, {db}, info) => db.venue.findByPk(args.id)
+    // }
 };
 

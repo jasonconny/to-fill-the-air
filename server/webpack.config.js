@@ -7,6 +7,9 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: './src/server.js',
     target: 'node',
+    experiments: {
+        topLevelAwait: true
+    },
     externals: [nodeExternals()],
     output: {
         filename: 'server.js',

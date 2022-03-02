@@ -1,11 +1,12 @@
-const { ApolloServer } = require('apollo-server-express');
-const { ApolloServerPluginDrainHttpServer } = require('apollo-server-core');
-const express = require('express');
-const http = require('http');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const { typeDefs } = require('./schema');
-const { resolvers } = require('./resolvers');
+import 'dotenv/config';
+import { ApolloServer } from 'apollo-server-express';
+import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
+import express from 'express';
+import * as http from 'http';
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import { typeDefs } from './schema';
+import { resolvers } from './resolvers';
 
 async function startApolloServer() {
     const app = express();
