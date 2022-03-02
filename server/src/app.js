@@ -1,24 +1,34 @@
-import express from 'express'
-const bodyParser = require('body-parser');
 const { ApolloServer } = require('apollo-server-express');
+import { ApolloServerPluginDrainHttpServer } from 'apollo-server-core';
+const express = require('express');
+const http = require('http');
+const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express();
+const { typeDefs } = require('./schema');
+const { resolvers } = require('./resolvers');
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+async function startApolloServer() {
+    const app = express();
+    const httpServer = http.createServer(app);
 
-const server = new ApolloServer({
-    modules: [
-        require('./GraphQL/shows'),
-        require('./GraphQL/venues')
-    ]
-});
+    app.use(bodyParser.json())
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(cors());
 
-server.applyMiddleware({ app });
+    const server = new ApolloServer({
+        typeDefs,
+        resolvers,
+        plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
+    });
 
-app.get('/', (req, res) => res.send('hello world'));
+    await server.start();
 
-app.listen({ port: 5000 }, () =>
-    console.log('server ready at http://localhost:5000')
-)
+    server.applyMiddleware({ app });
+
+
+    httpServer.listen({ port: 4000 }, () =>
+        console.log(`server ready at http://localhost:4000/graphql`)
+    );
+}
+
+startApolloServer().then(() => console.log('server starting'));
