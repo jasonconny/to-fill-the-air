@@ -5,10 +5,22 @@ import express from 'express';
 import * as http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import ToFillTheAirAPI from './datasources/toFillTheAir';
 import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
 
 async function startApolloServer() {
+    const { DB_NAME, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD } = process.env;
+    const knexConfig = {
+        client: 'mysql2',
+        connection: {
+            host: DB_HOST,
+            port: DB_PORT,
+            user: DB_USERNAME,
+            password: DB_PASSWORD,
+            database: DB_NAME
+        }
+    };
     const app = express();
     const httpServer = http.createServer(app);
 
@@ -19,6 +31,7 @@ async function startApolloServer() {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
+        dataSources: () =>({ toFillTheAir: new ToFillTheAirAPI(knexConfig) }),
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
     });
 

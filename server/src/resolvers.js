@@ -1,19 +1,17 @@
-import { GraphQLDate } from 'graphql-iso-date';
-import * as db from './database';
-
 export const resolvers = {
-    Date: GraphQLDate,
     Show: {
-        venue: (parent, args, context, info) => parent.getVenue(),
+        venue: (show, __, { dataSources }) => dataSources.toFillTheAir.getVenueById(show.venue_id),
     },
     Venue: {
-        shows: (parent, args, context, info) => parent.getShows(),
+        shows: (venue, __, { dataSources }) => dataSources.toFillTheAir.getShowsFromVenue(venue.venue_id),
     },
     Query: {
-        shows: async () => db.show.findAll(),
-        show: async (parent, args, {db}, info) => db.show.findByPk(args.id),
-        venues: async () => db.venue.findAll(),
-        venue: (parent, args, {db}, info) => db.venue.findByPk(args.id)
+        shows: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllShows(),
+        show: async (_, { show_id }, { dataSources }) => dataSources.toFillTheAir.getShowById(show_id),
+        song_refs: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllSongRefs(),
+        song_ref: async (_, { song_ref_id }, { dataSources }) => dataSources.toFillTheAir.getSongRefById(song_ref_id),
+        venues: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllVenues(),
+        venue: async (_, { venue_id }, { dataSources }) => dataSources.toFillTheAir.getVenueById(venue_id)
     }
 };
 

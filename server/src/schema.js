@@ -1,18 +1,26 @@
 import { gql } from 'apollo-server-express';
 
 export const typeDefs = gql`
-    scalar Date
+    scalar Latitude
+    scalar LocalDate
+    scalar Longitude
 
     type Show {
-        id: ID!
-        date: Date!
+        show_id: ID!
+        date: LocalDate!
         tour: String
         notes: String
         venue: Venue!
     }
 
+    type Song_Ref {
+        song_ref_id: ID!
+        title: String!
+        composer: String
+    }
+
     type Venue {
-        id: ID!
+        venue_id: ID!
         name: String!
         address1: String
         address2: String
@@ -20,15 +28,17 @@ export const typeDefs = gql`
         state: String!
         zip: String
         country: String!
-        latitude: Float
-        longitude: Float
+        latitude: Latitude
+        longitude: Longitude
         shows: [Show!]!
     }
 
     type Query {
         shows: [Show!],
-        show(id: ID!): Show,
-        venues: [Venue!],
-        venue(id: ID!): Venue
+        show(show_id: ID!): Show,
+        song_ref(song_ref_id: ID!): Song_Ref,
+        song_refs: [Song_Ref!],
+        venue(venue_id: ID!): Venue,
+        venues: [Venue!]
     }
 `;
