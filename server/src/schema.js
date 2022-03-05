@@ -4,7 +4,7 @@ export const typeDefs = gql`
     scalar Date
 
     type Show {
-        id: ID!
+        show_id: ID!
         date: Date!
         tour: String
         notes: String
@@ -18,7 +18,7 @@ export const typeDefs = gql`
     }
 
     type Venue {
-        id: ID!
+        venue_id: ID!
         name: String!
         address1: String
         address2: String
@@ -33,10 +33,10 @@ export const typeDefs = gql`
 
     type Query {
         shows: [Show!],
-        show(id: ID!): Show,
+        show(show_id: ID!): Show,
         song_ref(song_ref_id: ID!): Song_Ref,
         song_refs: [Song_Ref!],
-        venue(id: ID!): Venue,
+        venue(venue_id: ID!): Venue,
         venues: [Venue!]
     }
 `;

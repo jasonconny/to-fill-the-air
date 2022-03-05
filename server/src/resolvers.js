@@ -13,8 +13,9 @@ export const resolvers = {
         shows: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllShows(),
         show: async (parent, args, {db}, info) => db.shows.findByPk(args.id),
         song_refs: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllSongRefs(),
+        song_ref: async (_, { song_ref_id }, { dataSources }) => dataSources.toFillTheAir.getSongRefById(song_ref_id),
         venues: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllVenues(),
-        venue: (parent, args, {db}, info) => db.venues.findByPk(args.id)
+        venue: async (_, { venue_id }, { dataSources }) => dataSources.toFillTheAir.getVenueById(venue_id)
     }
 };
 
