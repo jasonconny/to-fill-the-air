@@ -1,17 +1,13 @@
-import { GraphQLDate } from 'graphql-iso-date';
-import * as db from './database';
-
 export const resolvers = {
-    Date: GraphQLDate,
     Show: {
-        venue: (parent, args, context, info) => parent.getVenue(),
+        venue: (show, __, { dataSources }) => dataSources.toFillTheAir.getVenueById(show.venue_id),
     },
     Venue: {
-        shows: (parent, args, context, info) => parent.getShows(),
+        shows: (venue, __, { dataSources }) => dataSources.toFillTheAir.getShowsFromVenue(venue.venue_id),
     },
     Query: {
         shows: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllShows(),
-        show: async (parent, args, {db}, info) => db.shows.findByPk(args.id),
+        show: async (_, { show_id }, { dataSources }) => dataSources.toFillTheAir.getShowById(show_id),
         song_refs: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllSongRefs(),
         song_ref: async (_, { song_ref_id }, { dataSources }) => dataSources.toFillTheAir.getSongRefById(song_ref_id),
         venues: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllVenues(),

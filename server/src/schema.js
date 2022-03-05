@@ -1,11 +1,13 @@
 import { gql } from 'apollo-server-express';
 
 export const typeDefs = gql`
-    scalar Date
+    scalar Latitude
+    scalar LocalDate
+    scalar Longitude
 
     type Show {
         show_id: ID!
-        date: Date!
+        date: LocalDate!
         tour: String
         notes: String
         venue: Venue!
@@ -26,8 +28,8 @@ export const typeDefs = gql`
         state: String!
         zip: String
         country: String!
-        latitude: Float
-        longitude: Float
+        latitude: Latitude
+        longitude: Longitude
         shows: [Show!]!
     }
 
