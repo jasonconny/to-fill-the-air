@@ -70,4 +70,6 @@ export default class ToFillTheAirAPI extends SQLDataSource {
             .cache(MINUTE);
         return response[0];
     }
+
+    /* TODO: add reducer to convert field names to camelCase from snake_case */
 }

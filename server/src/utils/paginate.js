@@ -38,14 +38,14 @@ export const paginate = ({
     let pages = Array.from(Array((endPage + 1) - startPage).keys()).map(i => startPage + i);
 
     return {
-        currentPage: currentPage,
-        endIndex: endIndex,
-        endPage: endPage,
-        pages: pages,
-        pageSize: pageSize,
-        startIndex: startIndex,
-        startPage: startPage,
-        totalItems: totalItems,
-        totalPages: totalPages
+        currentPage,
+        endIndex,
+        endPage,
+        pages,
+        pageSize,
+        startIndex,
+        startPage,
+        totalItems,
+        totalPages
     }
 };
