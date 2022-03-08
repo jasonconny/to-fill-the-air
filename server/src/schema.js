@@ -13,7 +13,7 @@ export const typeDefs = gql`
         venue: Venue!
     }
 
-    type Song_Ref {
+    type SongRef {
         song_ref_id: ID!
         title: String!
         composer: String
@@ -36,9 +36,31 @@ export const typeDefs = gql`
     type Query {
         shows: [Show!],
         show(show_id: ID!): Show,
-        song_ref(song_ref_id: ID!): Song_Ref,
-        song_refs: [Song_Ref!],
+        songRef(song_ref_id: ID!): SongRef,
+        songRefs: [SongRef]!
+        songRefsWithPagination(
+            currentPage: Int!
+            maxPages: Int
+            pageSize: Int
+        ): SongRefConnection!,
         venue(venue_id: ID!): Venue,
         venues: [Venue!]
+    }
+    
+    type Pagination {
+        currentPage: Int
+        endIndex: Int
+        endPage: Int
+        pages: [Int]
+        pageSize: Int
+        startIndex: Int
+        startPage: Int
+        totalItems: Int
+        totalPages: Int
+    }
+    
+    type SongRefConnection {
+        pagination: Pagination
+        song_refs: [SongRef]!
     }
 `;
