@@ -19,8 +19,7 @@ async function startApolloServer() {
             user: DB_USERNAME,
             password: DB_PASSWORD,
             database: DB_NAME
-        },
-        debug: true
+        }
     };
     const app = express();
     const httpServer = http.createServer(app);
