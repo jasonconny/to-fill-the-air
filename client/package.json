@@ -1,6 +1,6 @@
 {
 	"name": "to-fill-the-air-client",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Grateful Dead set lists client.",
 	"main": "src/ToFillTheAir.tsx",
 	"repository": "git@github.com:jasonconny/to-fill-the-air.git",

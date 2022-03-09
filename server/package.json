@@ -1,6 +1,6 @@
 {
 	"name": "to-fill-the-air-server",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "Grateful Dead set lists server.",
 	"main": "src/server.js",
 	"repository": "https://github.com/jasonconny/to-fill-the-air.git",
