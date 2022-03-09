@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { gql, useQuery } from '@apollo/client';
+import { ISongRef } from 'types/SongRef';
 
 export const GET_SONG_REFS = gql`
     query GetSongRefs {
@@ -19,7 +20,7 @@ const SongsView: React.FC = () => {
 
             {data && data.songRefs ? (
                 <ul>
-                    {data.songRefs.map((songRef: any) => (
+                    {data.songRefs.map((songRef: ISongRef) => (
                         <li key={songRef.song_ref_id}>
                             {songRef.title}<br/>
                             {songRef.composer}
