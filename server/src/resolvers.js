@@ -1,16 +1,27 @@
 import { paginate } from './utils';
 
 export const resolvers = {
+    Set: {
+      songs: async (set, __, { dataSources }) => {
+          const songs = await dataSources.toFillTheAir.getSongsBySetId(set.set_id);
+          return songs.map(async song => {
+              const songRef = await dataSources.toFillTheAir.getSongRefById(song.song_ref_id);
+              return Object.assign({}, songRef, song);
+          });
+      }
+    },
     Show: {
-        venue: (show, __, { dataSources }) => dataSources.toFillTheAir.getVenueById(show.venue_id),
+        sets: async (show, __, { dataSources }) => await dataSources.toFillTheAir.getSetsByShowId(show.show_id),
+        venue: async (show, __, { dataSources }) => await dataSources.toFillTheAir.getVenueById(show.venue_id),
     },
     Venue: {
-        shows: (venue, __, { dataSources }) => dataSources.toFillTheAir.getShowsFromVenue(venue.venue_id),
+        shows: async (venue, __, { dataSources }) => await dataSources.toFillTheAir.getShowsFromVenue(venue.venue_id),
     },
     Query: {
-        shows: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllShows(),
-        show: async (_, { show_id }, { dataSources }) => dataSources.toFillTheAir.getShowById(show_id),
-        songRefs: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllSongRefs(),
+        sets: async (_, { show_id }, { dataSources }) => await dataSources.toFillTheAir.getSetsByShowId(show_id),
+        shows: async (_, __, { dataSources }) => await dataSources.toFillTheAir.getAllShows(),
+        show: async (_, { show_id }, { dataSources }) => await dataSources.toFillTheAir.getShowById(show_id),
+        songRefs: async (_, __, { dataSources }) => await dataSources.toFillTheAir.getAllSongRefs(),
         songRefsWithPagination: async (_, { currentPage = 1, maxPages = 10, pageSize = 20 }, { dataSources }) => {
             const song_refs = await dataSources.toFillTheAir.getAllSongRefs();
             const pagination = paginate({
@@ -24,9 +35,9 @@ export const resolvers = {
                 song_refs
             };
         },
-        songRef: async (_, { song_ref_id }, { dataSources }) => dataSources.toFillTheAir.getSongRefById(song_ref_id),
-        venues: async (_, __, { dataSources }) => dataSources.toFillTheAir.getAllVenues(),
-        venue: async (_, { venue_id }, { dataSources }) => dataSources.toFillTheAir.getVenueById(venue_id)
+        songRef: async (_, { song_ref_id }, { dataSources }) => await dataSources.toFillTheAir.getSongRefById(song_ref_id),
+        venues: async (_, __, { dataSources }) => await dataSources.toFillTheAir.getAllVenues(),
+        venue: async (_, { venue_id }, { dataSources }) => await dataSources.toFillTheAir.getVenueById(venue_id)
     }
 };
 

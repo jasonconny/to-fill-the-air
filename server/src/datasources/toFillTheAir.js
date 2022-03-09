@@ -27,6 +27,15 @@ export default class ToFillTheAirAPI extends SQLDataSource {
             .cache(MINUTE);
     }
 
+    async getSetsByShowId(show_id) {
+        return await this.knex
+            .select('*')
+            .from('sets')
+            .where('show_id', show_id)
+            .orderBy('order')
+            .cache(MINUTE);
+    }
+
     async getShowsFromVenue(venue_id) {
         return await this.knex
             .select('*')
@@ -42,6 +51,15 @@ export default class ToFillTheAirAPI extends SQLDataSource {
             .where('show_id', show_id)
             .cache(MINUTE);
         return response[0];
+    }
+
+    async getSongsBySetId(set_id) {
+        return await this.knex
+            .select('*')
+            .from('songs')
+            .where('set_id', set_id)
+            .orderBy('order')
+            .cache(MINUTE);
     }
 
     async getSongRefById(song_ref_id) {
