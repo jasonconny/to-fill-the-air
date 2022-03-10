@@ -5,6 +5,7 @@ import express from 'express';
 import * as http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import DiscogsAPI from './datasources/discogs';
 import ToFillTheAirAPI from './datasources/toFillTheAir';
 import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
@@ -31,7 +32,10 @@ async function startApolloServer() {
     const server = new ApolloServer({
         typeDefs,
         resolvers,
-        dataSources: () =>({ toFillTheAir: new ToFillTheAirAPI(knexConfig) }),
+        dataSources: () =>({
+            discogsAPI: new DiscogsAPI(),
+            toFillTheAir: new ToFillTheAirAPI(knexConfig)
+        }),
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
     });
 

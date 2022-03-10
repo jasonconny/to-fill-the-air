@@ -18,6 +18,7 @@ export const resolvers = {
         shows: async (venue, __, { dataSources }) => await dataSources.toFillTheAir.getShowsFromVenue(venue.venue_id),
     },
     Query: {
+        artist: async (_, __, { dataSources }) => await dataSources.discogsAPI.getArtist(246650),
         sets: async (_, { show_id }, { dataSources }) => await dataSources.toFillTheAir.getSetsByShowId(show_id),
         shows: async (_, __, { dataSources }) => await dataSources.toFillTheAir.getAllShows(),
         show: async (_, { show_id }, { dataSources }) => await dataSources.toFillTheAir.getShowById(show_id),
