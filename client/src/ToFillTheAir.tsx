@@ -8,7 +8,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import AppProvider from './providers/AppProvider';
 import Router from './router';
-import { authConfig } from './auth_config';
+import { authConfig } from './authConfig';
 
 const apolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     cache: apolloCache,
@@ -18,8 +18,9 @@ const apolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 const ToFillTheAir: React.FC = () => {
     return (
         <Auth0Provider
-            domain={authConfig.AUTH0_DOMAIN}
-            clientId={authConfig.AUTH0_CLIENT_ID}
+            domain={authConfig.domain}
+            clientId={authConfig.clientId}
+            redirectUri={window.location.origin}
         >
             <ApolloProvider client={apolloClient}>
                 <ErrorBoundary>

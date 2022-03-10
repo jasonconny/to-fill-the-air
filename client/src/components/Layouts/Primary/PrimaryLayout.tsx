@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Outlet } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorMessage from 'components/ErrorMessage';
 import Loading from 'components/Loading';
@@ -15,8 +16,8 @@ interface IPrimaryLayoutProps {
     subNav?: React.ReactNode;
 }
 
-const PrimaryLayout: React.FC<IPrimaryLayoutProps> = props => {
-    const { className, showLoading, subNav } = props;
+const PrimaryLayout: React.FC<IPrimaryLayoutProps> = ({ className, showLoading, subNav }) => {
+    const { isAuthenticated, logout } = useAuth0();
 
     return showLoading ? (
         <Loading/>
@@ -45,7 +46,9 @@ const PrimaryLayout: React.FC<IPrimaryLayoutProps> = props => {
                 <Outlet/>
             </main>
 
-            <Footer/>
+            <Footer>
+                {isAuthenticated && <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out</button>}
+            </Footer>
         </ErrorBoundary>
     );
 };
