@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const postcssPresetEnv = require('postcss-preset-env');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -147,6 +148,7 @@ module.exports = async (env={}) => {
                 extensions: ['js', 'jsx', 'ts', 'tsx'],
                 quiet: true
             }),
+            new Dotenv(),
             new CleanWebpackPlugin({
                 cleanStaleWebpackAssets: false
             }),
