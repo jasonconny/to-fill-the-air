@@ -8,7 +8,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import AppProvider from './providers/AppProvider';
 import Router from './router';
-import { authConfig } from './authConfig';
+import { authConfig } from 'authConfig';
 
 const apolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     cache: apolloCache,
