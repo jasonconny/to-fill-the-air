@@ -3,25 +3,23 @@ import {ApolloClient, ApolloProvider, NormalizedCacheObject} from '@apollo/clien
 import { apolloCache } from './apolloCache';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import env from 'react-dotenv';
 import { Helmet } from 'react-helmet';
 import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import AppProvider from './providers/AppProvider';
 import Router from './router';
-
-const { APOLLO_SERVER_URI, AUTH0_CLIENT_ID, AUTH0_DOMAIN } = env;
+import { authConfig } from './auth_config';
 
 const apolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     cache: apolloCache,
-    uri: APOLLO_SERVER_URI
+    uri: process.env.APOLLO_SERVER_URI
 });
 
 const ToFillTheAir: React.FC = () => {
     return (
         <Auth0Provider
-            domain={AUTH0_DOMAIN}
-            clientId={AUTH0_CLIENT_ID}
+            domain={authConfig.AUTH0_DOMAIN}
+            clientId={authConfig.AUTH0_CLIENT_ID}
         >
             <ApolloProvider client={apolloClient}>
                 <ErrorBoundary>

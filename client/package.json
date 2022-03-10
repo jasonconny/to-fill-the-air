@@ -34,6 +34,7 @@
 		"clean-webpack-plugin": "^4.0.0",
 		"copy-webpack-plugin": "^10.2.4",
 		"css-loader": "^6.6.0",
+		"dotenv-webpack": "^7.1.0",
 		"eslint": "^8.9.0",
 		"eslint-plugin-react": "^7.21.5",
 		"eslint-plugin-react-hooks": "^4.2.0",
@@ -60,7 +61,6 @@
 		"loglevel": "^1.8.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
-		"react-dotenv": "^0.1.3",
 		"react-error-boundary": "^3.1.3",
 		"react-helmet": "^6.1.0",
 		"react-router": "^6.2.1",
@@ -71,11 +71,6 @@
 		"lint": "eslint . --ext .js,.jsx,.ts,.tsx",
 		"lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
 		"type-check": "tsc --noEmit",
-		"start": "react-dotenv && webpack serve --config webpack.config.js --env development --hot --progress --color"
-	},
-	"react-dotenv": {
-		"whitelist": [
-			"APOLLO_SERVER_URI"
-		]
+		"start": "webpack serve --config webpack.config.js --env development --hot --progress --color"
 	}
 }
