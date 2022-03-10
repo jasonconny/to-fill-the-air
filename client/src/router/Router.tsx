@@ -6,7 +6,6 @@ import HomeView from '../views/HomeView';
 import DefaultRoutes from './DefaultRoutes';
 import ReleasesRoutes from './ReleasesRoutes';
 
-
 const Router: React.FC = () => (
     <BrowserRouter>
         <ScrollToTop/>

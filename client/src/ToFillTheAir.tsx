@@ -1,3 +1,4 @@
+import { Auth0Provider} from '@auth0/auth0-react';
 import {ApolloClient, ApolloProvider, NormalizedCacheObject} from '@apollo/client';
 import { apolloCache } from './apolloCache';
 import * as React from 'react';
@@ -9,7 +10,7 @@ import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import AppProvider from './providers/AppProvider';
 import Router from './router';
 
-const { APOLLO_SERVER_URI } = env;
+const { APOLLO_SERVER_URI, AUTH0_CLIENT_ID, AUTH0_DOMAIN } = env;
 
 const apolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({
     cache: apolloCache,
@@ -18,21 +19,26 @@ const apolloClient: ApolloClient<NormalizedCacheObject> = new ApolloClient({
 
 const ToFillTheAir: React.FC = () => {
     return (
-        <ApolloProvider client={apolloClient}>
-            <ErrorBoundary>
-                <Helmet>
-                    <title>
-                        To Fill The Air | Grateful Dead set lists
-                    </title>
-                </Helmet>
+        <Auth0Provider
+            domain={AUTH0_DOMAIN}
+            clientId={AUTH0_CLIENT_ID}
+        >
+            <ApolloProvider client={apolloClient}>
+                <ErrorBoundary>
+                    <Helmet>
+                        <title>
+                            To Fill The Air | Grateful Dead set lists
+                        </title>
+                    </Helmet>
 
-                <GlobalStyles/>
+                    <GlobalStyles/>
 
-                <AppProvider>
-                    <Router/>
-                </AppProvider>
-            </ErrorBoundary>
-        </ApolloProvider>
+                    <AppProvider>
+                        <Router/>
+                    </AppProvider>
+                </ErrorBoundary>
+            </ApolloProvider>
+        </Auth0Provider>
     );
 };
 

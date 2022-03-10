@@ -54,6 +54,7 @@
 	},
 	"dependencies": {
 		"@apollo/client": "^3.5.10",
+		"@auth0/auth0-react": "^1.9.0",
 		"classnames": "^2.2.6",
 		"graphql": "^16.3.0",
 		"loglevel": "^1.8.0",
@@ -72,7 +73,9 @@
 		"type-check": "tsc --noEmit",
 		"start": "react-dotenv && webpack serve --config webpack.config.js --env development --hot --progress --color"
 	},
-    "react-dotenv": {
-        "whitelist": ["APOLLO_SERVER_URI"]
-    }
+	"react-dotenv": {
+		"whitelist": [
+			"APOLLO_SERVER_URI"
+		]
+	}
 }
