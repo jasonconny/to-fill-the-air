@@ -23,7 +23,7 @@ export const typeDefs = gql`
         lastName: String
         name: String
         middleName: String
-        resourceUrl: URL
+        resource_url: URL
     }
     
     type Pagination {

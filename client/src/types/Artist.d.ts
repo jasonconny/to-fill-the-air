@@ -1,6 +1,6 @@
 type Member = {
     active: boolean;
-    id: number;
+    id: string;
     firstName: string;
     lastName: string;
     name: string;

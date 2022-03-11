@@ -12,6 +12,23 @@ export default class DiscogsAPI extends RESTDataSource {
     }
 
     artistReducer(artist) {
+        const additionalMembers = [
+            {
+                id: "305837",
+                name: "Trey Anastasio",
+                resource_url: "https://api.discogs.com/artists/305837",
+                active: false
+            },
+            {
+                id: "541772",
+                name: "Jeff Chimenti",
+                resource_url: "https://api.discogs.com/artists/541772",
+                active: false
+            }
+        ];
+
+        artist.members.push(additionalMembers[0], additionalMembers[1]);
+
         const newMembers = artist.members.map(member => {
             const splitName = member.name.split(' ');
             const newMember = {
