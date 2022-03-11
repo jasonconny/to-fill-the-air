@@ -38,6 +38,10 @@ export const typeDefs = gql`
         totalPages: Int
     }
 
+    type Release {
+        id: ID!
+    }
+
     type Set {
         set_id: ID!
         show_id: ID!
@@ -92,6 +96,7 @@ export const typeDefs = gql`
 
     type Query {
         artist(artist_id: ID!): Artist
+        releases(artist_id: ID!): [Release!]!
         sets(show_id: ID!): [Set]
         shows: [Show!]
         show(show_id: ID!): Show

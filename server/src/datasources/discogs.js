@@ -4,11 +4,19 @@ export default class DiscogsAPI extends RESTDataSource {
     constructor() {
         super();
         this.baseURL = 'https://api.discogs.com/';
+        this.consumerKey = process.env.DISCOGS_CONSUMER_KEY;
+        this.consumerSecret = process.env.DISCOGS_CONSUMER_SECRET;
     }
 
     async getArtist(artistId) {
         const response = await this.get(`artists/${artistId}`);
         return this.artistReducer(response);
+    }
+
+    async getArtistReleases(artistId) {
+        const response =  await this.get(`artists/${artistId}/releases?key=${this.consumerKey}&secret=${this.consumerSecret}`);
+        console.log(response);
+        return [];
     }
 
     artistReducer(artist) {
