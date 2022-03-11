@@ -98,7 +98,7 @@ export const typeDefs = gql`
         artist(artist_id: ID!): Artist
         releases(artist_id: ID!): [Release!]!
         sets(show_id: ID!): [Set]
-        shows: [Show!]
+        shows(year: String): [Show!]
         show(show_id: ID!): Show
         songs: [Song]!
         songRef(song_ref_id: ID!): SongRef
