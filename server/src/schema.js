@@ -19,7 +19,10 @@ export const typeDefs = gql`
     type Member {
         active: Boolean
         id: ID!
+        firstName: String
+        lastName: String
         name: String
+        middleName: String
         resourceUrl: URL
     }
     
@@ -88,7 +91,7 @@ export const typeDefs = gql`
     }
 
     type Query {
-        artist: Artist
+        artist(artist_id: ID!): Artist
         sets(show_id: ID!): [Set]
         shows: [Show!]
         show(show_id: ID!): Show
