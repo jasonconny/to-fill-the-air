@@ -5,7 +5,7 @@ export const typeDefs = gql`
     scalar LocalDate
     scalar Longitude
     scalar Time
-    scalar URL
+    scalar URL 
     
     type Artist {
         id: ID!
@@ -17,8 +17,8 @@ export const typeDefs = gql`
     }
     
     type Member {
-        active: Boolean
         id: ID!
+        active: Boolean
         firstName: String
         lastName: String
         name: String

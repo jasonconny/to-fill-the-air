@@ -20,7 +20,7 @@ export default class DiscogsAPI extends RESTDataSource {
                 middleName: splitName.length > 2 ? splitName[1] : null
             };
             return Object.assign({}, member, newMember);
-        });
+        }).sort((a, b) => (a.lastName > b.lastName ? 1 : -1));
         return Object.assign({}, artist, { members: newMembers });
     }
 }

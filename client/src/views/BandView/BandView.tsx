@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { gql, useQuery } from '@apollo/client';
-import { ArtistContext } from 'providers/ArtistProvider';
+import { ArtistData } from 'types/Artist';
 
 export const GET_ARTIST = gql`
     query GetArtist($artistId: ID!) {
@@ -17,24 +17,15 @@ export const GET_ARTIST = gql`
 `;
 
 const BandView: React.FC = () => {
-    const { data } = useQuery(GET_ARTIST, { variables: { artistId: '246650' }});
-    const { artistData, setArtistIdToFetch } = React.useContext(ArtistContext);
-
-    React.useEffect(() => {
-        setArtistIdToFetch(246650);
-    }, [setArtistIdToFetch]);
-
-    React.useEffect(() => {
-        console.log(data);
-    }, [data]);
+    const { data } = useQuery<ArtistData>(GET_ARTIST, { variables: { artistId: '246650' }});
 
     return (
         <section>
-            <h2>{artistData?.name} were:</h2>
+            <h2>{data?.artist.name} were:</h2>
 
-            {artistData && artistData.members.length > 0 && (
+            {data && data.artist.members.length > 0 && (
                 <ul>
-                    {artistData.members
+                    {data.artist.members
                         .filter(member => !!member)
                         .map((member, index) => (
                             <li key={index}>

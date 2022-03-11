@@ -3,3 +3,7 @@ export interface ISongRef {
     title: string;
     song_ref_id: string;
 }
+
+type SongRefsData = {
+    songRefs: Array<ISongRef>
+}
