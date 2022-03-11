@@ -5,6 +5,26 @@ export const typeDefs = gql`
     scalar LocalDate
     scalar Longitude
     scalar Time
+    scalar URL 
+    
+    type Artist {
+        id: ID!
+        members: [Member]!
+        name: String
+        profile: String
+        releases_url: URL
+        urls: [URL]
+    }
+    
+    type Member {
+        id: ID!
+        active: Boolean
+        firstName: String
+        lastName: String
+        name: String
+        middleName: String
+        resource_url: URL
+    }
     
     type Pagination {
         currentPage: Int
@@ -16,6 +36,10 @@ export const typeDefs = gql`
         startPage: Int
         totalItems: Int
         totalPages: Int
+    }
+
+    type Release {
+        id: ID!
     }
 
     type Set {
@@ -71,18 +95,20 @@ export const typeDefs = gql`
     }
 
     type Query {
+        artist(artist_id: ID!): Artist
+        releases(artist_id: ID!): [Release!]!
         sets(show_id: ID!): [Set]
-        shows: [Show!],
-        show(show_id: ID!): Show,
+        shows: [Show!]
+        show(show_id: ID!): Show
         songs: [Song]!
-        songRef(song_ref_id: ID!): SongRef,
+        songRef(song_ref_id: ID!): SongRef
         songRefs: [SongRef]!
         songRefsWithPagination(
             currentPage: Int!
             maxPages: Int
             pageSize: Int
-        ): SongRefConnection!,
-        venue(venue_id: ID!): Venue,
+        ): SongRefConnection!
+        venue(venue_id: ID!): Venue
         venues: [Venue!]
     }
 `;

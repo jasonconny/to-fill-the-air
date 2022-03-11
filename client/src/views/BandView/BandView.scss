@@ -1,0 +1,9 @@
+.lineups {
+  display: flex;
+  flex-wrap: wrap;
+
+  ul {
+    flex: 1 0 25%;
+    max-width: 25%;
+  }
+}

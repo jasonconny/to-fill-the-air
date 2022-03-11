@@ -5,3 +5,7 @@ export interface IVenue {
     state?: string;
     venue_id: string;
 }
+
+type VenuesData = {
+    venues: Array<IVenue>
+}
