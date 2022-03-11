@@ -1,13 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import styles from './ShowCard.scss';
+import { IShow } from '../../types/Show';
 
 interface IShowCardProps {
     show: IShow;
 }
 
-export const ShowCard: React.FC<IShowCardProps> = props => {
-    const { date, sets, venue } = props.show;
+export const ShowCard: React.FC<IShowCardProps> = ({ show }) => {
+    const { date, sets, venue } = show;
     const utcDate = new Date(date);
     const formattedDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000);
 
@@ -36,7 +37,7 @@ export const ShowCard: React.FC<IShowCardProps> = props => {
 
                 <h4 className={styles.location}>{venue.city}, {venue.state}</h4>
 
-                {sets.filter(set => !!set)
+                {sets && sets.filter(set => !!set)
                     .map((set, index) => (
                         <React.Fragment key={index}>
                             {sets.length > 1 && (
