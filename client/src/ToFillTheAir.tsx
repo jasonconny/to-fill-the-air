@@ -6,7 +6,6 @@ import * as ReactDOM from 'react-dom';
 import { Helmet } from 'react-helmet';
 import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
-import AppProvider from './providers/AppProvider';
 import Router from './router';
 import { authConfig } from 'authConfig';
 
@@ -32,9 +31,7 @@ const ToFillTheAir: React.FC = () => {
 
                     <GlobalStyles/>
 
-                    <AppProvider>
-                        <Router/>
-                    </AppProvider>
+                    <Router/>
                 </ErrorBoundary>
             </ApolloProvider>
         </Auth0Provider>

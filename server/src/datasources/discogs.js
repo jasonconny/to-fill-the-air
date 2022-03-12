@@ -15,7 +15,7 @@ export default class DiscogsAPI extends RESTDataSource {
 
     async getArtistReleases(artistId) {
         const response =  await this.get(`artists/${artistId}/releases?key=${this.consumerKey}&secret=${this.consumerSecret}`);
-        console.log(response);
+        console.log(response[0]);
         return [];
     }
 

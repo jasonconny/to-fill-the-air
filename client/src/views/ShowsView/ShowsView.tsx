@@ -1,42 +1,66 @@
 import * as React from 'react';
-import { ShowsContext } from 'providers/ShowsProvider';
+import { gql, useQuery } from '@apollo/client';
+import { useNavigate } from 'react-router';
+import { useParams } from 'react-router-dom';
 import Select from 'components/Select';
 // import YearsNav from './YearsNav';
 import ShowCard from '../../components/ShowCard'
 import styles from './ShowsView.scss';
+import { ShowsData } from 'types/Show';
 
-const years: Array<string> = ['1965', '1966', '1967', '1968', '1969', '1970', '1971', '1972', '1973', '1974', '1975']
+export const GET_SHOWS = gql`
+    query GetShows($year: String) {
+        shows(year: $year) {
+            date
+            show_id
+            venue {
+                city
+                country
+                name
+                state
+            }
+            sets {
+                set_id
+                name
+                songs {
+                    title
+                    segue
+                }
+            }
+        }
+    }
+`
+
+const years: Array<string> = ['1969', '1972', '1974', '1975', '1978', '1990', '2015']
 
 const ShowsView: React.FC = () => {
-    const { showsData, setShowYearToFetch } = React.useContext(ShowsContext);
+    const navigate = useNavigate();
+    const { year } = useParams();
+    const { data } = useQuery<ShowsData>(GET_SHOWS, { variables: { year: year }});
 
-    const [selectedYear, setSelectedYear] = React.useState<string | null>(null);
     // const [shows, setShows] = React.useState<Array<IShow> | null>(null);
 
-    React.useEffect(() => {
-        if (selectedYear) {
-            setShowYearToFetch(selectedYear)
-        }
-    }, [selectedYear, setShowYearToFetch]);
-
     const handleYearsSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedYear(event.currentTarget.value);
+        navigate(`/shows/${event.currentTarget.value}`);
     }
 
     return (
         <>
             <section className={styles.section}>
-                <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
+                <h1>Shows{year ? ` from ${year}` : null}</h1>
 
-                {showsData && showsData.length > 0 ? (
+                {data && data.shows.length > 0 ? (
                     <ul className={styles.showList}>
-                        {showsData.filter(show => !!show)
-                            .map((show, index) => (
+                        {data.shows.filter(show => !!show)
+                            .map((show) => (
                                 <li
                                     className={styles.showListItem}
-                                    key={index}
+                                    key={show.show_id}
                                 >
-                                    <ShowCard show={show}/>
+                                    <ShowCard
+                                        linkDate={true}
+                                        show={show}
+                                    />
                                 </li>
                             ))
                         }
@@ -52,7 +76,7 @@ const ShowsView: React.FC = () => {
                     name={'years-filter'}
                     onChange={handleYearsSelect}
                     options={years}
-                    selectedOption={selectedYear ? selectedYear : ''}
+                    selectedOption={year ? year : ''}
                 />
             </aside>
         </>

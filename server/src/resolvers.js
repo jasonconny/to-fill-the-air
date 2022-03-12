@@ -21,8 +21,9 @@ export const resolvers = {
         artist: async (_, { artist_id }, { dataSources }) => await dataSources.discogsAPI.getArtist(artist_id),
         releases: async (_, { artist_id }, { dataSources }) => await dataSources.discogsAPI.getArtistReleases(artist_id),
         sets: async (_, { show_id }, { dataSources }) => await dataSources.toFillTheAir.getSetsByShowId(show_id),
-        shows: async (_, __, { dataSources }) => await dataSources.toFillTheAir.getAllShows(),
+        shows: async (_, { year }, { dataSources }) => await dataSources.toFillTheAir.getShows(year),
         show: async (_, { show_id }, { dataSources }) => await dataSources.toFillTheAir.getShowById(show_id),
+        showByDate: async (_, { date }, { dataSources }) => await dataSources.toFillTheAir.getShowByDate(date),
         songRefs: async (_, __, { dataSources }) => await dataSources.toFillTheAir.getAllSongRefs(),
         songRefsWithPagination: async (_, { currentPage = 1, maxPages = 10, pageSize = 20 }, { dataSources }) => {
             const song_refs = await dataSources.toFillTheAir.getAllSongRefs();

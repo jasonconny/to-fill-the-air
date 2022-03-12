@@ -3,12 +3,21 @@ import { SQLDataSource } from 'datasource-sql';
 const MINUTE = 60;
 
 export default class ToFillTheAirAPI extends SQLDataSource {
-    async getAllShows() {
-        return await this.knex
-            .select('*')
-            .from('shows')
-            .orderBy('date')
-            .cache(MINUTE);
+    async getShows(year) {
+        if (year) {
+            return await this.knex
+                .select('*')
+                .from('shows')
+                .whereRaw('YEAR(date) = ?', year)
+                .orderBy('date')
+                .cache(MINUTE);
+        } else {
+            return await this.knex
+                .select('*')
+                .from('shows')
+                .orderBy('date')
+                .cache(MINUTE);
+        }
     }
 
     async getAllSongRefs() {
@@ -42,6 +51,15 @@ export default class ToFillTheAirAPI extends SQLDataSource {
             .from('shows')
             .where('venue_id', venue_id)
             .cache(MINUTE);
+    }
+
+    async getShowByDate(date) {
+        const response = await this.knex
+            .select('*')
+            .from('shows')
+            .where('date', date)
+            .cache(MINUTE);
+        return response[0];
     }
 
     async getShowById(show_id) {
