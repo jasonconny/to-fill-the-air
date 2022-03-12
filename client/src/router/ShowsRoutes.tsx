@@ -3,11 +3,17 @@ import { Route, Routes } from 'react-router'
 import Loading from 'components/Loading';
 import { PrimaryLayout } from 'components/Layouts';
 
-
 const LazyShowsView = React.lazy(() =>
     import(
         '../views/ShowsView'
         /* webpackChunkName: "ShowsView" */
+    )
+);
+
+const LazyShowView = React.lazy(() =>
+    import(
+        '../views/ShowView'
+        /* webpackChunkName: "ShowView" */
     )
 );
 
@@ -17,6 +23,7 @@ const ShowsRoutes: React.FC = () => (
             <Route element={<PrimaryLayout/>}>
                 <Route index element={<LazyShowsView/>} />
                 <Route path={':year'} element={<LazyShowsView/>} />
+                <Route path={':year/:month/:date'} element={<LazyShowView/>} />
             </Route>
         </Routes>
     </React.Suspense>

@@ -17,3 +17,8 @@ interface IShow {
 type ShowsData = {
     shows: Array<IShow>
 }
+
+type ShowData = {
+    show?: IShow,
+    showByDate?: IShow
+}

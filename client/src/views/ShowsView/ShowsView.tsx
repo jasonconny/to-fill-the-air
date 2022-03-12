@@ -57,7 +57,10 @@ const ShowsView: React.FC = () => {
                                     className={styles.showListItem}
                                     key={show.show_id}
                                 >
-                                    <ShowCard show={show}/>
+                                    <ShowCard
+                                        linkDate={true}
+                                        show={show}
+                                    />
                                 </li>
                             ))
                         }

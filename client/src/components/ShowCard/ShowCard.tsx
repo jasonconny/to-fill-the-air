@@ -1,36 +1,58 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './ShowCard.scss';
 import { IShow } from '../../types/Show';
 
 interface IShowCardProps {
+    linkDate?: boolean;
     show: IShow;
 }
 
-export const ShowCard: React.FC<IShowCardProps> = ({ show }) => {
-    const { date, sets, venue } = show;
+type DateContainerProps = {
+    date: string
+};
+
+const DateContainer: React.FC<DateContainerProps> = ({ date }) => {
     const utcDate = new Date(date);
     const formattedDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000);
 
     return (
+        <div className={styles.dateContainer}>
+            <span className={styles.dateContainerWeekday}>
+                {formattedDate.toLocaleString('en-US', {weekday: 'long'})}
+            </span>
+
+            <span className={styles.dateContainerMonth}>
+                {formattedDate.toLocaleString('en-US', {month: 'short'})}
+            </span>
+
+            <span className={styles.dateContainerDate}>
+                {formattedDate.toLocaleString('en-US', {day: 'numeric'})}
+            </span>
+
+            <span className={styles.dateContainerYear}>
+                {formattedDate.toLocaleString('en-US', {year: 'numeric'})}
+            </span>
+        </div>
+    );
+}
+
+export const ShowCard: React.FC<IShowCardProps> = ({ linkDate, show }) => {
+    const { date, sets, venue } = show;
+
+    return (
         <div className={styles.block}>
-            <div className={styles.dateContainer}>
-                <span className={styles.dateContainerWeekday}>
-                    {formattedDate.toLocaleString('en-US', {weekday: 'long'})}
-                </span>
-
-                <span className={styles.dateContainerMonth}>
-                    {formattedDate.toLocaleString('en-US', {month: 'short'})}
-                </span>
-
-                <span className={styles.dateContainerDate}>
-                    {formattedDate.toLocaleString('en-US', {day: 'numeric'})}
-                </span>
-
-                <span className={styles.dateContainerYear}>
-                    {formattedDate.toLocaleString('en-US', {year: 'numeric'})}
-                </span>
-            </div>
+            {linkDate ? (
+                <Link
+                    className={styles.dateLink}
+                    to={date.split('T')[0].replaceAll('-', '/')}
+                >
+                    <DateContainer date={date}/>
+                </Link>
+            ) : (
+                <DateContainer date={date}/>
+            )}
 
             <div className={styles.content}>
                 <h3 className={styles.venue}>{venue.name}</h3>

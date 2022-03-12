@@ -53,6 +53,15 @@ export default class ToFillTheAirAPI extends SQLDataSource {
             .cache(MINUTE);
     }
 
+    async getShowByDate(date) {
+        const response = await this.knex
+            .select('*')
+            .from('shows')
+            .where('date', date)
+            .cache(MINUTE);
+        return response[0];
+    }
+
     async getShowById(show_id) {
         const response = await this.knex
             .select('*')

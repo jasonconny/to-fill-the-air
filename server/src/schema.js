@@ -100,6 +100,7 @@ export const typeDefs = gql`
         sets(show_id: ID!): [Set]
         shows(year: String): [Show!]
         show(show_id: ID!): Show
+        showByDate(date: LocalDate!): Show
         songs: [Song]!
         songRef(song_ref_id: ID!): SongRef
         songRefs: [SongRef]!

@@ -1,0 +1,25 @@
+@import '../../components/GlobalStyles/scss/variables/colors';
+
+.main {
+  display: flex;
+}
+
+.section {
+  flex: auto 2 0;
+}
+
+.sidebar {
+  min-width: 20rem;
+  padding: 3rem 2rem;
+}
+
+.show-list {
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
