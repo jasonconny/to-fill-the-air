@@ -1,11 +1,16 @@
 import { IVenue } from './Venue';
 
+type Set = {
+    name: string,
+    songs: Array<ISong>
+}
+
 interface IShow {
     show_id: string;
     date: string;
     notes?: string;
     releases?: Array<any>;
-    sets: Array<Array<ISong>>;
+    sets: Array<Set>;
     venue: IVenue;
 }
 

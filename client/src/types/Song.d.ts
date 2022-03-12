@@ -1,5 +1,5 @@
 interface ISong {
     guests: Array<string>;
-    segues: boolean;
+    segue: boolean;
     title: string;
 }

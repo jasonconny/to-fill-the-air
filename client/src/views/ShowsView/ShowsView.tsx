@@ -18,6 +18,14 @@ export const GET_SHOWS = gql`
                 name
                 state
             }
+            sets {
+                set_id
+                name
+                songs {
+                    title
+                    segue
+                }
+            }
         }
     }
 `

@@ -42,17 +42,17 @@ export const ShowCard: React.FC<IShowCardProps> = ({ show }) => {
                         <React.Fragment key={index}>
                             {sets.length > 1 && (
                                 <h5 className={styles.setListLabel}>
-                                    {index + 1 < sets.length ? `set ${index + 1}` : 'encore'}
+                                    {set.name}
                                 </h5>
                             )}
 
                             <ul className={styles.setList}>
-                                {set.filter(song => !!song)
+                                {set.songs.filter(song => !!song)
                                     .map((song, index) => (
                                         <li
                                             className={classNames(
                                                 styles.songTitle,
-                                                {[`${styles.songTitleSegues}`] : song.segues}
+                                                {[`${styles.songTitleSegues}`] : song.segue}
                                             )}
                                             key={index}
                                         >
