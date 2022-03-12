@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { gql, useQuery } from '@apollo/client';
+import { useNavigate } from 'react-router';
+import { useParams } from 'react-router-dom';
 import Select from 'components/Select';
 // import YearsNav from './YearsNav';
 import ShowCard from '../../components/ShowCard'
@@ -23,19 +25,20 @@ export const GET_SHOWS = gql`
 const years: Array<string> = ['1969', '1972', '1974', '1975', '1978', '1990', '2015']
 
 const ShowsView: React.FC = () => {
-    const [selectedYear, setSelectedYear] = React.useState<string | null>(null);
-    const { data } = useQuery<ShowsData>(GET_SHOWS, { variables: { year: selectedYear }});
+    const navigate = useNavigate();
+    const { year } = useParams();
+    const { data } = useQuery<ShowsData>(GET_SHOWS, { variables: { year: year }});
 
     // const [shows, setShows] = React.useState<Array<IShow> | null>(null);
 
     const handleYearsSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedYear(event.currentTarget.value);
+        navigate(`/shows/${event.currentTarget.value}`);
     }
 
     return (
         <>
             <section className={styles.section}>
-                <h1>Shows{selectedYear ? ` from ${selectedYear}` : null}</h1>
+                <h1>Shows{year ? ` from ${year}` : null}</h1>
 
                 {data && data.shows.length > 0 ? (
                     <ul className={styles.showList}>
@@ -61,7 +64,7 @@ const ShowsView: React.FC = () => {
                     name={'years-filter'}
                     onChange={handleYearsSelect}
                     options={years}
-                    selectedOption={selectedYear ? selectedYear : ''}
+                    selectedOption={year ? year : ''}
                 />
             </aside>
         </>

@@ -23,13 +23,6 @@ const LazyNotFoundView = React.lazy(() =>
     )
 );
 
-const LazyShowsView = React.lazy(() =>
-    import(
-        '../views/ShowsView'
-        /* webpackChunkName: "ShowsView" */
-    )
-);
-
 const LazySongsView = React.lazy(() =>
     import(
         '../views/SongsView'
@@ -63,7 +56,6 @@ const DefaultRoutes: React.FC = () => (
         <Routes>
             <Route path={'band'} element={<LazyBandView/>}/>
             <Route path={'login'} element={<LazyLoginView />}/>
-            <Route path={'shows'} element={<LazyShowsView/>}/>
             <Route path={'songs'} element={<LazySongsView/>}/>
             <Route path={'stats'} element={<LazyStatsView/>}/>
             <Route path={'tours'} element={<LazyToursView/>}/>
