@@ -15,6 +15,7 @@ export const GET_SHOWS = gql`
             show_id
             venue {
                 city
+                country
                 name
                 state
             }

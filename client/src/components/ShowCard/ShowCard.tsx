@@ -35,7 +35,7 @@ export const ShowCard: React.FC<IShowCardProps> = ({ show }) => {
             <div className={styles.content}>
                 <h3 className={styles.venue}>{venue.name}</h3>
 
-                <h4 className={styles.location}>{venue.city}, {venue.state}</h4>
+                <h4 className={styles.location}>{venue.city}, {venue.state}, {venue.country}</h4>
 
                 {sets && sets.filter(set => !!set)
                     .map((set, index) => (
