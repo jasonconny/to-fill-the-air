@@ -16,8 +16,9 @@ Format based on [keep a changelog](https://keepachangelog.com/en/1.0.0/).
 - Node upgraded
 - Client packages upgraded
 
-## [0.3.0] - 2022-03-08
+## [0.3.0] - 2022-03-11
 
 ### Changed
 
 - basic GraphQL schema defined
+- `show`, `song_ref` and `venue` queries from client views
