@@ -5,21 +5,22 @@ import { PaginationVars } from 'types/Pagination';
 import {  VenuesWithPaginationData } from 'types/Venue';
 
 const GET_VENUES_WITH_PAGINATION = gql`
-query GetVenuesWithPagination($currentPage: Int!, $maxPagesToShow: Int) {
- venuesWithPagination(currentPage: $currentPage, maxPagesToShow: $maxPagesToShow) {
-   pagination {
-     currentPage
-     pages
-     totalItems
-     totalPages
-   }
-   venues {
-     name
-     city
-     state
-   }
- }
-}`;
+    query GetVenuesWithPagination($currentPage: Int!, $maxPagesToShow: Int) {
+        venuesWithPagination(currentPage: $currentPage, maxPagesToShow: $maxPagesToShow) {
+            pagination {
+                currentPage
+                pages
+                totalItems
+                totalPages
+            }
+            venues {
+                name
+                city
+                state
+            }
+        }
+    }
+`
 
 const VenuesView: React.FC = () => {
     const [currentPage, setCurrentPage] = React.useState(1);
@@ -46,7 +47,12 @@ const VenuesView: React.FC = () => {
 
             {data && data.venuesWithPagination.venues ? (
                 <>
-                    <h3>{data.venuesWithPagination.venues.length} venues</h3>
+                    <h3>
+                        {data.venuesWithPagination.venues.length}
+                        {' of '}
+                        {data.venuesWithPagination.pagination.totalItems}
+                        {' venues'}
+                    </h3>
 
                     <ul>
                         {data.venuesWithPagination.venues.map((venue) => (
