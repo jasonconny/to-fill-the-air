@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { gql, useQuery } from '@apollo/client';
+import { useNavigate } from 'react-router';
+import { useParams } from 'react-router-dom';
 import Pagination from '../../components/Pagination';
 import { PaginationVars } from 'types/Pagination';
 import {  VenuesWithPaginationData } from 'types/Venue';
@@ -23,7 +25,9 @@ const GET_VENUES_WITH_PAGINATION = gql`
 `
 
 const VenuesView: React.FC = () => {
-    const [currentPage, setCurrentPage] = React.useState(1);
+    const navigate = useNavigate();
+    const { page } = useParams();
+    const [currentPage, setCurrentPage] = React.useState(page ? parseInt(page, 10) : 1);
     const { data } = useQuery<VenuesWithPaginationData, PaginationVars>(
         GET_VENUES_WITH_PAGINATION
         , { variables: {
@@ -32,6 +36,11 @@ const VenuesView: React.FC = () => {
         }}
     );
 
+    const handlePaginationClick = (page: number) => {
+        setCurrentPage(page);
+        navigate(`/venues/${page}`)
+    }
+
     return (
         <section>
             <h2>Venues</h2>
@@ -39,7 +48,7 @@ const VenuesView: React.FC = () => {
             {data && data.venuesWithPagination.pagination && (
                 <Pagination
                     currentPage={currentPage}
-                    handlePaginationClick={setCurrentPage}
+                    handlePaginationClick={handlePaginationClick}
                     pages={data.venuesWithPagination.pagination.pages}
                     totalPages={data.venuesWithPagination.pagination.totalPages}
                 />
