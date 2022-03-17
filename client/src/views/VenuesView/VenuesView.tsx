@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { gql, useQuery } from '@apollo/client';
+import Pagination from '../../components/Pagination';
 import { PaginationVars } from 'types/Pagination';
 import {  VenuesWithPaginationData } from 'types/Venue';
-import styles from './VenuesView.scss';
 
 const GET_VENUES_WITH_PAGINATION = gql`
 query GetVenuesWithPagination($currentPage: Int!, $maxPagesToShow: Int) {
@@ -36,38 +36,12 @@ const VenuesView: React.FC = () => {
             <h2>Venues</h2>
 
             {data && data.venuesWithPagination.pagination && (
-                <ul className={styles.paginationList}>
-
-                    {currentPage > 1 && (
-                        <li className={styles.paginationListItem}>
-                            <button onClick={() => setCurrentPage(currentPage - 1)}>
-                                previous
-                            </button>
-                        </li>
-                    )}
-
-                    {data.venuesWithPagination.pagination.pages.map((page: number, index: number) => (
-                        <li
-                            className={styles.paginationListItem}
-                            key={index}
-                        >
-                            <button
-                                onClick={() => setCurrentPage(page)}
-                            >
-                                {page}
-                            </button>
-                        </li>
-                    ))}
-
-                    {currentPage < data.venuesWithPagination.pagination.totalPages && (
-                        <li className={styles.paginationListItem}>
-                            <button onClick={() => setCurrentPage(currentPage + 1)}>
-                                next
-                            </button>
-                        </li>
-                    )}
-
-                </ul>
+                <Pagination
+                    currentPage={currentPage}
+                    handlePaginationClick={setCurrentPage}
+                    pages={data.venuesWithPagination.pagination.pages}
+                    totalPages={data.venuesWithPagination.pagination.totalPages}
+                />
             )}
 
             {data && data.venuesWithPagination.venues ? (
