@@ -11,7 +11,9 @@ const GET_VENUES_WITH_PAGINATION = gql`
         venuesWithPagination(currentPage: $currentPage, maxPagesToShow: $maxPagesToShow) {
             pagination {
                 currentPage
+                endIndex
                 pages
+                startIndex
                 totalItems
                 totalPages
             }
@@ -57,7 +59,9 @@ const VenuesView: React.FC = () => {
             {data && data.venuesWithPagination.venues ? (
                 <>
                     <h3>
-                        {data.venuesWithPagination.venues.length}
+                        {data.venuesWithPagination.pagination.startIndex + 1}
+                        {' - '}
+                        {data.venuesWithPagination.pagination.endIndex + 1}
                         {' of '}
                         {data.venuesWithPagination.pagination.totalItems}
                         {' venues'}
