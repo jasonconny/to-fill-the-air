@@ -98,6 +98,15 @@ export default class ToFillTheAirAPI extends SQLDataSource {
         return response[0];
     }
 
+    async getVenueByName(name) {
+        const response = await this.knex
+            .select('*')
+            .from('venues')
+            .where('name', name)
+            .cache(MINUTE);
+        return response[0];
+    }
+
     async getVenueForShow(show_id) {
         const response = await this.knex
             .select('*')

@@ -6,6 +6,7 @@ import HomeView from '../views/HomeView';
 import DefaultRoutes from './DefaultRoutes';
 import ReleasesRoutes from './ReleasesRoutes';
 import ShowsRoutes from './ShowsRoutes';
+import VenuesRoutes from './VenuesRoutes';
 
 const Router: React.FC = () => (
     <BrowserRouter>
@@ -15,6 +16,7 @@ const Router: React.FC = () => (
             <Route path={'/'}>
                 <Route path={'releases/*'} element={<ReleasesRoutes/>} />
                 <Route path={'shows/*'} element={<ShowsRoutes/>} />
+                <Route path={'venues/*'} element={<VenuesRoutes/>} />
                 <Route element={<PrimaryLayout/>}>
                     <Route index element={<HomeView/>} />
                     <Route path={'*'} element={<DefaultRoutes/>} />

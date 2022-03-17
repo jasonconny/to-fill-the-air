@@ -91,7 +91,13 @@ export const typeDefs = gql`
         country: String!
         latitude: Latitude
         longitude: Longitude
+        slug: String
         shows: [Show!]!
+    }
+    
+    type VenueConnection {
+        pagination: Pagination
+        venues: [Venue]!
     }
 
     type Query {
@@ -106,10 +112,16 @@ export const typeDefs = gql`
         songRefs: [SongRef]!
         songRefsWithPagination(
             currentPage: Int!
-            maxPages: Int
+            maxPagesToShow: Int
             pageSize: Int
         ): SongRefConnection!
-        venue(venue_id: ID!): Venue
         venues: [Venue!]
+        venuesWithPagination(
+            currentPage: Int!
+            maxPagesToShow: Int
+            pageSize: Int
+        ): VenueConnection!
+        venue(venue_id: ID!): Venue
+        venueByName(name: String!): Venue
     }
 `;

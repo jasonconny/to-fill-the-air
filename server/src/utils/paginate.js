@@ -1,6 +1,6 @@
 export const paginate = ({
     currentPage = 1,
-    maxPages = 10,
+    maxPagesToShow = 10,
     pageSize = 10,
     totalItems
 }) => {
@@ -13,18 +13,18 @@ export const paginate = ({
         currentPage = totalPages;
     }
 
-    if (totalPages <= maxPages) {
+    if (totalPages <= maxPagesToShow) {
         startPage = 1;
         endPage = totalPages;
     } else {
-        let maxPagesBeforeCurrentPage = Math.ceil(maxPages / 2);
-        let maxPagesAfterCurrentPage = Math.ceil(maxPages / 2) - 1;
+        let maxPagesBeforeCurrentPage = Math.ceil(maxPagesToShow / 2);
+        let maxPagesAfterCurrentPage = Math.ceil(maxPagesToShow / 2) - 1;
 
         if (currentPage <= maxPagesBeforeCurrentPage) {
             startPage = 1;
-            endPage = maxPages;
+            endPage = maxPagesToShow;
         } else if (currentPage + maxPagesAfterCurrentPage >= totalPages) {
-            startPage = totalPages - maxPages + 1;
+            startPage = totalPages - maxPagesToShow + 1;
             endPage = totalPages;
         } else {
             startPage = currentPage - maxPagesBeforeCurrentPage;

@@ -8,7 +8,7 @@ import ShowCard from '../../components/ShowCard'
 import styles from './ShowsView.scss';
 import { ShowsData } from 'types/Show';
 
-export const GET_SHOWS = gql`
+const GET_SHOWS = gql`
     query GetShows($year: String) {
         shows(year: $year) {
             date

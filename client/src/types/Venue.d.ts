@@ -1,3 +1,5 @@
+import { IPagination } from './Pagination';
+
 export interface IVenue {
     city: string;
     country?: string;
@@ -8,4 +10,11 @@ export interface IVenue {
 
 type VenuesData = {
     venues: Array<IVenue>
+}
+
+type VenuesWithPaginationData = {
+    venuesWithPagination: {
+        pagination: IPagination,
+        venues: Array<IVenue>
+    }
 }

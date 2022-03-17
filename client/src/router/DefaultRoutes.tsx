@@ -44,13 +44,6 @@ const LazyToursView = React.lazy(() =>
     )
 );
 
-const LazyVenuesView = React.lazy(() =>
-    import(
-        '../views/VenuesView'
-        /* webpackChunkName: "VenuesView" */
-    )
-);
-
 const DefaultRoutes: React.FC = () => (
     <React.Suspense fallback={<Loading/>}>
         <Routes>
@@ -59,7 +52,6 @@ const DefaultRoutes: React.FC = () => (
             <Route path={'songs'} element={<LazySongsView/>}/>
             <Route path={'stats'} element={<LazyStatsView/>}/>
             <Route path={'tours'} element={<LazyToursView/>}/>
-            <Route path={'venues'} element={<LazyVenuesView/>}/>
             <Route path={'*'} element={<LazyNotFoundView/>}/>
         </Routes>
     </React.Suspense>
