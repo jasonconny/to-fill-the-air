@@ -52,17 +52,20 @@ const ShowsView: React.FC = () => {
                 {data && data.shows.length > 0 ? (
                     <ul className={styles.showList}>
                         {data.shows.filter(show => !!show)
-                            .map((show) => (
-                                <li
-                                    className={styles.showListItem}
-                                    key={show.show_id}
-                                >
-                                    <ShowCard
-                                        linkDate={true}
-                                        show={show}
-                                    />
-                                </li>
-                            ))
+                            .map((show) => {
+                                const dateLink= `/shows/${show.date.split('T')[0].replaceAll('-', '/')}`;
+                                return (
+                                    <li
+                                        className={styles.showListItem}
+                                        key={show.show_id}
+                                    >
+                                        <ShowCard
+                                            dateLink={dateLink}
+                                            show={show}
+                                        />
+                                    </li>
+                                )
+                            })
                         }
                     </ul>
                 ) : null}

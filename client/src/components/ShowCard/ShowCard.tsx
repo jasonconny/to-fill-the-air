@@ -5,7 +5,7 @@ import styles from './ShowCard.scss';
 import { IShow } from '../../types/Show';
 
 interface IShowCardProps {
-    linkDate?: boolean;
+    dateLink?: string;
     show: IShow;
 }
 
@@ -38,15 +38,15 @@ const DateContainer: React.FC<DateContainerProps> = ({ date }) => {
     );
 }
 
-export const ShowCard: React.FC<IShowCardProps> = ({ linkDate, show }) => {
+export const ShowCard: React.FC<IShowCardProps> = ({ dateLink, show }) => {
     const { date, sets, venue } = show;
 
     return (
         <div className={styles.block}>
-            {linkDate ? (
+            {dateLink ? (
                 <Link
                     className={styles.dateLink}
-                    to={date.split('T')[0].replaceAll('-', '/')}
+                    to={dateLink}
                 >
                     <DateContainer date={date}/>
                 </Link>
@@ -57,7 +57,11 @@ export const ShowCard: React.FC<IShowCardProps> = ({ linkDate, show }) => {
             <div className={styles.content}>
                 <h3 className={styles.venue}>{venue.name}</h3>
 
-                <h4 className={styles.location}>{venue.city}, {venue.state}, {venue.country}</h4>
+                <h4 className={styles.location}>
+                    {venue.city}
+                    {venue.state ? `, ${venue.state}` : null}
+                    {venue.country !== 'USA' ? `, ${venue.country}` : null}
+                </h4>
 
                 {sets && sets.filter(set => !!set)
                     .map((set, index) => (
