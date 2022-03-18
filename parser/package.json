@@ -1,0 +1,14 @@
+{
+    "name": "to-fill-the-air-parser",
+    "version": "0.0.1",
+    "description": "YAML parser",
+    "main": "index.js",
+    "author": "Jason Conny <jasonconny@gmail.com>",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "yaml": "^1.10.2"
+    },
+    "scripts": {
+        "start": "node ./index.js"
+    }
+}
