@@ -1,0 +1,37 @@
+@import '../GlobalStyles/scss/variables/colors';
+@import '../GlobalStyles/scss/variables/fontstacks';
+
+.block {
+  align-items: center;
+  background-color: $linoleum-blue;
+  border-radius: .25rem;
+  clear: right;
+  color: $neutral-90;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 6.25rem;
+  padding: .5rem;
+}
+
+.weekday {
+  font-size: .75rem;
+  letter-spacing: .125rem;
+}
+
+.date {
+  font-family: $noto-serif;
+  font-size: 2.5rem;
+  letter-spacing: .125rem;
+  line-height: 1;
+}
+
+.month {
+  letter-spacing: .125rem;
+  text-transform: uppercase;
+}
+
+.year {
+  font-size: 1rem;
+  letter-spacing: .125rem;
+}

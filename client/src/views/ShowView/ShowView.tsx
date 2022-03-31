@@ -20,8 +20,9 @@ export const GET_SHOW_BY_DATE = gql`
                 set_id
                 name
                 songs {
-                    title
+                    length
                     segue
+                    title
                 }
             }
         }

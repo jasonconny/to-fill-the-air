@@ -23,8 +23,8 @@ const GET_SHOWS = gql`
                 set_id
                 name
                 songs {
-                    title
                     segue
+                    title
                 }
             }
         }
