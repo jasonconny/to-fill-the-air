@@ -1,5 +1,5 @@
-import { Auth0Provider} from '@auth0/auth0-react';
-import {ApolloClient, ApolloProvider, NormalizedCacheObject} from '@apollo/client';
+import { Auth0Provider } from '@auth0/auth0-react';
+import { ApolloClient, ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import { apolloCache } from './apolloCache';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
