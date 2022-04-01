@@ -1,12 +1,12 @@
 declare namespace ShowViewScssNamespace {
     export interface IShowViewScss {
-        main: string;
+        location: string;
         section: string;
-        "show-list": string;
-        "show-list__item": string;
-        showList: string;
-        showListItem: string;
-        sidebar: string;
+        "section--set-lists": string;
+        sectionHeader: string;
+        sectionSetLists: string;
+        section__header: string;
+        venue: string;
     }
 }
 

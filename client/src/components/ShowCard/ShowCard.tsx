@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { DateCard } from 'components';
 import classNames from 'classnames';
 import styles from './ShowCard.scss';
-import { IShow } from '../../types/Show';
-import DateCard from '../DateCard';
+import { IShow } from 'types/Show';
 
 interface IShowCardProps {
     dateLink?: string;
