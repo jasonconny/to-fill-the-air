@@ -13,7 +13,6 @@ const MainNav: React.FC = () => (
                 )}
                 to={'/band'}
             >
-
                 Band
             </NavLink>
         </li>

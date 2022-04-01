@@ -1,25 +1,27 @@
 @import '../../components/GlobalStyles/scss/variables/colors';
 
-.main {
-  display: flex;
-}
-
 .section {
-  flex: auto 2 0;
-}
+  &:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-.sidebar {
-  min-width: 20rem;
-  padding: 3rem 2rem;
-}
+  &--set-lists {
+    background-color: $crystal;
+  }
 
-.show-list {
-  margin: 0;
-  padding: 0;
+  &__header {
+    flex: 2 0 auto;
+    margin: 0 0 0 2rem;
 
-  &__item {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    .venue {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    .location {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
   }
 }

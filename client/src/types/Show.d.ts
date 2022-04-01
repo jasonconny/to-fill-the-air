@@ -2,6 +2,7 @@ import { IVenue } from './Venue';
 
 type Set = {
     name: string,
+    set_id: string,
     songs: Array<ISong>
 }
 

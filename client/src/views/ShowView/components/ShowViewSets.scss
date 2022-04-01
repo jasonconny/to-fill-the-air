@@ -1,0 +1,55 @@
+@import '../../../components/GlobalStyles/scss/variables/colors';
+
+.block {
+  background-color: $winter-oasis;
+}
+
+.sets-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.set-label {
+  font-weight: bold;
+  width: 6.5rem;
+
+  & + .set-list-container {
+    margin-top: 2rem;
+  }
+}
+
+.set-list-container {
+  margin: 0;
+  width: calc(100% - 8.5rem);
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  & + .set-label {
+    margin-top: 2rem;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &--single {
+    margin-left: 8.5rem;
+  }
+
+  &__item {
+    & + .list__item {
+      margin-top: .25rem;
+    }
+
+    span {
+      font-size: .875rem;
+      color: $neutral-40;
+    }
+  }
+}

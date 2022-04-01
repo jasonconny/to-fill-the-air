@@ -1,63 +1,39 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { DateCard } from 'components';
 import classNames from 'classnames';
 import styles from './ShowCard.scss';
-import { IShow } from '../../types/Show';
+import { IShow } from 'types/Show';
 
 interface IShowCardProps {
-    linkDate?: boolean;
+    dateLink?: string;
     show: IShow;
 }
 
-type DateContainerProps = {
-    date: string
-};
-
-const DateContainer: React.FC<DateContainerProps> = ({ date }) => {
-    const utcDate = new Date(date);
-    const formattedDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000);
-
-    return (
-        <div className={styles.dateContainer}>
-            <span className={styles.dateContainerWeekday}>
-                {formattedDate.toLocaleString('en-US', {weekday: 'long'})}
-            </span>
-
-            <span className={styles.dateContainerMonth}>
-                {formattedDate.toLocaleString('en-US', {month: 'short'})}
-            </span>
-
-            <span className={styles.dateContainerDate}>
-                {formattedDate.toLocaleString('en-US', {day: 'numeric'})}
-            </span>
-
-            <span className={styles.dateContainerYear}>
-                {formattedDate.toLocaleString('en-US', {year: 'numeric'})}
-            </span>
-        </div>
-    );
-}
-
-export const ShowCard: React.FC<IShowCardProps> = ({ linkDate, show }) => {
+export const ShowCard: React.FC<IShowCardProps> = ({ dateLink, show }) => {
     const { date, sets, venue } = show;
 
     return (
         <div className={styles.block}>
-            {linkDate ? (
+            {dateLink ? (
                 <Link
                     className={styles.dateLink}
-                    to={date.split('T')[0].replaceAll('-', '/')}
+                    to={dateLink}
                 >
-                    <DateContainer date={date}/>
+                    <DateCard date={date}/>
                 </Link>
             ) : (
-                <DateContainer date={date}/>
+                <DateCard date={date}/>
             )}
 
             <div className={styles.content}>
                 <h3 className={styles.venue}>{venue.name}</h3>
 
-                <h4 className={styles.location}>{venue.city}, {venue.state}, {venue.country}</h4>
+                <h4 className={styles.location}>
+                    {venue.city}
+                    {venue.state ? `, ${venue.state}` : null}
+                    {venue.country !== 'USA' ? `, ${venue.country}` : null}
+                </h4>
 
                 {sets && sets.filter(set => !!set)
                     .map((set, index) => (
