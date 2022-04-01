@@ -38,6 +38,10 @@
   margin: 0;
   padding: 0;
 
+  &--single {
+    margin-left: 8.5rem;
+  }
+
   &__item {
     & + .list__item {
       margin-top: .25rem;

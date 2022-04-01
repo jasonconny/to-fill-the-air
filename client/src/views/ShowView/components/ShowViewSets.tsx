@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styles from './ShowViewSets.scss';
 import { Set } from 'types/Show';
+import classNames from 'classnames';
 
 interface ISetProps {
     sets: Set[]
@@ -18,7 +19,21 @@ const formatTime = (time: string) => {
 export const ShowViewSets: React.FC<ISetProps> = ({ sets }) => (
     <>
         {sets.length === 1 ? (
-            <p>loop over single set</p>
+            <ul className={classNames(
+                styles.list,
+                styles.listSingle
+            )}>
+                {sets[0].songs.map((song, index) => (
+                    <li
+                        className={styles.listItem}
+                        key={`${sets[0].set_id}-${index}`}
+                    >
+                        {song.title}
+                        {song.length && <span> [{formatTime(song.length)}] </span>}
+                        {song.segue && ' >'}
+                    </li>
+                ))}
+            </ul>
         ) : (
             <dl className={styles.setsContainer}>
                 {sets.map(set => (

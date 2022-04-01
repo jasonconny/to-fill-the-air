@@ -2,7 +2,9 @@ declare namespace ShowViewSetsScssNamespace {
     export interface IShowViewSetsScss {
         block: string;
         list: string;
+        "list--single": string;
         listItem: string;
+        listSingle: string;
         list__item: string;
         "set-label": string;
         "set-list-container": string;
