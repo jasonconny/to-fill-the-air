@@ -25,7 +25,7 @@
 		"mariadb": "^3.0.0",
 		"mysql2": "^2.1.0",
 		"npm-run-all": "^4.1.5",
-		"sequelize": "^6.17.0",
+		"sequelize": "^6.28.2",
 		"sequelize-auto": "^0.8.8",
 		"webpack-cli": "^4.9.2"
 	},
