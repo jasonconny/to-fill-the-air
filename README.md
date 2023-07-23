@@ -2,7 +2,7 @@
 
 Grateful Dead set lists.
 
-- Node v16.13.2
+- Node v18.17.0
 
 ## Client
 
