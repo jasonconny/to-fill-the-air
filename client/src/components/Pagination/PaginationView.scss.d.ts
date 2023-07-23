@@ -1,14 +1,14 @@
-declare namespace PaginationScssNamespace {
-    export interface IPaginationScss {
+declare namespace PaginationViewScssNamespace {
+    export interface IPaginationViewScss {
         list: string;
         "list-item": string;
         listItem: string;
     }
 }
 
-declare const PaginationScssModule: PaginationScssNamespace.IPaginationScss & {
+declare const PaginationViewScssModule: PaginationViewScssNamespace.IPaginationViewScss & {
     /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-    locals: PaginationScssNamespace.IPaginationScss;
+    locals: PaginationViewScssNamespace.IPaginationViewScss;
 };
 
-export = PaginationScssModule;
+export = PaginationViewScssModule;
