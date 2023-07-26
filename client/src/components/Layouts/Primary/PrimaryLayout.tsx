@@ -47,7 +47,13 @@ const PrimaryLayout: React.FC<IPrimaryLayoutProps> = ({ className, showLoading, 
             </main>
 
             <Footer>
-                {isAuthenticated && <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out</button>}
+                {isAuthenticated ? (
+                    <button
+                        onClick={() => logout({ logoutParams: { returnTo: window.location.origin }})}
+                    >
+                        Log Out
+                    </button>
+                ) : null}
             </Footer>
         </ErrorBoundary>
     );

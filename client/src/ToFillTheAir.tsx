@@ -2,9 +2,8 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import { ApolloClient, ApolloProvider, NormalizedCacheObject } from '@apollo/client';
 import { apolloCache } from './apolloCache';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Helmet } from 'react-helmet';
-import ErrorBoundary from './components/ErrorBoundary';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
 import Router from './router';
 import { authConfig } from 'authConfig';
@@ -19,26 +18,28 @@ const ToFillTheAir: React.FC = () => {
         <Auth0Provider
             domain={authConfig.domain}
             clientId={authConfig.clientId}
-            redirectUri={window.location.origin}
+            authorizationParams={{
+                redirect_uri: window.location.origin
+            }}
         >
             <ApolloProvider client={apolloClient}>
-                <ErrorBoundary>
-                    <Helmet>
-                        <title>
-                            To Fill The Air | Grateful Dead set lists
-                        </title>
-                    </Helmet>
+                <Helmet>
+                    <title>
+                        To Fill The Air | Grateful Dead set lists
+                    </title>
+                </Helmet>
 
-                    <GlobalStyles/>
+                <GlobalStyles/>
 
-                    <Router/>
-                </ErrorBoundary>
+                <Router/>
             </ApolloProvider>
         </Auth0Provider>
     );
 };
 
-const rootElement = document.getElementById('to-fill-the-air');
-ReactDOM.render(<ToFillTheAir/>, rootElement);
+const container = document.getElementById('to-fill-the-air');
+const root = createRoot(container as Element);
+
+root.render(<ToFillTheAir/>);
 
 export default ToFillTheAir;

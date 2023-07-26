@@ -11,7 +11,7 @@ Grateful Dead set lists.
 
 ### Start the client
 
-From [./client]() `yarn start`
+From [./client]() `npm start`
 
 ## Server
 
@@ -22,8 +22,8 @@ The server assumes an instance of [MariaDB](https://mariadb.org/) with a copy of
 
 ### Generate database models
 
-From [./server]() `yarn build:models`. Only need to do this the first time you run the server or if/when the db tables change.
+From [./server]() `npm run build:models`. Only need to do this the first time you run the server or if/when the db tables change.
 
 ### Start the server
 
-From [./server]() `yarn start`
+From [./server]() `npm start`
