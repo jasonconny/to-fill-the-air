@@ -6,7 +6,7 @@ Grateful Dead set lists.
 
 ## Client
 
-- React 17.0.2
+- React 18.2.0
 - TypeScript 5.1.6
 
 ### Start the client
