@@ -2,7 +2,7 @@ import { SQLDataSource } from 'datasource-sql';
 
 const MINUTE = 60;
 
-export default class ToFillTheAirAPI extends SQLDataSource {
+export class ToFillTheAirAPI extends SQLDataSource {
     async getShows(year) {
         if (year) {
             return await this.knex
