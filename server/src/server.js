@@ -27,17 +27,9 @@ async function startApolloServer() {
     const app = express();
     const httpServer = http.createServer(app);
 
-    // app.use(bodyParser.json())
-    // app.use(bodyParser.urlencoded({ extended: true }));
-    // app.use(cors());
-
     const server = new ApolloServer({
         typeDefs,
         resolvers,
-        // dataSources: () =>({
-        //     discogsAPI: new DiscogsAPI(),
-        //     toFillTheAir: new ToFillTheAirAPI(knexConfig)
-        // }),
         plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
     });
 
@@ -60,7 +52,6 @@ async function startApolloServer() {
             }
         })
     );
-    // server.applyMiddleware({ app });
 
     await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
     console.log(`🚀 Server ready at http://localhost:4000/graphql`);
