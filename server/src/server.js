@@ -21,7 +21,7 @@ async function startApolloServer() {
             user: DB_USERNAME,
             password: DB_PASSWORD,
             database: DB_NAME
-        }
+        },
     };
 
     const app = express();
@@ -41,11 +41,12 @@ async function startApolloServer() {
         bodyParser.urlencoded({ extended: true }),
         expressMiddleware(server, {
             context: async ({ req }) => {
-                const token = req.headers.token
+                const token = req.headers.token;
+                const { cache } = server;
                 return {
                     dataSources: {
                         discogsAPI: new DiscogsAPI(),
-                        toFillTheAir: new ToFillTheAirAPI(knexConfig)
+                        toFillTheAir: new ToFillTheAirAPI({ knexConfig, cache }),
                     },
                     token
                 }
