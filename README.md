@@ -15,8 +15,8 @@ From [./client]() `npm start`
 
 ## Server
 
-- GraphQL 16.3.0
-- Apollo Server Express 3.6.3
+- GraphQL 16.7.1
+- Apollo Server 4.8.1
 
 The server assumes an instance of [MariaDB](https://mariadb.org/) with a copy of the database is running and the connection details are configured in [./server/.env]().
 

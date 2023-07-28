@@ -1,18 +1,18 @@
-import { SQLDataSource } from 'datasource-sql';
+import { BatchedSQLDataSource } from '@nic-jennings/sql-datasource';
 
 const MINUTE = 60;
 
-export default class ToFillTheAirAPI extends SQLDataSource {
+export class ToFillTheAirAPI extends BatchedSQLDataSource {
     async getShows(year) {
         if (year) {
-            return await this.knex
+            return await this.db.query
                 .select('*')
                 .from('shows')
                 .whereRaw('YEAR(date) = ?', year)
                 .orderBy('date')
                 .cache(MINUTE);
         } else {
-            return await this.knex
+            return await this.db.query
                 .select('*')
                 .from('shows')
                 .orderBy('date')
@@ -21,7 +21,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getAllSongRefs() {
-        return await this.knex
+        return await this.db.query
             .select('*')
             .from('song_refs')
             .orderBy('title')
@@ -29,7 +29,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getAllVenues() {
-        return await this.knex
+        return await this.db.query
             .select('*')
             .from('venues')
             .orderBy('name')
@@ -37,7 +37,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getSetsByShowId(show_id) {
-        return await this.knex
+        return await this.db.query
             .select('*')
             .from('sets')
             .where('show_id', show_id)
@@ -46,7 +46,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getShowsFromVenue(venue_id) {
-        return await this.knex
+        return await this.db.query
             .select('*')
             .from('shows')
             .where('venue_id', venue_id)
@@ -54,7 +54,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getShowByDate(date) {
-        const response = await this.knex
+        const response = await this.db.query
             .select('*')
             .from('shows')
             .where('date', date)
@@ -63,7 +63,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getShowById(show_id) {
-        const response = await this.knex
+        const response = await this.db.query
             .select('*')
             .from('shows')
             .where('show_id', show_id)
@@ -72,7 +72,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getSongsBySetId(set_id) {
-        return await this.knex
+        return await this.db.query
             .select('*')
             .from('songs')
             .where('set_id', set_id)
@@ -81,7 +81,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getSongRefById(song_ref_id) {
-        const response = await this.knex
+        const response = await this.db.query
             .select('*')
             .from('song_refs')
             .where('song_ref_id', song_ref_id)
@@ -90,7 +90,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getVenueById(venue_id) {
-        const response = await this.knex
+        const response = await this.db.query
             .select('*')
             .from('venues')
             .where('venue_id', venue_id)
@@ -99,7 +99,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getVenueByName(name) {
-        const response = await this.knex
+        const response = await this.db.query
             .select('*')
             .from('venues')
             .where('name', name)
@@ -108,7 +108,7 @@ export default class ToFillTheAirAPI extends SQLDataSource {
     }
 
     async getVenueForShow(show_id) {
-        const response = await this.knex
+        const response = await this.db.query
             .select('*')
             .from('venues')
             .where('show_id', show_id)
