@@ -1,4 +1,3 @@
 interface IProviderProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
-

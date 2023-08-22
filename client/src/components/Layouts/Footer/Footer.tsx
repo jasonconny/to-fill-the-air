@@ -3,19 +3,19 @@ import Copyright from 'components/Layouts/Copyright';
 import styles from './Footer.scss';
 
 interface Props {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Footer: React.FC<Props> = props => {
-    const { children } = props;
+const Footer: React.FC<Props> = (props) => {
+  const { children } = props;
 
-    return (
-        <footer className={styles.block}>
-            {children}
+  return (
+    <footer className={styles.block}>
+      {children}
 
-            <Copyright/>
-        </footer>
-    )
+      <Copyright />
+    </footer>
+  );
 };
 
 export default Footer;

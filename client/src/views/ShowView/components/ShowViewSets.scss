@@ -44,11 +44,11 @@
 
   &__item {
     & + .list__item {
-      margin-top: .25rem;
+      margin-top: 0.25rem;
     }
 
     span {
-      font-size: .875rem;
+      font-size: 0.875rem;
       color: $neutral-40;
     }
   }

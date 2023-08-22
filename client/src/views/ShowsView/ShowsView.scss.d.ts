@@ -1,18 +1,18 @@
 declare namespace ShowsViewScssNamespace {
-    export interface IShowsViewScss {
-        main: string;
-        section: string;
-        "show-list": string;
-        "show-list__item": string;
-        showList: string;
-        showListItem: string;
-        sidebar: string;
-    }
+  export interface IShowsViewScss {
+    main: string;
+    section: string;
+    'show-list': string;
+    'show-list__item': string;
+    showList: string;
+    showListItem: string;
+    sidebar: string;
+  }
 }
 
 declare const ShowsViewScssModule: ShowsViewScssNamespace.IShowsViewScss & {
-    /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-    locals: ShowsViewScssNamespace.IShowsViewScss;
+  /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
+  locals: ShowsViewScssNamespace.IShowsViewScss;
 };
 
 export = ShowsViewScssModule;
