@@ -4,4 +4,12 @@
 .env.*
 *.log*
 
-/.idea
+.eslintrc.js
+webpack.config.js
+
+.DS_Store
+
+.idea
+
+/build
+/coverage

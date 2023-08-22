@@ -1,8 +1,8 @@
-@import "../../GlobalStyles/scss/variables/colors";
+@import '../../GlobalStyles/scss/variables/colors';
 
 .block {
   background-color: $winter-oasis;
-  border-bottom: .0625rem solid $estate-blue;
+  border-bottom: 0.0625rem solid $estate-blue;
   display: flex;
   justify-content: flex-end;
   list-style: none;
@@ -13,16 +13,16 @@
 
 .list-item {
   + .list-item {
-    margin-left: .25rem;
+    margin-left: 0.25rem;
   }
 }
 
 .link {
   color: $linoleum-blue;
   display: block;
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   text-decoration: none;
-  transition: color .3s ease-in-out;
+  transition: color 0.3s ease-in-out;
 
   &:hover,
   &:active {

@@ -9,21 +9,21 @@ import ShowsRoutes from './ShowsRoutes';
 import VenuesRoutes from './VenuesRoutes';
 
 const Router: React.FC = () => (
-    <BrowserRouter>
-        <ScrollToTop/>
+  <BrowserRouter>
+    <ScrollToTop />
 
-        <Routes>
-            <Route path={'/'}>
-                <Route path={'releases/*'} element={<ReleasesRoutes/>} />
-                <Route path={'shows/*'} element={<ShowsRoutes/>} />
-                <Route path={'venues/*'} element={<VenuesRoutes/>} />
-                <Route element={<PrimaryLayout/>}>
-                    <Route index element={<HomeView/>} />
-                    <Route path={'*'} element={<DefaultRoutes/>} />
-                </Route>
-            </Route>
-        </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path={'/'}>
+        <Route path={'releases/*'} element={<ReleasesRoutes />} />
+        <Route path={'shows/*'} element={<ShowsRoutes />} />
+        <Route path={'venues/*'} element={<VenuesRoutes />} />
+        <Route element={<PrimaryLayout />}>
+          <Route index element={<HomeView />} />
+          <Route path={'*'} element={<DefaultRoutes />} />
+        </Route>
+      </Route>
+    </Routes>
+  </BrowserRouter>
 );
 
 export default Router;

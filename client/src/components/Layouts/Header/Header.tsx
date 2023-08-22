@@ -3,25 +3,21 @@ import LogoLink from 'components/Layouts/LogoLink';
 import styles from './Header.scss';
 
 interface Props {
-    children?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Header: React.FC<Props> = props => {
-    const { children } = props;
+const Header: React.FC<Props> = (props) => {
+  const { children } = props;
 
-    return (
-        <header className={styles.block}>
-            <nav className={styles.nav}>
-                <LogoLink
-                    className={styles.logoLink}
-                    href={'/home'}
-                    format={'full'}
-                />
+  return (
+    <header className={styles.block}>
+      <nav className={styles.nav}>
+        <LogoLink className={styles.logoLink} href={'/home'} format={'full'} />
 
-                {children}
-            </nav>
-        </header>
-    );
+        {children}
+      </nav>
+    </header>
+  );
 };
 
 export default Header;

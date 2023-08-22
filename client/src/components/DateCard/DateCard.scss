@@ -4,7 +4,7 @@
 .block {
   align-items: center;
   background-color: $linoleum-blue;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   clear: right;
   color: $neutral-90;
   display: flex;
@@ -12,27 +12,27 @@
   margin: 0;
   max-width: 6.25rem;
   min-width: 6.25rem;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .weekday {
-  font-size: .75rem;
-  letter-spacing: .125rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
 }
 
 .date {
   font-family: $noto-serif;
   font-size: 2.5rem;
-  letter-spacing: .125rem;
+  letter-spacing: 0.125rem;
   line-height: 1;
 }
 
 .month {
-  letter-spacing: .125rem;
+  letter-spacing: 0.125rem;
   text-transform: uppercase;
 }
 
 .year {
   font-size: 1rem;
-  letter-spacing: .125rem;
+  letter-spacing: 0.125rem;
 }

@@ -1,4 +1,4 @@
 interface IContext {
-    fetching: boolean;
-    hasError: boolean;
+  fetching: boolean;
+  hasError: boolean;
 }
