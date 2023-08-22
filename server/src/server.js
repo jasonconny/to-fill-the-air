@@ -12,50 +12,50 @@ import { typeDefs } from './schema';
 import { resolvers } from './resolvers';
 
 async function startApolloServer() {
-    const { DB_NAME, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD } = process.env;
-    const knexConfig = {
-        client: 'mysql2',
-        connection: {
-            host: DB_HOST,
-            port: DB_PORT,
-            user: DB_USERNAME,
-            password: DB_PASSWORD,
-            database: DB_NAME
-        },
-    };
+  const { DB_NAME, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD } = process.env;
+  const knexConfig = {
+    client: 'mysql2',
+    connection: {
+      host: DB_HOST,
+      port: DB_PORT,
+      user: DB_USERNAME,
+      password: DB_PASSWORD,
+      database: DB_NAME,
+    },
+  };
 
-    const app = express();
-    const httpServer = http.createServer(app);
+  const app = express();
+  const httpServer = http.createServer(app);
 
-    const server = new ApolloServer({
-        typeDefs,
-        resolvers,
-        plugins: [ApolloServerPluginDrainHttpServer({ httpServer })]
-    });
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  });
 
-    await server.start();
-    app.use(
-        '/graphql',
-        cors(),
-        bodyParser.json(),
-        bodyParser.urlencoded({ extended: true }),
-        expressMiddleware(server, {
-            context: async ({ req }) => {
-                const token = req.headers.token;
-                const { cache } = server;
-                return {
-                    dataSources: {
-                        discogsAPI: new DiscogsAPI(),
-                        toFillTheAir: new ToFillTheAirAPI({ knexConfig, cache }),
-                    },
-                    token
-                }
-            }
-        })
-    );
+  await server.start();
+  app.use(
+    '/graphql',
+    cors(),
+    bodyParser.json(),
+    bodyParser.urlencoded({ extended: true }),
+    expressMiddleware(server, {
+      context: async ({ req }) => {
+        const token = req.headers.token;
+        const { cache } = server;
+        return {
+          dataSources: {
+            discogsAPI: new DiscogsAPI(),
+            toFillTheAir: new ToFillTheAirAPI({ knexConfig, cache }),
+          },
+          token,
+        };
+      },
+    }),
+  );
 
-    await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
-    console.log(`🚀 Server ready at http://localhost:4000/graphql`);
+  await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
+  console.log(`🚀 Server ready at http://localhost:4000/graphql`);
 }
 
 startApolloServer().then(() => console.log('server starting'));
