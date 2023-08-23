@@ -1,6 +1,6 @@
-import { IPagination } from './Pagination';
+import { Pagination } from './Pagination';
 
-export interface IVenue {
+export interface Venue {
   city: string;
   country?: string;
   name: string;
@@ -9,12 +9,12 @@ export interface IVenue {
 }
 
 type VenuesData = {
-  venues: Array<IVenue>;
+  venues: Array<Venue>;
 };
 
 type VenuesWithPaginationData = {
   venuesWithPagination: {
-    pagination: IPagination;
-    venues: Array<IVenue>;
+    pagination: Pagination;
+    venues: Array<Venue>;
   };
 };

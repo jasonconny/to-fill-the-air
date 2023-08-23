@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 interface SubNavProps {
   className?: string;
-  links: Array<INavLink>;
+  links: Array<NavLink>;
 }
 
 const SubNav: React.FC<SubNavProps> = ({ className, links }) => {

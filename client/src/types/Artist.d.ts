@@ -8,7 +8,7 @@ type Member = {
   resourceUrl: string;
 };
 
-export interface IArtist {
+export interface Artist {
   id: number;
   members: Array<Member>;
   name: string;
@@ -18,5 +18,5 @@ export interface IArtist {
 }
 
 type ArtistData = {
-  artist: IArtist;
+  artist: Artist;
 };

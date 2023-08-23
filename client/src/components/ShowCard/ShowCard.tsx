@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { DateCard } from 'components';
 import classNames from 'classnames';
 import styles from './ShowCard.scss';
-import { IShow } from 'types/Show';
+import { Show } from 'types/Show';
 
-interface IShowCardProps {
+interface ShowCardProps {
   dateLink?: string;
-  show: IShow;
+  show: Show;
 }
 
-export const ShowCard: React.FC<IShowCardProps> = ({ dateLink, show }) => {
+export const ShowCard: React.FC<ShowCardProps> = ({ dateLink, show }) => {
   const { date, sets, venue } = show;
 
   return (

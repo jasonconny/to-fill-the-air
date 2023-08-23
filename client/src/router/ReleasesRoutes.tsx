@@ -4,7 +4,7 @@ import Loading from 'components/Loading';
 import { PrimaryLayout } from 'components/Layouts';
 import SubNav from 'components/Layouts/SubNav';
 
-export const SubNavLinks: Array<INavLink> = [
+export const SubNavLinks: Array<NavLink> = [
   {
     name: 'Box Set',
     slug: 'box-set',

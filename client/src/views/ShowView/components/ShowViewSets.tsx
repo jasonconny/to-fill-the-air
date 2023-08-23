@@ -3,7 +3,7 @@ import styles from './ShowViewSets.scss';
 import { Set } from 'types/Show';
 import classNames from 'classnames';
 
-interface ISetProps {
+interface SetProps {
   sets: Set[];
 }
 
@@ -16,7 +16,7 @@ const formatTime = (time: string) => {
   return joinedTime.startsWith('0') ? joinedTime.slice(1) : joinedTime;
 };
 
-export const ShowViewSets: React.FC<ISetProps> = ({ sets }) => (
+export const ShowViewSets: React.FC<SetProps> = ({ sets }) => (
   <>
     {sets.length === 1 ? (
       <ul className={classNames(styles.list, styles.listSingle)}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-const SubNavLinks: Array<INavLink> = [
+const SubNavLinks: Array<NavLink> = [
   {
     name: 'Box Set',
     slug: 'box-set',
