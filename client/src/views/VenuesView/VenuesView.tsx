@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';

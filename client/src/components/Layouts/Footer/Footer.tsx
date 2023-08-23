@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Copyright from 'components/Layouts/Copyright';
 import styles from './Footer.scss';
 

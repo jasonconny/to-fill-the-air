@@ -5,7 +5,7 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 import { apolloCache } from './apolloCache';
-import * as React from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Helmet } from 'react-helmet';
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';

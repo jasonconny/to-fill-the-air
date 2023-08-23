@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 import { ErrorBoundary } from 'react-error-boundary';
 import ErrorMessage from 'components/ErrorMessage';
 import Loading from 'components/Loading';
@@ -10,19 +9,17 @@ import Footer from 'components/Layouts/Footer';
 import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 
-interface IPrimaryLayoutProps {
+interface PrimaryLayoutProps {
   className?: string;
   showLoading?: boolean;
   subNav?: React.ReactNode;
 }
 
-const PrimaryLayout: React.FC<IPrimaryLayoutProps> = ({
+const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({
   className,
   showLoading,
   subNav,
 }) => {
-  const { isAuthenticated, logout } = useAuth0();
-
   return showLoading ? (
     <Loading />
   ) : (
@@ -44,17 +41,7 @@ const PrimaryLayout: React.FC<IPrimaryLayoutProps> = ({
         <Outlet />
       </main>
 
-      <Footer>
-        {isAuthenticated ? (
-          <button
-            onClick={() =>
-              logout({ logoutParams: { returnTo: window.location.origin } })
-            }
-          >
-            Log Out
-          </button>
-        ) : null}
-      </Footer>
+      <Footer />
     </ErrorBoundary>
   );
 };

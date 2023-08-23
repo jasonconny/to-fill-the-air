@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './MainNav.scss';
 import classNames from 'classnames';

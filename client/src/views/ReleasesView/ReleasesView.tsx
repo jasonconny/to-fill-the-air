@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
 const SubNavLinks: Array<INavLink> = [
