@@ -7,7 +7,7 @@ const SubNavLinks: Array<INavLink> = [
     slug: 'box-set',
   },
   {
-    name: 'Dick&apos;s Picks',
+    name: 'Dicks Picks',
     slug: 'dicks-picks',
   },
   {
@@ -19,7 +19,7 @@ const SubNavLinks: Array<INavLink> = [
     slug: 'road-trips',
   },
   {
-    name: 'Dave&apos;s Picks',
+    name: 'Daves Picks',
     slug: 'daves-picks',
   },
 ];
