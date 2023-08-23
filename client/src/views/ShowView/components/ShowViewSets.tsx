@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import styles from './ShowViewSets.scss';
 import { Set } from 'types/Show';
 import classNames from 'classnames';

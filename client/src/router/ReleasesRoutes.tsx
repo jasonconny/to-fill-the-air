@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Routes, Route } from 'react-router';
 import Loading from 'components/Loading';
 import { PrimaryLayout } from 'components/Layouts';

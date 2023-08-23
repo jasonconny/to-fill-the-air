@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import './scss/base/all.scss';
 import './scss/fonts/all.scss';
 

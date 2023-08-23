@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { ArtistData } from 'types/Artist';
 import styles from './BandView.scss';

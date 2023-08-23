@@ -1,15 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import styles from './LogoLink.scss';
 
-interface Props {
+interface LogoLinkProps {
   className?: string;
   format: 'full' | 'logo';
   href: string;
 }
 
-export const LogoLink: React.FC<Props> = (props) => {
+export const LogoLink: React.FC<LogoLinkProps> = (props) => {
   const { className, format, href } = props;
 
   return (
