@@ -11,7 +11,7 @@ const LazyHomeView = lazy(
   () => import('views/Home/HomeView' /* webpackChunkName: "HomeView" */),
 );
 
-const Router: React.FC = () => (
+export const Router: React.FC = () => (
   <BrowserRouter>
     <ScrollToTop />
 
@@ -28,5 +28,3 @@ const Router: React.FC = () => (
     </Routes>
   </BrowserRouter>
 );
-
-export default Router;
