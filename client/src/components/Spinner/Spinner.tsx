@@ -6,7 +6,7 @@ interface SpinnerProps {
   small?: boolean;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({ small }) => {
+export const Spinner: React.FC<SpinnerProps> = ({ small }) => {
   return (
     <div
       className={classNames(styles.block, { [`${styles.blockSmall}`]: small })}
@@ -16,5 +16,3 @@ const Spinner: React.FC<SpinnerProps> = ({ small }) => {
     </div>
   );
 };
-
-export default Spinner;

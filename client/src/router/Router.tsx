@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
-import { PrimaryLayout } from '../components/Layouts';
+import { PrimaryLayout } from '../components/Layouts/Primary';
 import HomeView from '../views/HomeView';
 import DefaultRoutes from './DefaultRoutes';
 import ReleasesRoutes from './ReleasesRoutes';

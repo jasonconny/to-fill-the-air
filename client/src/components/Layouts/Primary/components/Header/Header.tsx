@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoLink from 'components/Layouts/LogoLink';
+import LogoLink from 'components/Layouts/Primary/components/LogoLink';
 import styles from './Header.scss';
 import { useAuth0 } from '@auth0/auth0-react';
 

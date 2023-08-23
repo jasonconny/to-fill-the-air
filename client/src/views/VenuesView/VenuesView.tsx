@@ -2,7 +2,7 @@ import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
-import Pagination from '../../components/Pagination';
+import { Pagination } from 'components';
 import { PaginationVars } from 'types/Pagination';
 import { VenuesWithPaginationData } from 'types/Venue';
 

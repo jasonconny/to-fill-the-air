@@ -2,9 +2,9 @@ import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router';
 import { useParams } from 'react-router-dom';
-import Select from 'components/Select';
+import { Select } from 'components';
 // import YearsNav from './YearsNav';
-import ShowCard from '../../components/ShowCard';
+import { ShowCard } from 'components';
 import styles from './ShowsView.scss';
 import { ShowsData } from 'types/Show';
 

@@ -8,7 +8,7 @@ interface PaginationProps {
   totalPages: number;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
+export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   handlePaginationClick,
   pages,
@@ -38,5 +38,3 @@ const Pagination: React.FC<PaginationProps> = ({
     )}
   </ul>
 );
-
-export default Pagination;

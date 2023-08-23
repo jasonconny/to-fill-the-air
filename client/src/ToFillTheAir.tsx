@@ -8,7 +8,7 @@ import { apolloCache } from './apolloCache';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Helmet } from 'react-helmet';
-import GlobalStyles from './components/GlobalStyles/GlobalStyles';
+import { GlobalStyles } from 'components';
 import Router from './router';
 import { authConfig } from 'authConfig';
 

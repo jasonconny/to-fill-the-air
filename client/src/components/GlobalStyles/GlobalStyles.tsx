@@ -6,12 +6,10 @@ interface GlobalStyles {
   children?: React.ReactNode;
 }
 
-const GlobalStyles: React.FC<GlobalStyles> = ({ children }) => {
+export const GlobalStyles: React.FC<GlobalStyles> = ({ children }) => {
   if (!children) {
     return null;
   } else {
     return <>{children}</>;
   }
 };
-
-export default GlobalStyles;

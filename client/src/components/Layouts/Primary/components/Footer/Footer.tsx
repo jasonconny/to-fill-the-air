@@ -1,5 +1,5 @@
 import React from 'react';
-import Copyright from 'components/Layouts/Copyright';
+import Copyright from 'components/Layouts/Primary/components/Copyright';
 import styles from './Footer.scss';
 
 interface FooterProps {

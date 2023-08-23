@@ -1,2 +1,1 @@
-import { ShowCard } from './ShowCard';
-export default ShowCard;
+export { ShowCard } from './ShowCard';

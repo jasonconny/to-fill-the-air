@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
-import Loading from 'components/Loading';
-import { PrimaryLayout } from 'components/Layouts';
+import { Loading } from 'components';
+import { PrimaryLayout } from 'components/Layouts/Primary';
 
 const LazyShowsView = React.lazy(
   () =>
