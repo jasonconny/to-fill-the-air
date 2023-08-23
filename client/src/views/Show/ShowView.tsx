@@ -3,7 +3,7 @@ import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import NotFoundView from '../NotFound/NotFoundView';
 import { DateCard } from 'components';
-import { ShowViewSets } from './components';
+import { ShowSets } from './components/ShowSets';
 import styles from './ShowView.scss';
 import { ShowData } from 'types/Show';
 
@@ -59,7 +59,7 @@ const ShowView: React.FC = () => {
 
           <section className={styles.section}>
             {showByDate.sets.length > 0 ? (
-              <ShowViewSets sets={showByDate.sets} />
+              <ShowSets sets={showByDate.sets} />
             ) : (
               <h2>no set list</h2>
             )}

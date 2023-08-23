@@ -1,5 +1,5 @@
-declare namespace ShowViewSetsScssNamespace {
-  export interface IShowViewSetsScss {
+declare namespace ShowSetsScssNamespace {
+  export interface IShowSetsScss {
     block: string;
     list: string;
     'list--single': string;
@@ -15,9 +15,9 @@ declare namespace ShowViewSetsScssNamespace {
   }
 }
 
-declare const ShowViewSetsScssModule: ShowViewSetsScssNamespace.IShowViewSetsScss & {
+declare const ShowSetsScssModule: ShowSetsScssNamespace.IShowSetsScss & {
   /** WARNING: Only available when `css-loader` is used without `style-loader` or `mini-css-extract-plugin` */
-  locals: ShowViewSetsScssNamespace.IShowViewSetsScss;
+  locals: ShowSetsScssNamespace.IShowSetsScss;
 };
 
-export = ShowViewSetsScssModule;
+export = ShowSetsScssModule;
