@@ -3,14 +3,12 @@ import { NavLink } from 'react-router-dom';
 import styles from './SubNav.scss';
 import classNames from 'classnames';
 
-interface ISubNavProps {
+interface SubNavProps {
   className?: string;
   links: Array<INavLink>;
 }
 
-const SubNav: React.FC<ISubNavProps> = (props) => {
-  const { className, links } = props;
-
+const SubNav: React.FC<SubNavProps> = ({ className, links }) => {
   return (
     <ul className={classNames(styles.block, { [`${className}`]: className })}>
       {links &&

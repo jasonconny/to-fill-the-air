@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Select.scss';
 
-interface ISelectProps {
+interface SelectProps {
   className?: string;
   label: string;
   name: string;
@@ -11,9 +11,14 @@ interface ISelectProps {
   selectedOption?: string;
 }
 
-export const Select: React.FC<ISelectProps> = (props) => {
-  const { className, label, name, onChange, options, selectedOption } = props;
-
+export const Select: React.FC<SelectProps> = ({
+  className,
+  label,
+  name,
+  onChange,
+  options,
+  selectedOption,
+}) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     event.persist();
 

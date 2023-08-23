@@ -9,9 +9,11 @@ interface LogoLinkProps {
   href: string;
 }
 
-export const LogoLink: React.FC<LogoLinkProps> = (props) => {
-  const { className, format, href } = props;
-
+export const LogoLink: React.FC<LogoLinkProps> = ({
+  className,
+  format,
+  href,
+}) => {
   return (
     <Link
       to={href}

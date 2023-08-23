@@ -2,13 +2,11 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Spinner.scss';
 
-interface Props {
+interface SpinnerProps {
   small?: boolean;
 }
 
-const Spinner: React.FC<Props> = (props) => {
-  const { small } = props;
-
+const Spinner: React.FC<SpinnerProps> = ({ small }) => {
   return (
     <div
       className={classNames(styles.block, { [`${styles.blockSmall}`]: small })}
