@@ -1,0 +1,35 @@
+@import '../../../../GlobalStyles/scss/variables/colors';
+
+.block {
+  background-color: $winter-oasis;
+  border-bottom: 0.0625rem solid $estate-blue;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.list-item {
+  + .list-item {
+    margin-left: 0.25rem;
+  }
+}
+
+.link {
+  color: $linoleum-blue;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+
+  &:hover,
+  &:active {
+    color: $estate-blue;
+  }
+
+  &--active {
+    font-weight: 800;
+  }
+}

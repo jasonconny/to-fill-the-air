@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './PaginationView.scss';
 
-interface IPaginationProps {
+interface PaginationProps {
   currentPage: number;
   handlePaginationClick: (page: number) => void;
   pages: number[];
   totalPages: number;
 }
 
-const Pagination: React.FC<IPaginationProps> = ({
+export const Pagination: React.FC<PaginationProps> = ({
   currentPage,
   handlePaginationClick,
   pages,
@@ -38,5 +38,3 @@ const Pagination: React.FC<IPaginationProps> = ({
     )}
   </ul>
 );
-
-export default Pagination;

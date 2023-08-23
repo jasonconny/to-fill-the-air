@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './DateCard.scss';
 
-interface IDateCardProps {
+interface DateCardProps {
   date: string;
 }
 
-export const DateCard: React.FC<IDateCardProps> = ({ date }) => {
+export const DateCard: React.FC<DateCardProps> = ({ date }) => {
   const utcDate = new Date(date);
   const formattedDate = new Date(
     utcDate.getTime() + utcDate.getTimezoneOffset() * 60000,

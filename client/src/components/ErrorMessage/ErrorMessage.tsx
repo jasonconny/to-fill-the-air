@@ -7,9 +7,10 @@ interface Props {
   errorMessageText: string | null;
 }
 
-export const ErrorMessage: React.FC<Props> = (props) => {
-  const { classname, errorMessageText } = props;
-
+export const ErrorMessage: React.FC<Props> = ({
+  classname,
+  errorMessageText,
+}) => {
   return (
     <section
       className={classNames(styles.block, { [`${classname}`]: classname })}

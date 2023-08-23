@@ -1,25 +1,25 @@
-import { IVenue } from './Venue';
+import { Venue } from './Venue';
 
 type Set = {
   name: string;
   set_id: string;
-  songs: Array<ISong>;
+  songs: Array<Song>;
 };
 
-interface IShow {
+interface Show {
   show_id: string;
   date: string;
   notes?: string;
   releases?: Array<any>;
   sets: Array<Set>;
-  venue: IVenue;
+  venue: Venue;
 }
 
 type ShowsData = {
-  shows: Array<IShow>;
+  shows: Array<Show>;
 };
 
 type ShowData = {
-  show?: IShow;
-  showByDate?: IShow;
+  show?: Show;
+  showByDate?: Show;
 };

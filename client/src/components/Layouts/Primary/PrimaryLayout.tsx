@@ -1,11 +1,10 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
-import ErrorMessage from 'components/ErrorMessage';
-import Loading from 'components/Loading';
-import Header from 'components/Layouts/Header';
-import MainNav from 'components/Layouts/MainNav';
-import Footer from 'components/Layouts/Footer';
+import { ErrorMessage, Loading } from 'components';
+import Header from './components/Header';
+import MainNav from './components/MainNav';
+import Footer from './components/Footer';
 import classnames from 'classnames';
 import styles from './PrimaryLayout.scss';
 

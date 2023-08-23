@@ -1,27 +1,19 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
-import Loading from '../components/Loading';
+import { Loading } from 'components';
 
 const LazyBandView = React.lazy(
   () =>
     import(
-      '../views/BandView'
+      '../views/Band/BandView'
       /* webpackChunkName: "BandView" */
-    ),
-);
-
-const LazyLoginView = React.lazy(
-  () =>
-    import(
-      '../views/LoginView'
-      /* webpackChunkName: "LoginView" */
     ),
 );
 
 const LazyNotFoundView = React.lazy(
   () =>
     import(
-      '../views/NotFoundView'
+      '../views/NotFound/NotFoundView'
       /* webpackChunkName: "NotFoundView" */
     ),
 );
@@ -29,7 +21,7 @@ const LazyNotFoundView = React.lazy(
 const LazySongsView = React.lazy(
   () =>
     import(
-      '../views/SongsView'
+      '../views/Songs/SongsView'
       /* webpackChunkName: "SongsView" */
     ),
 );
@@ -37,7 +29,7 @@ const LazySongsView = React.lazy(
 const LazyStatsView = React.lazy(
   () =>
     import(
-      '../views/StatsView'
+      '../views/Stats/StatsView'
       /* webpackChunkName: "StatsView" */
     ),
 );
@@ -45,7 +37,7 @@ const LazyStatsView = React.lazy(
 const LazyToursView = React.lazy(
   () =>
     import(
-      '../views/ToursView'
+      '../views/Tours/ToursView'
       /* webpackChunkName: "ToursView" */
     ),
 );
@@ -54,7 +46,6 @@ const DefaultRoutes: React.FC = () => (
   <React.Suspense fallback={<Loading />}>
     <Routes>
       <Route path={'band'} element={<LazyBandView />} />
-      <Route path={'login'} element={<LazyLoginView />} />
       <Route path={'songs'} element={<LazySongsView />} />
       <Route path={'stats'} element={<LazyStatsView />} />
       <Route path={'tours'} element={<LazyToursView />} />

@@ -1,0 +1,24 @@
+@import '../../../../GlobalStyles/scss/variables/breakpoints';
+@import '../../../../GlobalStyles/scss/variables/colors';
+
+.block {
+  align-items: center;
+  background-color: $estate-blue;
+  display: flex;
+  min-height: 5rem;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  flex: 1 0 100%;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+  min-width: 20rem;
+}
+
+.logo-link {
+  margin-left: 2rem;
+}

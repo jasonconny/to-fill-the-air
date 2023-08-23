@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router';
-import Loading from 'components/Loading';
-import { PrimaryLayout } from 'components/Layouts';
+import { Loading } from 'components';
+import { PrimaryLayout } from 'components/Layouts/Primary';
 
 const LazyVenuesView = React.lazy(
   () =>
     import(
-      '../views/VenuesView'
+      '../views/Venues/VenuesView'
       /* webpackChunkName: "VenuesView" */
     ),
 );

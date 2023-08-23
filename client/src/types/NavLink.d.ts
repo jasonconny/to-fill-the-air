@@ -1,4 +1,4 @@
-interface INavLink {
+interface NavLink {
   name: string;
   slug: string;
 }

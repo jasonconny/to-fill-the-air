@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route } from 'react-router';
-import Loading from 'components/Loading';
-import { PrimaryLayout } from 'components/Layouts';
-import SubNav from 'components/Layouts/SubNav';
+import { Loading } from 'components';
+import { PrimaryLayout } from 'components/Layouts/Primary';
+import SubNav from 'components/Layouts/Primary/components/SubNav';
 
-export const SubNavLinks: Array<INavLink> = [
+export const SubNavLinks: Array<NavLink> = [
   {
     name: 'Box Set',
     slug: 'box-set',
@@ -30,7 +30,7 @@ export const SubNavLinks: Array<INavLink> = [
 const LazyReleasesView = React.lazy(
   () =>
     import(
-      '../views/ReleasesView'
+      '../views/Releases/ReleasesView'
       /* webpackChunkName: "ReleasesView" */
     ),
 );

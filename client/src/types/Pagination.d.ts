@@ -1,4 +1,4 @@
-export interface IPagination {
+export interface Pagination {
   currentPage: number;
   endIndex: number;
   endPage: number;
