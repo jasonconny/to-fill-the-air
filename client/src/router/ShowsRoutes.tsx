@@ -6,7 +6,7 @@ import { PrimaryLayout } from 'components/Layouts/Primary';
 const LazyShowsView = React.lazy(
   () =>
     import(
-      '../views/ShowsView'
+      '../views/Shows/ShowsView'
       /* webpackChunkName: "ShowsView" */
     ),
 );
@@ -14,7 +14,7 @@ const LazyShowsView = React.lazy(
 const LazyShowView = React.lazy(
   () =>
     import(
-      '../views/ShowView'
+      '../views/Show/ShowView'
       /* webpackChunkName: "ShowView" */
     ),
 );

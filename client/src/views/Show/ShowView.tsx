@@ -1,7 +1,7 @@
 import React from 'react';
 import { gql, useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import NotFoundView from '../NotFoundView';
+import NotFoundView from '../NotFound/NotFoundView';
 import { DateCard } from 'components';
 import { ShowViewSets } from './components';
 import styles from './ShowView.scss';

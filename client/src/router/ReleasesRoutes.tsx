@@ -30,7 +30,7 @@ export const SubNavLinks: Array<NavLink> = [
 const LazyReleasesView = React.lazy(
   () =>
     import(
-      '../views/ReleasesView'
+      '../views/Releases/ReleasesView'
       /* webpackChunkName: "ReleasesView" */
     ),
 );

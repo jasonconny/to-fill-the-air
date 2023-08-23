@@ -6,7 +6,7 @@ import { PrimaryLayout } from 'components/Layouts/Primary';
 const LazyVenuesView = React.lazy(
   () =>
     import(
-      '../views/VenuesView'
+      '../views/Venues/VenuesView'
       /* webpackChunkName: "VenuesView" */
     ),
 );
