@@ -1,12 +1,15 @@
 import gql from 'graphql-tag';
 
 export const typeDefs = gql`
+  #graphql
+
   scalar Latitude
   scalar LocalDate
   scalar Longitude
   scalar Time
   scalar URL
 
+  # The "Artist" type represents the band.
   type Artist {
     id: ID!
     members: [Member]!
@@ -16,6 +19,7 @@ export const typeDefs = gql`
     urls: [URL]
   }
 
+  # The "Member" type represents an individual band member.
   type Member {
     id: ID!
     active: Boolean
@@ -42,6 +46,7 @@ export const typeDefs = gql`
     id: ID!
   }
 
+  # The "Set" type is an ordered array of songs that belongs to a "Show".
   type Set {
     set_id: ID!
     show_id: ID!
@@ -49,6 +54,7 @@ export const typeDefs = gql`
     songs: [Song!]!
   }
 
+  # The "Show" type represents an array of "Sets" associated with a "Date" and a "Venue".
   type Show {
     show_id: ID!
     date: LocalDate!
@@ -58,6 +64,7 @@ export const typeDefs = gql`
     venue: Venue!
   }
 
+  # The "Song" type is an instance of a "SongRef" that belongs to a "Set".
   type Song {
     song_id: ID!
     song_ref_id: ID!
@@ -69,6 +76,7 @@ export const typeDefs = gql`
     guest: String
   }
 
+  # The "SongRef" type is the meta information (title, composer, etc) of a song.
   type SongRef {
     song_ref_id: ID!
     title: String!
@@ -80,6 +88,7 @@ export const typeDefs = gql`
     song_refs: [SongRef]!
   }
 
+  # The "Venue" type represents the properties associated with the physical location where a "Show" was performed.
   type Venue {
     venue_id: ID!
     name: String!

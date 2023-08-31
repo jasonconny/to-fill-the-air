@@ -1,5 +1,6 @@
 .eslintrc.js
 build
 node_modules
+src/__generated__
 webpack.config.js
 *.scss.d.ts

@@ -14,3 +14,4 @@ webpack.config.js
 
 /build
 /coverage
+/src/__generated__

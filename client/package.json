@@ -14,6 +14,8 @@
   "dependencies": {
     "@apollo/client": "^3.7.17",
     "@auth0/auth0-react": "^2.2.0",
+    "@graphql-codegen/cli": "^5.0.0",
+    "@graphql-codegen/client-preset": "^4.1.0",
     "classnames": "^2.2.6",
     "graphql": "^16.7.1",
     "react": "^18.2.0",
@@ -67,6 +69,8 @@
     "webpack-dev-server": "^4.7.4"
   },
   "scripts": {
+    "compile": "graphql-codegen",
+    "compile:watch": "graphql-codegen -w",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "prettier": "npx prettier \"src/**/*.{js,jsx,ts,tsx}\" --write",

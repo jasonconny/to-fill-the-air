@@ -23,6 +23,6 @@
     "strictPropertyInitialization": true,
     "target": "es5"
   },
-  "include": ["./src"],
+  "include": ["./src", "codegen.ts"],
   "exclude": ["./build", "./node_modules"]
 }

@@ -24,3 +24,5 @@ yarn-error.log*
 _reference
 **/.env
 devNotes.md
+
+**/__generated__
